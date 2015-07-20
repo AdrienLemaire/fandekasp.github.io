@@ -2,7 +2,7 @@
 layout: post
 title:  "Launch a blog in 2 minutes with Jekyll"
 date:   2015-07-11 11:34:20
-categories: jekyll update
+categories: blog "material design"
 ---
 
 When wanting to open a new blog, the biggest problem today is deciding what blog
