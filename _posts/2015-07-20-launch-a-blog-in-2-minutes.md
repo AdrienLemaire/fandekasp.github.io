@@ -12,6 +12,8 @@ engine to use, since there are so many and all are excellent.
 My list of requirements was simple: I wanted free and open source, easy to
 manage, easy to format, and a modern UX design.
 
+<!--more-->
+
 [Github][github] is a web-based Git repository hosting service, which offers
 distributed revision control, source code management, free hosting and webpages
 publishing. All I need was to create a new repository
