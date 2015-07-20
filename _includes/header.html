@@ -2,7 +2,8 @@
 
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">{{ site.title }}</span>
+      <span class="mdl-layout-title"><a class="discrete"href="{{ site.url }}">{{ site.title }}</a></span>
+
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
@@ -37,7 +38,7 @@
   </header>
 
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a href="/">{{ site.title }}</a></span>
+      <span class="mdl-layout-title"><a href="{{ site.url }}">{{ site.title }}</a></span>
 
     <nav class="mdl-navigation">
     {% for post in site.posts %}

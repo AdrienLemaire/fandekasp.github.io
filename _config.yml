@@ -3,7 +3,9 @@ title: Adrien Lemaire
 email: lemaire.adrien@gmail.com
 
 description: > # this means to ignore newlines until "baseurl:"
-  Software Engineer, Product maker, Productivity Hacker.
+  Software Engineer, Product maker, Hacker.
+  Blogging about some of his passions: Education, Productivity, and
+  Self-improvement.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://fandekasp.github.io" # the base hostname & protocol for your site
 twitter_username: Fandekasp
