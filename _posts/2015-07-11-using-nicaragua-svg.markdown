@@ -1,25 +1,39 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Launch a blog in 2 minutes with Jekyll"
 date:   2015-07-11 11:34:20
 categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+When wanting to open a new blog, the biggest problem today is deciding what blog
+engine to use, since there are so many and all are excellent.
 
-Jekyll also offers powerful support for code snippets:
+My list of requirements was simple: I wanted free and open source, easy to
+manage, easy to format, and a modern UX design.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+[Github][github] is a web-based Git repository hosting service, which offers
+distributed revision control, source code management, free hosting and webpages
+publishing. All I need was to create a new repository
+[Fandekasp/fandekasp.github.io][fandekasp_github] and fill it with some content to get it
+powered on [fandekasp.github.io][fandekasp_pages].
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+Github recommending [Jekyll][jekyll] for blogging on Github Pages, and Jekyll
+allowing to blog using [Markdown syntax][markdown], it looked perfect for me.
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+I finally needed a good design. Hesitating for a moment between [Flat design][flat]
+and [Material design][material], I finally chose [Material Design Lite][mdl]
+after finding this very nice integration [gdg-managua/jekyll-mdl][jekyll_mdl].
+All was left to do was forking that project, renaming it to serve it on Github
+Pages, and changing the example texts with my real informations. And voilà ! A
+modern and nice-looking blog powered in minutes !
+
+
+[github]:               http://github.com
+[fandekasp_github]:     https://github.com/Fandekasp/fandekasp.github.io
+[fandekasp_pages]:      http://fandekasp.github.io
+[jekyll]:               http://jekyllrb.com
+[markdown]:             http://daringfireball.net/projects/markdown
+[flat]:                 https://en.wikipedia.org/wiki/Flat_design
+[material]:             https://www.google.com/design/spec/material-design/introduction.html
+[mdl]:                  http://www.getmdl.io
+[jekyll_mdl]:           https://github.com/gdg-managua/jekyll-mdl
