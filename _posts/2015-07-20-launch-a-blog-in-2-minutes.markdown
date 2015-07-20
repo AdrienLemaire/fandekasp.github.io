@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Launch a blog in 2 minutes with Jekyll"
-date:   2015-07-11 11:34:20
+date:   2015-07-20 15:37:27
 categories: blog
+author: Adrien Lemaire
+image: img/blog.jpg
 ---
 
 When wanting to open a new blog, the biggest problem today is deciding what blog
