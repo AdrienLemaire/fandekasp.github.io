@@ -40,7 +40,21 @@
             <span class="username">{{ site.twitter_username }}</span>
           </a>
         </li>
+        {% endif %}
+        {% if site.linkedin_username %}
+        <li>
+          <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+            <span class="icon  icon--linkedin">
+              <svg viewBox="0 0 16 16">
+                <path fill="#2C3138" d="M3.116 5.58v8.848h-2.946v-8.848h2.946zM3.304 2.848q0.009 0.652-0.451 1.089t-1.21 0.438h-0.018q-0.732 0-1.179-0.438t-0.446-1.089q0-0.661 0.46-1.094t1.201-0.433 1.188 0.433 0.455 1.094zM13.714 9.357v5.071h-2.938v-4.732q0-0.938-0.362-1.469t-1.129-0.531q-0.563 0-0.942 0.308t-0.567 0.763q-0.098 0.268-0.098 0.723v4.938h-2.938q0.018-3.563 0.018-5.777t-0.009-2.643l-0.009-0.429h2.938v1.286h-0.018q0.179-0.286 0.366-0.5t0.504-0.464 0.777-0.388 1.022-0.138q1.527 0 2.455 1.013t0.929 2.969z"></path>
+              </svg>
+            </span>
+
+            <span class="username">{{ site.linkedin_username }}</span>
+          </a>
+        </li>
       {% endif %}
+
       </ul>
     </div>
 

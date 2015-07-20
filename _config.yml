@@ -10,6 +10,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://fandekasp.github.io" # the base hostname & protocol for your site
 twitter_username: Fandekasp
 github_username:  Fandekasp
+linkedin_username:  adrienlemaire
 
 # Layout settings
 header_type: default  # values [ drawer, default ]
