@@ -5,10 +5,10 @@ This personal blog has been forked from [jekyll-mdl](https://github.com/gdg-mana
 
 ## How To
 
-Test locally:
+Test:
 
     $ jekyll serve --watch
 
-Test with drafts
+Test locally with drafts
 
-    $ jekyll serve --drafts --watch
+    $ jekyll serve --config _config-dev.yml --drafts --watch

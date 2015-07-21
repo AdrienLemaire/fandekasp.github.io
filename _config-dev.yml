@@ -10,7 +10,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Blogging about some of his passions: Education, Productivity, and
   Self-improvement.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://fandekasp.github.io" # the base hostname & protocol for your site
+url: "http://localhost:4000"
 permalink: /:title
 
 
