@@ -18,7 +18,7 @@ Registering a new **.is** domain name can be done very easily on the
 
 Start by searching for the domain you want to buy:
 
-![isnic search domain name]({{ site.url }}/img/isnic/search-domain-name.png)
+![isnic search domain name]({{ site.url }}/img/isnic/search-domain-name.jpg)
 
 If your domain is available, continue, and click on SIGN UP, then finish the
 registration. Once your registration is done, you'll have to confirm it by
@@ -28,7 +28,7 @@ clicking on a link you'll receive by email.
 Once your domain is up, go to [Cloudflare](https://www.cloudflare.com), sign up
 if needed, then click on **Add site**
 
-![cloudflare search website]({{ site.url }}/img/isnic/cloudflare-search.png)
+![cloudflare search website]({{ site.url }}/img/isnic/cloudflare-search.jpg)
 
 It will scan your domain, and automatically prefill DNS records for it. You'll
 also be asked to replace the upstream nameservers with those given by
@@ -39,7 +39,7 @@ Go back to the ISNIC website, go to `My page -> Redelegate`, and select the
 Nameserver2 with the cloudflare ones:
 
 
-![isnic cloudflare nameservers]({{ site.url }}/img/isnic/isnic-cloudflare-nameservers.png)
+![isnic cloudflare nameservers]({{ site.url }}/img/isnic/isnic-cloudflare-nameservers.jpg)
 
 
 You'll need to wait about 20 minutes for the ISNIC confirmation email to come,
@@ -49,7 +49,7 @@ Remove the default A record for your base domain name, and add instead
 a CNAME pointing to your Github Pages.
 
 
-![cloudflare CNAME Github]({{ site.url }}/img/isnic/cloudflare-cname.png)
+![cloudflare CNAME Github]({{ site.url }}/img/isnic/cloudflare-cname.jpg)
 
 
 You're almost done! Now head over to your **username.github.io** git repository,
