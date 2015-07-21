@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Use a .is domain for Github Pages"
+title:  "Using a .is domain for Github Pages"
 date:   2015-07-21 19:00:00
 categories: Tech
 image: img/isnic/github-pages-cloudflare-isnic.jpg

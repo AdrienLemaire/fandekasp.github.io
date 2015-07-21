@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Launch a blog in 2 minutes with Jekyll"
+title:  "Launching a blog in 2 minutes with Jekyll"
 date:   2015-07-20 15:37:27
 categories: Tech
 image: img/launch-a-blog-in-2-minutes.jpg
