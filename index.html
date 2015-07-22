@@ -1,90 +1,47 @@
 ---
-layout: default
+layout: base
 ---
-{% if site.post_type == 'highlight' %}
-
-<div class="mdl-grid">
-  {% for post in site.posts offset:1 %}
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-desktop mdl-cell--4-col-tablet  mdl-cell--12-col-phone">
-    <div class="mdl-card__title" {% if post.image %} style="background: url('{{ post.image }}') center/cover;" {% endif %}>
-      <h2 class="mdl-card__title-text">{{ post.title }}</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{ post.excerpt }}
-    </div>
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="location.href='{{ post.url | prepend: site.baseurl }}'">
-      <i class="material-icons">keyboard_arrow_right</i>
-    </button>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        {{ post.date | date: "%b %-d, %Y" }}
-      </a>
-
-      {% if post.author %}
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        {{ post.author }}
-      </a>
-      {% endif %}
-
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        {% for cat in post.categories %}{{ cat }}, {% endfor %}
-      </a>
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="post-{{ post.id }}">
-        <i class="material-icons">share</i>
-      </button>
-      <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="post-{{ post.id }}">
-        <li class="mdl-menu__item">Facebook</li>
-        <li class="mdl-menu__item">Twitter</li>
-        <li class="mdl-menu__item">Google+</li>
-      </ul>
-    </div>
-  </div>
-  {% endfor %}
+<div class="blog-cover" style="background-image:url(/images/{{ site.info.cover_image }});">
+    
+    <section>
+        <div class="container">
+            <h1>{{ site.info.title }}</h1>
+            {% if site.info.subtitle %}<h3>{{ site.info.subtitle }}</h3>{% endif %}
+            {% include _social-links.html %}
+        </div>
+    </section>
 </div>
 
-{% else %}
 
-<div class="mdl-grid">
-  {% for post in site.posts %}
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-desktop mdl-cell--4-col-tablet  mdl-cell--12-col-phone">
-    <div class="mdl-card__title" {% if post.image %} style="background: url('{{ post.image }}') center/cover;" {% endif %}>
-      <h2 class="mdl-card__title-text">{{ post.title }}</h2>
+<article>
+    <div class="container">
+    {% for post in paginator.posts %}
+      {% unless post.draft %}
+        <section class="index">
+            <!-- {% if post.author.image %}<img src="/images/{{ post.author.image }}" class="avatar">{% endif %}-->
+            <div>
+                <h2 class="title"><a href="{{ post.url }}" rel="prefetch">{{ post.title }}</a></h2>
+                <p>{{ post.excerpt }}</p>
+                <div class="meta">
+                    Written By <address>{{ post.author.name }}</address> &mdash;
+                    <time pubdate datetime="{{ post.date | date: "%Y-%d-%B" }}" title="{{ post.date | date: "%B %d, %Y" }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                </div>
+            </div>
+            <hr>
+        </section>
+        {% endunless %}
+        {% endfor %}
+        <section class="pagination" style="text-align:center">
+          {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1 %}
+            <a href="/" class="btn outline">‹ Newer</a>
+            {% else %}
+            <a href="/page{{ paginator.previous_page }}" class="btn outline">‹ Newer</a>
+            {% endif %}
+          {% endif %}
+          {% if paginator.next_page %}
+            <a href="/page{{ paginator.next_page }}" class="btn outline">Older ›</a>
+          {% endif %}
+        </section>
     </div>
-    <div class="mdl-card__supporting-text">
-      {{ post.excerpt }}
-    </div>
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" onclick="location.href='{{ post.url | prepend: site.baseurl }}'">
-      <i class="material-icons">keyboard_arrow_right</i>
-    </button>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        {{ post.date | date: "%b %-d, %Y" }}
-      </a>
-
-      {% if post.author %}
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        {{ post.author }}
-      </a>
-      {% endif %}
-
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        {% for cat in post.categories %}{{ cat }}, {% endfor %}
-      </a>
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="post-{{ post.id }}">
-        <i class="material-icons">share</i>
-      </button>
-      <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="post-{{ post.id }}">
-        <li class="mdl-menu__item">Facebook</li>
-        <li class="mdl-menu__item">Twitter</li>
-        <li class="mdl-menu__item">Google+</li>
-      </ul>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-
-{% endif %}
+</article>

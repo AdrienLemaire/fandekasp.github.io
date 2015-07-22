@@ -3,7 +3,7 @@ layout: post
 title:  "Using a .is domain for Github Pages"
 date:   2015-07-21 19:00:00
 categories: Tech
-image: img/isnic/github-pages-cloudflare-isnic.jpg
+image: images/isnic/github-pages-cloudflare-isnic.jpg
 ---
 
 the domain name **.is** is the top-level domain for Iceland, but is also used
@@ -33,7 +33,7 @@ Go back to the ISNIC website, go to `My page > Redelegate`, and select the
 Nameserver2 with the cloudflare ones:
 
 
-![isnic cloudflare nameservers]({{ site.url }}/img/isnic/isnic-cloudflare-nameservers.jpg)
+![isnic cloudflare nameservers]({{ site.url }}/images/isnic/isnic-cloudflare-nameservers.jpg)
 
 
 You'll need to wait about 20 minutes for the ISNIC confirmation email to come,
@@ -43,7 +43,7 @@ Remove the default A record for your base domain name, and add instead
 a CNAME pointing to your Github Pages.
 
 
-![cloudflare CNAME Github]({{ site.url }}/img/isnic/cloudflare-cname.jpg)
+![cloudflare CNAME Github]({{ site.url }}/images/isnic/cloudflare-cname.jpg)
 
 
 You're almost done! Now head over to your **username.github.io** git repository,

@@ -1,27 +1,64 @@
-# Site settings
-title: Adrien Lemaire
-email: lemaire.adrien@gmail.com
-twitter_username: Fandekasp
-github_username:  Fandekasp
-linkedin_username:  adrienlemaire
+info:
+  # Root URL where the site will be published
+  url:         http://incorporated.sendtoinc.com
 
-description: > # this means to ignore newlines until "baseurl:"
-  Software Engineer, Product maker, Hacker.
-  Blogging about some of his passions: Education, Productivity, and
-  Self-improvement.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://fandekasp.github.io" # the base hostname & protocol for your site
-permalink: /:title
+  # Blog Information
+  title:        "Jekyll Incorporated"
+  subtitle:     "Modern Jekyll based blog for companies"
+  cover_image:  blog-cover.jpg
+  logo:         logo.png
+  
+  # Company information
+  company:      Incorporated
+  company_url:  http://sendtoinc.com/
+  facebook:     sendtoinc
+  twitter:      sendtoinc
+  github:       kippt
+  gplus:        '101183822199340201470'
+  about_link:   https://sendtoinc.com/about/
+  
+  # Product Information
+  product_link: http://incorporated.sendtoinc.com/
+  tagline:      "Get a modern blog for your company"
+  
+  # Comments
+  disqus:
+    # Eg. "exampleblog" Set to false to disable comments
+    shortname:  false
+  
+  # Sharing settings
+  sharing:
+    twitter:    false
+    facebook:   false
+    gplus:      false
+    hn:         false
+    
+  # Google Fonts
+  # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'
+  google_font: 'Droid+Sans:400,700'
+  
+  # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 
+relative_permalinks:  true
+paginate:             10
+excerpt_separator:    "<!-- more -->"
 
-# Layout settings
-header_type: default  # values [ drawer, default ]
-post_type: default    # values [ highlight, default ]
-pagination_type: default  # values [ ops, default ]
-excerpt_separator: <!--more-->
+# safe mode must be disabled to use jekyll-assets.
+safe:               false
 
-# Build settings
-markdown: kramdown
-
-# Pagination
-paginate: 3
+#
+# jekyll-assets: see more at https://github.com/ixti/jekyll-assets
+#
+assets:
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+  js_compressor: uglifier
+  css_compressor: sass
+  cachebust: none
+  cache: false
+  gzip: [ text/css, application/javascript ]
+  debug: false
