@@ -1,20 +1,29 @@
 ---
 layout: post
+
 title:  "Using a .is domain for Github Pages"
+subtitle: "with Cloudflare"
 date:   2015-07-21 19:00:00
 categories: Tech
-image: images/isnic/github-pages-cloudflare-isnic.jpg
+cover_image: isnic/github-pages-cloudflare-isnic.png
+cover_image_caption: ""
+
+except: "Test"
+
+author:
+  name: Adrien Lemaire
+  twitter: Fandekasp
+  bio: Full-stack Engineer
+  image: al.jpg
 ---
 
 the domain name **.is** is the top-level domain for Iceland, but is also used
-abroad by websites wanting to use it for the English work **is**, which makes
-for more human-friendly urls.
+abroad by websites wanting to use it for the English work **is**, which makes for more human-friendly urls.
 
 
 Registering a new **.is** domain name can be done very easily on the
 [ISNIC](https://www.isnic.is/en/) website. The pricing is 30 euros for a year.
 
-<!--more-->
 
 Start by searching for the domain you want to buy.  If your domain is available,
 continue, and click on SIGN UP, then finish the registration. Once your
@@ -33,7 +42,7 @@ Go back to the ISNIC website, go to `My page > Redelegate`, and select the
 Nameserver2 with the cloudflare ones:
 
 
-![isnic cloudflare nameservers]({{ site.url }}/images/isnic/isnic-cloudflare-nameservers.jpg)
+<!--![isnic cloudflare nameservers]({{ site.url }}/images/isnic/isnic-cloudflare-nameservers.png)-->
 
 
 You'll need to wait about 20 minutes for the ISNIC confirmation email to come,
@@ -43,7 +52,7 @@ Remove the default A record for your base domain name, and add instead
 a CNAME pointing to your Github Pages.
 
 
-![cloudflare CNAME Github]({{ site.url }}/images/isnic/cloudflare-cname.jpg)
+<!--![cloudflare CNAME Github]({{ site.url }}/images/isnic/cloudflare-cname.png)-->
 
 
 You're almost done! Now head over to your **username.github.io** git repository,

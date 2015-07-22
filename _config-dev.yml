@@ -1,0 +1,3 @@
+info:
+  # Root URL where the site will be published
+  url:         http://localhost:4000

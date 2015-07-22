@@ -1,25 +1,26 @@
 info:
   # Root URL where the site will be published
-  url:         http://incorporated.sendtoinc.com
+  url:         http://adrien.is
 
   # Blog Information
-  title:        "Jekyll Incorporated"
-  subtitle:     "Modern Jekyll based blog for companies"
+  title:        "Adrien Lemaire blogs"
+  subtitle:     "about Productivity, Efficiency and Education"
   cover_image:  blog-cover.jpg
   logo:         logo.png
   
   # Company information
-  company:      Incorporated
-  company_url:  http://sendtoinc.com/
-  facebook:     sendtoinc
-  twitter:      sendtoinc
-  github:       kippt
-  gplus:        '101183822199340201470'
-  about_link:   https://sendtoinc.com/about/
+  #company:      Incorporated
+  #company_url:  http://sendtoinc.com/
+  facebook:     fandekasp
+  twitter:      Fandekasp
+  github:       Fandekasp
+  gplus:        'AdrienLemaire'
+  linkedin:     adrienlemaire
+  about_link:   https://adrien.is/about/
   
   # Product Information
-  product_link: http://incorporated.sendtoinc.com/
-  tagline:      "Get a modern blog for your company"
+  #product_link: http://incorporated.sendtoinc.com/
+  #tagline:      "Get a modern blog for your company"
   
   # Comments
   disqus:
@@ -28,10 +29,10 @@ info:
   
   # Sharing settings
   sharing:
-    twitter:    false
-    facebook:   false
-    gplus:      false
-    hn:         false
+    twitter:   true 
+    facebook:  true 
+    gplus:     true 
+    hn:        true 
     
   # Google Fonts
   # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'
@@ -62,3 +63,7 @@ assets:
   cache: false
   gzip: [ text/css, application/javascript ]
   debug: false
+
+
+excerpt_separator: <!--more-->
+permalink: /:title
