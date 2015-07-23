@@ -116,7 +116,7 @@ Cut down on interruptions:
   It's interesting to notice at the end of the day that seemingly urgent tasks
   aren't so important, and will be moved to the activity inventory or even
   deleted because they became irrelevant.
-* **exteral**: interrupted by others. Solutions are similar to handling internal
+* **external**: interrupted by others. Solutions are similar to handling internal
   interruptions: Disable sonore alarms, tell the person that you're busy and
   can't be interrupted (inform effectively, negotiate quickly to reschedule the
   interruption, etc). True emergencies that cannot wait 25min are very rare.
@@ -129,3 +129,45 @@ Cut down on interruptions:
   If a pomodoro is definitely interrupted (real emergency or human weaknesss), it
   should be void, even if it's about to ring, and add a dash to the pomodoro
   records.
+
+We should delay unplanned & urgent tasks as much as possible, and reduce the
+number of pomodoros used to organize those interruptions. Pleople starting to
+use pomodoro often end up with 2~3 pomodoros of dedicated work/study, with the
+rest of pomodoros used for unplanned tasks.
+
+Once we start mastering pomodoro, we can work on quantitative estimates,
+long-term objective being to succesfully predict the effert that an activity
+requires.
+
+At the start of the day, estimate how many pomodoros each activity in
+the inventory will take (revise previous estimates if needed). Log these
+estimations in the "bank". If an estimate is greater than 5~7 pomodoros, then
+it's probably too complex and you should break it down in smaller tasks. If
+tasks take less than a pomodoro, add them up (a pomodoro is indivisible)
+
+When preparing the Today's tasklist, decide on the number of pomodoros to handle
+(8 pomodoros is good), then choose your tasks from their pomodoro estimate until
+you reach your daily quota. If tasks are completed faster than expected and
+time frees up at the end of the day, pick new tasks from the inventory then.
+
+When starting pomodoro, always start with the first activity on the list, and
+keep working on it until it's done.
+
+Advanced estimates recording:
+
+* Analyze the estimation error (diff between actual effort and estimated one)
+* Show re-estimations diff (diff between actual effort and first estimation)
+
+Manage exploration. Research tasks, preparing for tasks, all exploration tasks
+can also be timeboxed in pomodoro and analyzed to see how much time is spent on
+it.
+
+
+# Best app
+
+* Progressive learning: Start easy, then after some time has passed and
+  progresses have shown up, add expert features for more control
+* Allow pomodoro lists to be shareable/public: by doing so, the user is commited
+  to his objectives, and can receive feedback from friends.
+* Notifications at different times of the day to handle important tasks
+  (preparing the day in the morning, analysing in the evening etc)
