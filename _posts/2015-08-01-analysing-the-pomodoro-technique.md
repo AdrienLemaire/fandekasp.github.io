@@ -9,6 +9,14 @@ description:  "Analyze Pomodoro Technique and Applications"
 date:   2015-08-01 00:00:00
 categories: Productivity
 cover_image: pomodoro/cover.jpg
+cover_image_caption: "Pomodoro Kitchen Timer"
+
+author:
+  name: Adrien Lemaire
+  twitter: Fandekasp
+  bio: Full-stack Engineer
+  image: al.jpg
+
 
 hidden:     true
 ---
