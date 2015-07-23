@@ -1,6 +1,7 @@
+baseurl:       https://adrien.is
 info:
   # Root URL where the site will be published
-  url:         http://adrien.is
+  url:         https://adrien.is
 
   # Blog Information
   title:        "Adrien Lemaire blogs"
