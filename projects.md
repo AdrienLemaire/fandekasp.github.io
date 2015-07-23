@@ -8,6 +8,8 @@ permalink: /involved-in/
 
 # Labell.io
 
+<img class="project_icon" src="/images/projects/labellio.svg">
+
 Images smart labeller and Deep learning model trainer.
 
 Website: [www.labell.io](http://www.labell.io/)
@@ -25,6 +27,8 @@ Fashion search engine to search similar clothes by color and pattern.
 
 
 # CoinsManager
+
+<img class="project_icon" src="/images/projects/coinsmanager.png">
 
 Free Open-source multi-address multi-cryptocurrencies Portfolio
 
