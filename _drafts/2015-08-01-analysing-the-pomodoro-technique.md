@@ -96,3 +96,36 @@ If a task is finished before a pomodoro ended:
     improvements, note down what you've learned.
   * If the task is finished within 5 min, cancel the pomodoro and start a new
     one for the following task.
+
+End of every day:
+
+* Completed pomodoros transferred to hard-copy archive
+* present a report with nb pomodoro / task to show effort expended: date, start
+  time, type of activity, description of the activity, nb of pomodoros, short
+  notes (results achieved, possible room for improvements, problems that
+  happened)
+ 
+
+Cut down on interruptions:
+
+* **internal**: need to eat, drink, start a different task that seems urgent.
+  This is procrastination, showing problems of concentration. To work on this,
+  be aware of interruptions and clearly note them down as an apostrophe. Then
+  add the new task in the "Unplanned & Urgent" section, or in the "Activity
+  inventory" with a deadline if not so urgent.
+  It's interesting to notice at the end of the day that seemingly urgent tasks
+  aren't so important, and will be moved to the activity inventory or even
+  deleted because they became irrelevant.
+* **exteral**: interrupted by others. Solutions are similar to handling internal
+  interruptions: Disable sonore alarms, tell the person that you're busy and
+  can't be interrupted (inform effectively, negotiate quickly to reschedule the
+  interruption, etc). True emergencies that cannot wait 25min are very rare.
+  People can have 10 to 15 interruptions in a single pomodoro, but if
+  interruptions are well managed, it will decrease with time and interrupters
+  will actually help protect the pomodoro. When an external interruption
+  happens, put a dash on the sheet, apply the Inform, Negotiate and Call
+  strategy. Then add the new activity in unplanned & urgent, or in the Activity
+  inventory with a "U" and deadline if needed.
+  If a pomodoro is definitely interrupted (real emergency or human weaknesss), it
+  should be void, even if it's about to ring, and add a dash to the pomodoro
+  records.
