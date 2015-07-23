@@ -44,7 +44,7 @@ Go back to the ISNIC website, go to `My page > Redelegate`, and select the
 Nameserver2 with the cloudflare ones:
 
 
-<!--![isnic cloudflare nameservers]({{ site.url }}/images/isnic/isnic-cloudflare-nameservers.png)-->
+![isnic cloudflare nameservers]({{ site.url }}/images/isnic/isnic-cloudflare-nameservers.png)
 
 
 You'll need to wait about 20 minutes for the ISNIC confirmation email to come,
@@ -54,7 +54,7 @@ Remove the default A record for your base domain name, and add instead
 a CNAME pointing to your Github Pages.
 
 
-<!--![cloudflare CNAME Github]({{ site.url }}/images/isnic/cloudflare-cname.png)-->
+![cloudflare CNAME Github]({{ site.url }}/images/isnic/cloudflare-cname.png)
 
 
 You're almost done! Now head over to your **username.github.io** git repository,
