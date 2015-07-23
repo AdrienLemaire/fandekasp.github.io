@@ -1,10 +1,14 @@
 ---
 layout: post
+
 title:  "Analysing the Pomodoro Technique"
 subtitle: How would be the perfect pomodoro app?"
-date:   2015-07-01 00:00:00
+
+description:  "Analyze Pomodoro Technique and Applications"
+
+date:   2015-08-01 00:00:00
 categories: Productivity
-image: img/tomatoes.jpg
+cover_image: pomodoro/cover.jpg
 ---
 
 # Introduction
@@ -19,6 +23,8 @@ ideal application.
 A Pomodoro is a kitchen timer used to measure 25-minute intervals. The name of
 the Technique comes from the first timer used which was shaped like a tomato
 (pomodoro in Italian). 
+
+<!--more-->
 
 The goal of this method is to improve productivity using the **Planning** ->
 **Tracking** -> **Recording** -> **Processing** -> **Visualizing** process,
