@@ -158,9 +158,90 @@ Advanced estimates recording:
 * Analyze the estimation error (diff between actual effort and estimated one)
 * Show re-estimations diff (diff between actual effort and first estimation)
 
+how to improve quantitative estimates: eliminate the 3rd estimate while keeping
+the overall margin of error small; eliminate the 2nd estimate; Reduce the margin
+of error in the 1st estimate.
+
 Manage exploration. Research tasks, preparing for tasks, all exploration tasks
 can also be timeboxed in pomodoro and analyzed to see how much time is spent on
 it.
+
+
+Objective 4: Make the pomodoro more effective
+
+1st evolution: use the first 3~5 min of each pomodoro to briefly repeat what
+we've learned since the beginning of the activity (not just the last pomodoro),
+and print it into memory; use the last 3~5 min to quickly review what was
+done(effect/cause procedure, starting from the last activities and going back to
+the initial motivation)
+
+2nd evolution: idem as 1st, but for the 4-pomodoro set. Part of the first
+pomodoro is used to repeat what has been accomplished, and part of the last one
+is used to review (repetition and revision being more effective in group,
+talking them out loud, to stimulate overlearning and facilitate new information
+acquisition)
+
+Objective 5: Set up a timetable
+
+The key to organizing a timetable is make conscious decisions on how to set it
+up. Up to this points, sets of 4 pomodoros have been done, but depending on the
+person and time of the day, sets of 3 to 5 pomodoros might be more suitable.
+Experience teaches that when the seasons change, timetables need to change too.
+
+
+Other objectives:
+
+* using technology means increase in complexity due to the relative learning
+  curve, and less flexibility as compared to paper, pencil and eraser.
+* keep tracking at the lowest possible level of complexity, even delegating small
+  tasks to recording
+* keep recording simple, privilegie pencil/paper to software.
+* if processing and visualizing becomes difficult, complex and repetitive, first
+  ask yourself if those metrics are really necessary.
+* Imagination is the most powerful tool for preventing complexity from growing.
+
+
+
+# Results
+
+**Learning Time**: it takes no time to apply the pomodoro technique. Mastering
+it takes from 7 to 20 days of constant application. It's easier to implement the
+technique consistently in pairs or teams (less learning time, more consistent
+results).
+
+**Length of the pomodoro**: Everybody is different, time is not the same in
+different weeks/months, hence the ideal pomodoro is between 20 to 40 minutes
+long. Experience shows that 30-min time periods works best.
+
+**Varying the lenght of breaks**: sets breaks should vary between 15 to 30 min,
+depending on how tired you feel. Exceeding 30 min risks interruting the rhythm.
+If you feel that a longer break is needed, this triggers an alarm signaling the
+need for rest and free time. Forcing yourself to take shorter breaks due to
+pressure could lead to a mental block in finding solutions.
+
+**Different perception of time**:
+first few days bring the following benefits: sharper focus and concentration
+* first 25-min pomodoros seem slowlier
+* after a few days, users can feel the mid-way point of 25 min.
+* by the end of the first week of constant application, users say they can feel
+  when 5 min are left (feeling some sense of fatigue in those last minutes)
+
+**Sounds of the pomodoro**:
+Ticking and ringing. People feel annoyed by the ticking at first, but it becomes
+a calming sound, and they end up not hearing it under concentration.
+If pomodoros are done in an environment with other people who might get troubled
+by these sounds, alternatives can be done using flashing and softer beeps.
+
+**Ring Anxiety**:
+People who are not used to self-discipline or very oriented toward achieving
+results can feel some anxiety (fear that pomodoro could be used to externally
+monitor their progress, but the aim of the technique is not to carry out any
+sort of external analysis)
+
+**When not to use the pomodoro**:
+Do not use pomdoro for activities done in your free time, it wouldn't be free
+time otherwise, by scheduled and goal-oriented activities.
+
 
 
 # Best app
