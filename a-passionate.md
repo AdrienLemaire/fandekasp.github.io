@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /a-passionate/
 ---
 
 My name is Adrien. I've been developing robust, responsible and reusable applications for over 4 years.
