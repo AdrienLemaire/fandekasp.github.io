@@ -122,11 +122,138 @@ Let's have a closer look of the applications metionned above:
 
 [ILLUSTRATION]
 
+Pros:
+
+* Excellent UI design
+* Gamified interface
+* Simple and Easy to use
+
+Cons:
+
+This is not a pomodoro application. It's a very simple timer, blocked on 30
+minutes iterations, preventing you to use your smartphone even if you do need to
+use it for a task. The history contains too few informations for a proper
+analysis, there isn't any recording and the app doesn't allow for more advanced
+uses of Pomodoro.
+
+## Pomodoro Challenge Timer
+
+Pros:
+
+* Gamified with achievements
+* Simple to use
+* Concept of projects
+
+Cons:
+
+* Insulting. While achievement-based products are focused on rewarding the user,
+  Pomodoro Challenge Timer won't hesitate to judge and nag you. There is an
+  option to disable it, but it also disables the achievements system, making for
+  a boring application.
+* It has some statistics, but not on the points that the method recommends to
+  analyse. It lacks the 3 essentials sheets "Todo Today Sheet", "Activity
+  Inventory Sheet", and "Records Sheet". It does not offer any estimation
+  feature.
 
 
-# Personal experience, ideas on a better app
+## Pomodorium
+
+Pros:
+
+* fun RPG game
+
+Cons:
+
+* Too gamified, becomes a distraction.
+* Bad UI design, looks very old.
+* This is a simple timer, without offering any of the tools requires for a
+  proper usage of the Pomodoro method.
 
 
+## Pomodoro.cc
+
+[For Marcel to fill]
+
+
+## Pomotodo
+
+Pros:
+
+* Multi-platform
+* Clean design
+* Interesting statistics
+
+Cons:
+
+* No guidance (suggestions to prepare the day in the morning, review in the
+  evening)
+* Single todolist, missing separation between Todo Today and Activity Inventory
+* Missing features to track internal and external distractions
+* No gamification, important motivator although not recommended by the method
+* Lack of estimation feature, very important part of the method (how many
+  pomodoros should be assigned to a task ?)
+* Lack of Daily available pomodoros (usually one will plan for 8 pomodoros). It
+  does offer a "Expected pomo count" field, but it's a hidden feature, and the
+  user should be prompted for that information at the beginning of the day.
+* Doesn't incite to prioritize tasks: tasks can be reordered, but the method
+  strongly recommends to order them at the beginning of the day, and keep
+  working on 1 tasks at the time until it's done)
+
+ 
+Pomotodo is most probably the best Pomodoro application out there today. But its
+attempt to handle both Pomodoro Method and [Get Things Done](http://gettingthingsdone.com/) 
+Method isn't good enough. In the end, the best tool today to properly follow the
+Pomodoro Method is still paper and pencil unfortunately.
+
+
+# Toward a better application
+
+There is no doubt that an excellent Pomodoro application could be made and
+completely eradicate the need for paper/pencil. Here is what the perfect
+application should look like:
+
+
+What all existing applications are lacking is progressive learning, a teaching
+feature, starting simple and enabling more advanced features as the user gets
+the hang of the method. Start easy, then after some time has passed and progresses
+have shown up, ask the user for more complex operations, all while explaining him why.
+
+The application should respect the Pomodoro method. We need a Todo Today sheet,
+an Activity inventory sheet and a Record sheet, yet most of the applications do
+not offer those tools. Any user who studied the method and wants to follow it
+the right way will quickly be frustrated and switch back to paper/pencil, or
+give up on the method altogether.
+
+The application should trigger notifications at specific times defined by the
+user according to his lifestyle, to prompt the user when he needs to plan his
+day, or start processing, visualizing, etc, to help the user get those habits. 
+
+APIs and external integrations are indispensable, and one of the most important
+features that a productivity app should have:
+* Integrations to communication tools like Slack can help us manage external
+  distractions (eg when someone messages us, they would receive an auto-reply
+  telling them that we will contact them again later, and maybe auto-add a new
+  Unplanned task to the list).
+* Integrations to other todolists, project management tools, life loggers and
+  calendars would solve a huge problem: Repetition and Duplication of tasks
+  over different tools. For example, when adding a meeting to our calendar, the
+  pomodoro application should automatically have a new task added to its
+  Activity Inventory sheet with due date.
+
+An important optional social component is sharing. While Pomodoro is not supposed to
+be used for external monitoring, some people will feel much more committed when
+exposing their tasklist, and will appreciate having comments / encouragements.
+
+
+
+# What about you ?
+
+We want to know more about you too! Please share with us your experience, your
+favorite application if you have one, or if you would like to see yet another
+Pomodoro app, doing it the right way this time.
+
+Let's work together on making better tools to improve people's productivity,
+efficiency, and overall well-being.
 
 
 
@@ -341,15 +468,3 @@ sort of external analysis)
 **When not to use the pomodoro**:
 Do not use pomdoro for activities done in your free time, it wouldn't be free
 time otherwise, by scheduled and goal-oriented activities.
-
-
-
-## Best app
-
-* Progressive learning: Start easy, then after some time has passed and
-  progresses have shown up, add expert features for more control
-* Allow pomodoro lists to be shareable/public: by doing so, the user is commited
-  to his objectives, and can receive feedback from friends.
-* Notifications at different times of the day to handle important tasks
-  (preparing the day in the morning, analysing in the evening etc)
-  Notifications on different platforms (mobile alarm, slack notices, etc)
