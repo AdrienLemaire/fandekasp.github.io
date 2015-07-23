@@ -25,6 +25,7 @@ The goal of this method is to improve productivity using the **Planning** ->
 using very few tools: a **Timer**, a **Todo Today Sheet**, an **Activity
 Inventory Sheet**, and a **Records Sheet**
 
+[ILLUSTRATION]
 {% comment %}
 ADD ILLUSTRATION EXPLAINING ALL THESE TERMS
 
@@ -86,7 +87,53 @@ The benefits of this method are multiple:
 
 # Pomodoro apps: pros and cons
 
+Pomodoro is always listed in the top 2~3 best productivity methodologies. If
+you've been interested by productivity apps before, there's no doubt you've
+already heard of Pomodoro. Maybe you even tried an app, or several. And you
+might be part of the majority of people that didn't hook up to it and stopped
+using it very quickly.
+It might be a bit of your fault (lack of motivation, perseverance,
+self-discipline), but it's without doubt mostly due to the applications you
+used not being able to deliver a good user experience.
+
+When it comes to finding an application to use, it's extremely difficult to
+choose: There are more than a hundred pomodoro apps in Google's Play store.
+Maybe you found some recommendations and tried applications like 
+[Forest](https://play.google.com/store/apps/details?id=cc.forestapp&hl=en),
+[Pomodoro Challenge Timer](https://play.google.com/store/apps/details?id=com.wlxd.pomochallenge&hl=en),
+[PomoTodo](https://pomotodo.com/app/), [Pomodorium](http://www.pomodorium.com/),
+[Pomodoro.cc](http://pomodoro.cc/) or others. Yet you didn't manage to stick to
+it and build the habits to use Pomodoro regularly.
+
+One of the most important things to do before starting using Pomodoro is
+studying the method! The book is short (38 pages), althought it can take up to 5
+pomodoros to study it completely. If you do not understand what the method is
+about, what are the different steps to take, and levels to improve the
+technique, you won't improve with time, and eventually get disappointed.
+But for those who did their work and understand perfectly the method, I can bet
+that almost all of them got disappointed by existing apps, since none provide
+adequate tools to fully embrace that method, and following the method
+recommendations, they will have switched to paper and pencil to record their
+pomodoro and track their progress.
+
+Let's have a closer look of the applications metionned above:
+
+## Forest
+
+[ILLUSTRATION]
+
+
+
 # Personal experience, ideas on a better app
+
+
+
+
+
+
+
+
+# Reading notes (to remove once the post is written)
 
 Objectives:
 
@@ -255,7 +302,7 @@ Other objectives:
 
 
 
-# Results
+## Results
 
 **Learning Time**: it takes no time to apply the pomodoro technique. Mastering
 it takes from 7 to 20 days of constant application. It's easier to implement the
@@ -297,7 +344,7 @@ time otherwise, by scheduled and goal-oriented activities.
 
 
 
-# Best app
+## Best app
 
 * Progressive learning: Start easy, then after some time has passed and
   progresses have shown up, add expert features for more control
