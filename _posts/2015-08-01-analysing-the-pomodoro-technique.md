@@ -63,7 +63,7 @@ The method can be summarized with the following rules:
 Few tools are needed to use the  method: a **Timer**, a **Todo Today Sheet**,
 an **Activity Inventory Sheet**, and a **Records Sheet**
 
-[ILLUSTRATION]
+![Tools required for Pomodoro](/images/pomodoro/tools.jpg)
 {% comment %}
 ADD ILLUSTRATION EXPLAINING ALL THESE TERMS
 
@@ -140,7 +140,7 @@ Let's have a closer look of the applications metionned above:
 
 ## Forest
 
-[ILLUSTRATION]
+![Forest](/images/pomodoro/forest.jpg)
 
 Pros:
 
@@ -155,8 +155,12 @@ minutes iterations, preventing you to use your smartphone even if you do need to
 use it for a task. The history contains too few informations for a proper
 analysis, there isn't any recording and the app doesn't allow for more advanced
 uses of Pomodoro.
+While they do not refer to themselves as being a Pomodoro application, lot of
+its users are talking about it that way.
 
 ## Pomodoro Challenge Timer
+
+![Pomodoro Challenge Timer](/images/pomodoro/pomodoro-challenge-timer.png)
 
 Pros:
 
@@ -178,10 +182,14 @@ Cons:
 
 ## Pomodoro.cc
 
+![Pomodoro-cc](/images/pomodoro/pomodoro-cc.jpg)
+
 [For Marcel to fill]
 
 
 ## Pomotodo
+
+![PomoTodo](/images/pomodoro/pomotodo.png)
 
 Pros:
 
@@ -263,11 +271,7 @@ efficiency, and overall well-being.
 
 
 
-----
-----
-----
-
-
+{% comment %}
 # Reading notes (to remove once the post is written)
 
 Objectives:
@@ -476,3 +480,5 @@ sort of external analysis)
 **When not to use the pomodoro**:
 Do not use pomdoro for activities done in your free time, it wouldn't be free
 time otherwise, by scheduled and goal-oriented activities.
+
+{% endcomment %}
