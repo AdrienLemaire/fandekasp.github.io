@@ -68,3 +68,6 @@ assets:
 
 excerpt_separator: <!--more-->
 permalink: /:title
+
+gems:
+  - jekyll-sitemap
