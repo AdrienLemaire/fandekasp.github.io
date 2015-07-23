@@ -9,6 +9,8 @@ description:  "Analyze Pomodoro Technique and Applications"
 date:   2015-08-01 00:00:00
 categories: Productivity
 cover_image: pomodoro/cover.jpg
+
+hidden:     true
 ---
 
 # Introduction
