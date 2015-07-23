@@ -1,11 +1,92 @@
 ---
 layout: post
 title:  "Analysing the Pomodoro Technique"
+subtitle: How would be the perfect pomodoro app?"
 date:   2015-07-01 00:00:00
 categories: Productivity
 image: img/tomatoes.jpg
 ---
 
+# Introduction
+
+This post is an analyze of the Productivity Method called **Pomodoro** and the
+applications revendicating themselves as Pomodoro apps. We will discuss about
+the pros and cons of the method, and its applications, then discuss about an
+ideal application.
+
+# What is Pomodoro ?
+
+A Pomodoro is a kitchen timer used to measure 25-minute intervals. The name of
+the Technique comes from the first timer used which was shaped like a tomato
+(pomodoro in Italian). 
+
+The goal of this method is to improve productivity using the **Planning** ->
+**Tracking** -> **Recording** -> **Processing** -> **Visualizing** process,
+using very few tools: a **Timer**, a **Todo Today Sheet**, an **Activity
+Inventory Sheet**, and a **Records Sheet**
+
+{% comment %}
+ADD ILLUSTRATION EXPLAINING ALL THESE TERMS
+
+Process:
+* **Planning** (at the start of the day) to decide on the day's activities
+* **Tracking** (throughout the day) to gather raw data on the effort expended
+  and other metrics of interest
+* **Recording** (at the end of the day) to compile an archive of daily
+  observations
+* **Processing** (and the end of the day) to transform raw data into information
+* **Visualizing** (at the end of the day) to present the information in a format
+  that facilitates understanding and clarifies paths to improvement.
+1 iteration <= 1 day
+
+Tools:
+* A **timer**
+* A **Todo Today Sheet**
+    * heading: place, date, author
+    * list of things to do during the day, ordered by priority
+    * section "Unplanned & Urgent Activities" (updated during the day, can
+      modify the day's plan)
+* **Activity Inventory Sheet**
+    * heading with author's name
+    * number of lines where activities are noted down as they come up. At the
+      end of the day, completed activities are checked off.
+* A **Records Sheet** (recording, processnig, visualizing): set of raw data
+  needed to produce pertinent reports and graphics. Includes date, description,
+  number of pomodoros worth of effort needed to accomplish a task. Updated once
+  a day in the evening.
+{% endcomment %}
+
+The method can be summarized with the following rules:
+
+* A Pomodoro Consists of 25 minutes Plus a Five-Minute Break
+* After Every Four Pomodoros Comes a 15-30 Minute Break
+* The Pomodoro Is Indivisible. There are no half or quarter Pomodoros.
+* If a Pomodoro Begins, It Has to Ring:
+  * If a Pomodoro is interrupted definitively – i.e. the interruption isn’t
+    handled, it’s considered void, never begun, and it can’t be recorded with an X
+  * If an activity is completed once a Pomodoro has already begun, continue
+    reviewing the same activity until the Pomodoro rings
+* Protect the Pomodoro. Inform effectively, negotiate quickly to
+  reschedule the interruption, call back the person who interrupted you as agreed.
+* If It Lasts More Than 5-7 Pomodoros, Break It Down.
+  Complex activities should be divided into several activities.
+* If It Lasts Less Than One Pomodoro, Add It Up. Simple tasks can be combined.
+* Results Are Achieved Pomodoro after Pomodoro.
+* The Next Pomodoro Will Go Better.
+
+The benefits of this method are multiple:
+
+* Learning time, having a different experience of time.
+* Be more organized, prepare tasks and putting priorities
+* Be more aware, notice when you are getting distracted and strive to eliminate
+  distractions.
+* Be more analytic, learn from your way of working, find your weaknesses and set
+  new objectives to improve those.
+
+
+# Pomodoro apps: pros and cons
+
+# Personal experience, ideas on a better app
 
 Objectives:
 
@@ -49,34 +130,6 @@ Inspiration:
 * Notions relating to structuring objectives and activities incrementally (Gilb)
 
 
-Process:
-
-* **Planning** (at the start of the day) to decide on the day's activities
-* **Tracking** (throughout the day) to gather raw data on the effort expended
-  and other metrics of interest
-* **Recording** (at the end of the day) to compile an archive of daily
-  observations
-* **Processing** (and the end of the day) to transform raw data into information
-* **Visualizing** (at the end of the day) to present the information in a format
-  that facilitates understanding and clarifies paths to improvement.
-1 iteration <= 1 day
-
-Tools:
-
-* A **timer**
-* A **Todo Today Sheet**
-    * heading: place, date, author
-    * list of things to do during the day, ordered by priority
-    * section "Unplanned & Urgent Activities" (updated during the day, can
-      modify the day's plan)
-* **Activity Inventory Sheet**
-    * heading with author's name
-    * number of lines where activities are noted down as they come up. At the
-      end of the day, completed activities are checked off.
-* A **Records Sheet** (recording, processnig, visualizing): set of raw data
-  needed to produce pertinent reports and graphics. Includes date, description,
-  number of pomodoros worth of effort needed to accomplish a task. Updated once
-  a day in the evening.
 
 Traditional pomodoro: 30 min (25 min work + 5 min break). This is an atomic unit
 of time, indivisible. If a pomodoro is interrupted, it should be considered
@@ -252,3 +305,4 @@ time otherwise, by scheduled and goal-oriented activities.
   to his objectives, and can receive feedback from friends.
 * Notifications at different times of the day to handle important tasks
   (preparing the day in the morning, analysing in the evening etc)
+  Notifications on different platforms (mobile alarm, slack notices, etc)
