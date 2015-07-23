@@ -1,4 +1,4 @@
-baseurl:       https://adrien.is
+url:         https://adrien.is
 info:
   # Root URL where the site will be published
   url:         https://adrien.is
@@ -18,7 +18,7 @@ info:
   github:       Fandekasp
   gplus:        'AdrienLemaire'
   linkedin:     adrienlemaire
-  about_link:   https://adrien.is/about/
+  about_link:   https://adrien.is/about
   
   # Product Information
   #product_link: http://incorporated.sendtoinc.com/
