@@ -1,14 +1,31 @@
 ---
-layout: default
+layout: base
 ---
+
+<div class="blog-cover" style="background-image:url(/images/{{ site.info.about_image }});">
+    <section>
+        <div class="container">
+            <h1>{{ site.info.title }}</h1>
+            {% if site.info.subtitle %}<h3>{{ site.info.subtitle }}</h3>{% endif %}
+            {% include _social-links.html %}
+        </div>
+    </section>
+</div>
+
+<div class='cover-caption'><a href='/about.html#pictures'>{{ site.info.about_image_caption }}</a></div>
+
 <div class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-  </header>
+  <!--<header class="post-header">-->
+    <!--<h1 class="post-title">{{ page.title }}</h1>-->
+  <!--</header>-->
 
-  <article class="post-content">
-    {{ content }}
+  <article>
+    <div class="container">
+      <section>
+      {{ content }}
+      </section>
+    </div>
   </article>
 
 </div>
