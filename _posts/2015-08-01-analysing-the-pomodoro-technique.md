@@ -37,9 +37,31 @@ the Technique comes from the first timer used which was shaped like a tomato
 <!--more-->
 
 The goal of this method is to improve productivity using the **Planning** ->
-**Tracking** -> **Recording** -> **Processing** -> **Visualizing** process,
-using very few tools: a **Timer**, a **Todo Today Sheet**, an **Activity
-Inventory Sheet**, and a **Records Sheet**
+**Tracking** -> **Recording** -> **Processing** -> **Visualizing** process.
+
+
+The method can be summarized with the following rules:
+
+* A Pomodoro Consists of 25 minutes Plus a Five-Minute Break
+* After Every Four Pomodoros Comes a 15-30 Minute Break
+* The Pomodoro Is Indivisible. There are no half or quarter Pomodoros.
+* If a Pomodoro Begins, It Has to Ring:
+  * If a Pomodoro is interrupted definitively – i.e. the interruption isn’t
+    handled, it’s considered void, never begun, and it can’t be recorded with an X
+  * If an activity is completed once a Pomodoro has already begun, continue
+    reviewing the same activity until the Pomodoro rings
+* Protect the Pomodoro. Inform effectively, negotiate quickly to
+  reschedule the interruption, call back the person who interrupted you as agreed.
+* If It Lasts More Than 5-7 Pomodoros, Break It Down.
+  Complex activities should be divided into several activities.
+* If It Lasts Less Than One Pomodoro, Add It Up. Simple tasks can be combined.
+* Results Are Achieved Pomodoro after Pomodoro.
+* The Next Pomodoro Will Go Better.
+
+
+
+Few tools are needed to use the  method: a **Timer**, a **Todo Today Sheet**,
+an **Activity Inventory Sheet**, and a **Records Sheet**
 
 [ILLUSTRATION]
 {% comment %}
@@ -73,24 +95,6 @@ Tools:
   a day in the evening.
 {% endcomment %}
 
-The method can be summarized with the following rules:
-
-* A Pomodoro Consists of 25 minutes Plus a Five-Minute Break
-* After Every Four Pomodoros Comes a 15-30 Minute Break
-* The Pomodoro Is Indivisible. There are no half or quarter Pomodoros.
-* If a Pomodoro Begins, It Has to Ring:
-  * If a Pomodoro is interrupted definitively – i.e. the interruption isn’t
-    handled, it’s considered void, never begun, and it can’t be recorded with an X
-  * If an activity is completed once a Pomodoro has already begun, continue
-    reviewing the same activity until the Pomodoro rings
-* Protect the Pomodoro. Inform effectively, negotiate quickly to
-  reschedule the interruption, call back the person who interrupted you as agreed.
-* If It Lasts More Than 5-7 Pomodoros, Break It Down.
-  Complex activities should be divided into several activities.
-* If It Lasts Less Than One Pomodoro, Add It Up. Simple tasks can be combined.
-* Results Are Achieved Pomodoro after Pomodoro.
-* The Next Pomodoro Will Go Better.
-
 The benefits of this method are multiple:
 
 * Learning time, having a different experience of time.
@@ -103,11 +107,11 @@ The benefits of this method are multiple:
 
 # Pomodoro apps: pros and cons
 
-Pomodoro is always listed in the top 2~3 best productivity methodologies. If
+Pomodoro is always listed in the top Productivity Methodologies. If
 you've been interested by productivity apps before, there's no doubt you've
 already heard of Pomodoro. Maybe you even tried an app, or several. And you
-might be part of the majority of people that didn't hook up to it and stopped
-using it very quickly.
+might be part of the majority of people that didn't get hooked up to it and
+stopped using it very quickly.
 It might be a bit of your fault (lack of motivation, perseverance,
 self-discipline), but it's without doubt mostly due to the applications you
 used not being able to deliver a good user experience.
@@ -117,7 +121,7 @@ choose: There are more than a hundred pomodoro apps in Google's Play store.
 Maybe you found some recommendations and tried applications like 
 [Forest](https://play.google.com/store/apps/details?id=cc.forestapp&hl=en),
 [Pomodoro Challenge Timer](https://play.google.com/store/apps/details?id=com.wlxd.pomochallenge&hl=en),
-[PomoTodo](https://pomotodo.com/app/), [Pomodorium](http://www.pomodorium.com/),
+[PomoTodo](https://pomotodo.com/app/), 
 [Pomodoro.cc](http://pomodoro.cc/) or others. Yet you didn't manage to stick to
 it and build the habits to use Pomodoro regularly.
 
@@ -172,20 +176,6 @@ Cons:
   feature.
 
 
-## Pomodorium
-
-Pros:
-
-* fun RPG game
-
-Cons:
-
-* Too gamified, becomes a distraction.
-* Bad UI design, looks very old.
-* This is a simple timer, without offering any of the tools requires for a
-  proper usage of the Pomodoro method.
-
-
 ## Pomodoro.cc
 
 [For Marcel to fill]
@@ -226,7 +216,7 @@ Pomodoro Method is still paper and pencil unfortunately.
 
 There is no doubt that an excellent Pomodoro application could be made and
 completely eradicate the need for paper/pencil. Here is what the perfect
-application should look like:
+application for me should look like:
 
 
 What all existing applications are lacking is progressive learning, a teaching
