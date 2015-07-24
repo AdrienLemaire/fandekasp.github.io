@@ -4,7 +4,7 @@ layout: post
 title:  "Analysing the Pomodoro Technique"
 subtitle: How would be the perfect pomodoro app?"
 
-description:  "Analyze Pomodoro Technique and Applications"
+description:  "Analyzing the Pomodoro Technique and Applications"
 
 date:   2015-08-01 00:00:00
 categories: Productivity
@@ -17,28 +17,21 @@ author:
   bio: Full-stack Engineer
   image: al.jpg
 
-
-hidden:     true
 ---
 
-# Introduction
-
-This post is an analyze of the Productivity Method called **Pomodoro** and the
-applications revendicating themselves as Pomodoro apps. We will discuss about
-the pros and cons of the method, and its applications, then discuss about an
-ideal application.
+This post is a personal analyze of the **Productivity Methodology** called
+[Pomodoro](http://pomodorotechnique.com/) and applications helping with it.
 
 # What is Pomodoro ?
 
 A Pomodoro is a kitchen timer used to measure 25-minute intervals. The name of
 the Technique comes from the first timer used which was shaped like a tomato
-(pomodoro in Italian). 
+(pomodoro in Italian).  This technique came out of frustration, when Francesco
+Cirillo found himself in a slump, a time of low productivity and high confusion.
+That confusion was due to a high number of distractions and interruptions as
+well as a low level of concentration and motivation.
 
 <!--more-->
-
-The goal of this method is to improve productivity using the **Planning** ->
-**Tracking** -> **Recording** -> **Processing** -> **Visualizing** process.
-
 
 The method can be summarized with the following rules:
 
@@ -59,15 +52,8 @@ The method can be summarized with the following rules:
 * The Next Pomodoro Will Go Better.
 
 
+It consists of five phases:
 
-Few tools are needed to use the  method: a **Timer**, a **Todo Today Sheet**,
-an **Activity Inventory Sheet**, and a **Records Sheet**
-
-![Tools required for Pomodoro](/images/pomodoro/tools.jpg)
-{% comment %}
-ADD ILLUSTRATION EXPLAINING ALL THESE TERMS
-
-Process:
 * **Planning** (at the start of the day) to decide on the day's activities
 * **Tracking** (throughout the day) to gather raw data on the effort expended
   and other metrics of interest
@@ -76,24 +62,44 @@ Process:
 * **Processing** (and the end of the day) to transform raw data into information
 * **Visualizing** (at the end of the day) to present the information in a format
   that facilitates understanding and clarifies paths to improvement.
-1 iteration <= 1 day
 
-Tools:
-* A **timer**
-* A **Todo Today Sheet**
-    * heading: place, date, author
-    * list of things to do during the day, ordered by priority
-    * section "Unplanned & Urgent Activities" (updated during the day, can
-      modify the day's plan)
-* **Activity Inventory Sheet**
-    * heading with author's name
-    * number of lines where activities are noted down as they come up. At the
-      end of the day, completed activities are checked off.
+Note that an iteration is normally set to a day, but can be smaller depending on
+the user experience and work habit.
+
+
+All we need to use this technique are: a **Timer**, a **Todo Today Sheet**,
+an **Activity Inventory Sheet**, and a **Records Sheet**.
+
+![Tools required for Pomodoro](/images/pomodoro/tools.jpg)
+
+
+
+The **Todo Today Sheet** is a table with 3 columns:
+
+* The first is for the date (optional, can be retrieved at the end of the day
+  during recording).
+* The second if for the task title.
+* The third is for estimating (using squares for 1st estimation and circles for
+  2nd estimation), and tracking the number of pomodoros done per task (using
+  crosses), as well as interruptions (apostrophe for an internal interruption,
+  dash for an external one). The header can be filled with "place", "date",
+  "author", and the "available Pomodoros" number estimated at the beginning of
+  the day (usually set to 8).
+
+Things to do during the day are ordered by priority on the sheet, and a section
+"Unplanned & Urgent Activities" is left at the bottom of the sheet, updated
+during the day (and it can modify the day's plan)
+
+The **Activity Inventory Sheet** is similary a 3-columns table:
+
+* The first column is for eventual due dates. It is also used to take note of
+  Unplanned activities written during the day, using the letter U.
+* The second column contains a number of lines where activities are noted down
+  as they come up. At the end of the day, completed activities are checked off.
 * A **Records Sheet** (recording, processnig, visualizing): set of raw data
   needed to produce pertinent reports and graphics. Includes date, description,
   number of pomodoros worth of effort needed to accomplish a task. Updated once
   a day in the evening.
-{% endcomment %}
 
 The benefits of this method are multiple:
 
