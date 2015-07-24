@@ -4,12 +4,6 @@ title:  "Launching a blog in 2 minutes with Jekyll"
 date:   2015-07-20 15:37:27
 categories: Tech
 cover_image: launch-a-blog-in-2-minutes.jpg
-
-author:
-  name: Adrien Lemaire
-  twitter: Fandekasp
-  bio: Full-stack Engineer
-  image: al.jpg
 ---
 
 When wanting to open a new blog, the biggest problem today is deciding what blog

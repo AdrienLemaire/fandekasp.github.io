@@ -10,6 +10,8 @@ info:
   cover_image:  blog-cover.jpg
   about_image:  blog-cover.jpg
   logo:         logo.png
+  avatar:       al.jpg
+  bio:          Full-stack Engineer
   
   # Company information
   #company:      Incorporated

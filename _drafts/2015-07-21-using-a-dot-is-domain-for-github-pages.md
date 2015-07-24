@@ -10,12 +10,6 @@ cover_image: isnic/github-pages-cloudflare-isnic.png
 cover_image_caption: "Add a .is domain to Github pages"
 
 description: "Github Cloudflare Isnic"
-
-author:
-  name: Adrien Lemaire
-  twitter: Fandekasp
-  bio: Full-stack Engineer
-  image: al.jpg
 ---
 
 The domain name **.is** is the top-level domain for Iceland, but is also used

@@ -2,8 +2,12 @@
 layout: page
 title: About
 permalink: /a-passionate/
+
 ---
 
+<address>
+{% if site.info.avatar %}<img src="/images/{{ site.info.avatar }}">{% endif %}
+</address>
 My name is Adrien. I've been developing robust, responsible and reusable applications for over 4 years.
 I've had experience in every aspect of software development, including frontend
 & backend, apis, project management, core design, networking and system administration.
