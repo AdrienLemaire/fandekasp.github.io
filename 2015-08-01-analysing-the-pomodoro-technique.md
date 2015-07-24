@@ -4,8 +4,6 @@ layout: post
 title:  "Analysing the Pomodoro Technique"
 subtitle: How would be the perfect pomodoro app?"
 
-description:  "Analyzing the Pomodoro Technique and Applications"
-
 date:   2015-08-01 00:00:00
 categories: Productivity
 cover_image: pomodoro/cover.jpg
