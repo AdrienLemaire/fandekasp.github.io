@@ -230,9 +230,13 @@ a Pomodoro application:
   encouragements from them to help me get more productive.
 
 
+What about you ? What is your experience with Pomodoro, what tools did you
+settle with to make the best out of this method ? How much did this method help
+you with becoming more productive ?
+
+
 I hope you like this first article of mine! If you haven't registered to my
 mailing list yet, and would like to stay tuned to future posts, [go subscribe
-now](http://eepurl.com/bt8739)!
-
+now](http://eepurl.com/bt8739)!  
 My next analyse will be on the **Getting Things Done** Methodology, yet another
 very popular technique to help people get organized.
