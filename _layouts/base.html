@@ -22,6 +22,9 @@
   {% if page.excerpt %}
   <meta property="og:description" content="{{ page.excerpt | strip_html }}"/>
   <meta name="description" content="{{ page.excerpt | strip_html }}"/>
+  {% else %}
+  <meta property="og:description" content="{{ site.info.title}} {{ site.info.subtitle}}: {{ page.title }}"/>
+  <meta name="description" content="{{ site.info.title}} {{ site.info.subtitle}}: {{ page.title }}"/>
   {% endif %}
   <meta property="og:site_name" content="{{ site.info.title }}">     
 </head>
