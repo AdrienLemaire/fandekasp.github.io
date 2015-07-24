@@ -4,9 +4,9 @@ info:
   url:         https://adrien.is
 
   # Blog Information
-  title:        "Adrien Lemaire blogs"
-  author:         "Adrien Lemaire"
-  subtitle:     "about Productivity, Efficiency and Education"
+  title:        'Adrien Lemaire blogs'
+  author:         'Adrien Lemaire'
+  subtitle:     'about Productivity, Efficiency and Education'
   cover_image:  blog-cover.jpg
   about_image:  blog-cover.jpg
   logo:         logo.png
@@ -23,11 +23,11 @@ info:
   
   # Product Information
   #product_link: http://incorporated.sendtoinc.com/
-  #tagline:      "Get a modern blog for your company"
+  #tagline:      'Get a modern blog for your company'
   
   # Comments
   disqus:
-    # Eg. "exampleblog" Set to false to disable comments
+    # Eg. 'exampleblog' Set to false to disable comments
     shortname:  false
   
   # Sharing settings
@@ -41,13 +41,13 @@ info:
   # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'
   google_font: 'Droid+Sans:400,700'
 
-  google_site_verification: "google9960cac966e28c0a.html"
+  google_site_verification: 'google9960cac966e28c0a.html'
   
   # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 
 relative_permalinks:  true
 paginate:             10
-excerpt_separator:    "<!-- more -->"
+excerpt_separator:    '<!-- more -->'
 
 # safe mode must be disabled to use jekyll-assets.
 safe:               false
