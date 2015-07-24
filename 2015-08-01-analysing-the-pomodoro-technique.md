@@ -165,8 +165,8 @@ Going back on my experience, it's clear that I was relying too much on the
 application, hoping for it to provide me with everything I need to properly use
 the Pomodoro Technique, and rejecting the fault on the application when failing.
 
-So what about today ? Well, I'm compromising. First, I found a very good
-pomodoro application called [PomoTodo](https://pomotodo.com/app/). 
+So what about today ? Well, I'm compromising. So far I've been trying different
+applications and [PomoTodo](https://pomotodo.com/app/) is my favorite one.
 
 ![PomoTodo](/images/pomodoro/pomotodo.png).
 
@@ -191,7 +191,7 @@ elements that make other timer applications popular like
 this is a personal opinion, the technique never mentions gamification.
 
 
-Secondly, since PomoTodo cannot offer everything needed to optimally use the
+Since PomoTodo cannot offer everything needed to optimally use the
 Technique, I also went back to using paper and pencil. Althought it's
 cumbersome, the combination of both is working quite well for me so far.
 
