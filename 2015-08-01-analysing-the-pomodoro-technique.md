@@ -94,8 +94,20 @@ The **Activity Inventory Sheet** is similary a 3-columns table:
   Unplanned activities written during the day, using the letter U.
 * The second column contains a number of lines where activities are noted down
   as they come up. At the end of the day, completed activities are checked off.
-* A **Records Sheet** (recording, processnig, visualizing): set of raw data
-  needed to produce pertinent reports and graphics. Includes date, description,
+* The third column contains the estimated number of pomodoros for that task,
+  evaluated in the morning
+
+The **Records Sheet** is used for recording, processing, and visualizing. It's a 
+set of raw data needed to produce pertinent reports and graphics. It's a table
+that can have up to 7 columns:
+
+* Date of completion (retrieved from todo today sheet, or by mentally remembering
+  and reconstructing the start times for activities, which is a beneficial
+  mental exercise).
+
+ WIP
+
+Includes date, description,
   number of pomodoros worth of effort needed to accomplish a task. Updated once
   a day in the evening.
 
