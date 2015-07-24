@@ -4,9 +4,9 @@ info:
   url:         https://adrien.is
 
   # Blog Information
-  title:        'Adrien Lemaire blogs'
-  author:         'Adrien Lemaire'
-  subtitle:     'about Productivity, Efficiency and Education'
+  author:       'Adrien Lemaire'
+  title:        'Adrien Lemaire'
+  subtitle:     'Product Maker & Life Hacker'
   cover_image:  blog-cover.jpg
   about_image:  blog-cover.jpg
   logo:         logo.png
