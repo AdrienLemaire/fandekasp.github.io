@@ -18,7 +18,10 @@ I've had experience in every aspect of software development, including frontend
 
 ## CV
 
-You can download the [PDF version here]({{ site.url }}/sharing/his-file/CV_Adrien_Lemaire_2015-07.pdf)
+You can download the [PDF version here]({{ site.url }}/sharing/his-file/CV_Adrien_Lemaire_2015-07.pdf).  
+You can also look at [my infography](http://vizualize.me/adrien.lemaire), and a
+longer version of my resume can be read on
+[Linkedin](https://www.linkedin.com/in/adrienlemaire).
 
 
 ## Pictures
