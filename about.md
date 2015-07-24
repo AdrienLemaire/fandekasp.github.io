@@ -7,7 +7,7 @@ permalink: /a-passionate/
 
 {% if site.info.avatar %}
 <div class="centered">
-    <img class="avatar" src="/images/{{ site.info.avatar }}">
+    <img class="avatar" alt="{{ site.info.avatar_alt }}" src="/images/{{ site.info.avatar }}">
 </div>
 {% endif %}
 

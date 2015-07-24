@@ -28,7 +28,7 @@ layout: base
 
     <footer>
       <address>
-        {% if site.info.avatar %}<img src="/images/{{ site.info.avatar }}">{% endif %}
+        {% if site.info.avatar %}<img alt="{{ site.info.avatar_alt }}" src="/images/{{ site.info.avatar }}">{% endif %}
         <p>Written by
         <strong>
           <a rel="author" href="https://twitter.com/{{ site.info.twitter }}" title="{{ site.info.author }}" target="_blank">{{ site.info.author }}</a>

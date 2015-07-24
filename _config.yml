@@ -11,6 +11,7 @@ info:
   about_image:  blog-cover.jpg
   logo:         logo.png
   avatar:       al.jpg
+  avatar_alt:   "black and white photograph of Adrien Lemaire"
   bio:          Full-stack Engineer
   
   # Company information
