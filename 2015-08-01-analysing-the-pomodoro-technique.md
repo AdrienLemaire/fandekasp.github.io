@@ -8,19 +8,11 @@ date:   2015-08-01 00:00:00
 categories: Productivity
 cover_image: pomodoro/cover.jpg
 cover_image_caption: "Pomodoro Kitchen Timer"
-
-author:
-  name: Adrien Lemaire
-  twitter: Fandekasp
-  bio: Full-stack Engineer
-  image: al.jpg
-
 ---
 
 This post is a personal analyze of the **Productivity Methodology** called
 [Pomodoro](http://pomodorotechnique.com/) and applications helping with it.
 
-# What is Pomodoro ?
 
 A Pomodoro is a kitchen timer used to measure 25-minute intervals. The name of
 the Technique comes from the first timer used which was shaped like a tomato
@@ -71,8 +63,9 @@ an **Activity Inventory Sheet**, and a **Records Sheet**.
 ![Tools required for Pomodoro](/images/pomodoro/tools.jpg)
 
 
-
 The **Todo Today Sheet** is a table with 3 columns:
+
+![Pomodoro Todo Today Sheet](/images/pomodoro/todo_today_sheet.png)
 
 * The first is for the date (optional, can be retrieved at the end of the day
   during recording).
@@ -84,44 +77,135 @@ The **Todo Today Sheet** is a table with 3 columns:
   "author", and the "available Pomodoros" number estimated at the beginning of
   the day (usually set to 8).
 
-Things to do during the day are ordered by priority on the sheet, and a section
-"Unplanned & Urgent Activities" is left at the bottom of the sheet, updated
-during the day (and it can modify the day's plan)
+Things to do during the day are ordered by priority on the sheet in the morning,
+and a section "Unplanned & Urgent Activities" is left at the bottom of the sheet,
+updated during the day (and it can modify the day's plan)
 
 The **Activity Inventory Sheet** is similary a 3-columns table:
+
+![Pomodoro Activity Inventory Sheet](/images/pomodoro/activity_inventory_sheet.png)
 
 * The first column is for eventual due dates. It is also used to take note of
   Unplanned activities written during the day, using the letter U.
 * The second column contains a number of lines where activities are noted down
   as they come up. At the end of the day, completed activities are checked off.
 * The third column contains the estimated number of pomodoros for that task,
-  evaluated in the morning
+  evaluated in the morning.
 
-The **Records Sheet** is used for recording, processing, and visualizing. It's a 
-set of raw data needed to produce pertinent reports and graphics. It's a table
-that can have up to 7 columns:
+The **Records Sheet** is used for recording, processing, and visualizing them at
+the end of the end. It's a set of raw data needed to produce pertinent reports
+and graphics. What you track and record depends on what you want to observe.
+For example:
 
-* Date of completion (retrieved from todo today sheet, or by mentally remembering
+![Pomodoro Activity Inventory Sheet](/images/pomodoro/records_sheet.png)
+
+* Date of completion (today)
+* Start time (retrieved from todo today sheet, or by mentally remembering
   and reconstructing the start times for activities, which is a beneficial
   mental exercise).
+* Type of Activity
+* Description of Activity
+* Estimate (estimated number of pomodoros)
+* Real (real effort in pomodoros)
+* Diff 1 (difference between the estimated effort and real effort)
+* Diff 2 (difference between the first estimated effort and real effort)
 
- WIP
-
-Includes date, description,
-  number of pomodoros worth of effort needed to accomplish a task. Updated once
-  a day in the evening.
 
 The benefits of this method are multiple:
 
-* Learning time, having a different experience of time.
-* Be more organized, prepare tasks and putting priorities
+* Learning time, having a different experience of time. It takes no time to
+  apply the pomodoro technique. But mastering it takes from 7 to 20 days of
+  constant application. The first few days, one feels a sharper focus and
+  increased concentration, the first 25 minutes seem slowlier. After a few days,
+  the users can feel the mid-way point of 25 minutes, and soon users say they
+  can feel when 5 minutes are left (feeling some sense of fatigue in those last
+  minutes).
+* Be more organized, prepare tasks and putting priorities. Althought I used to
+  always note tasks somewhere and regularly looking through them to decide what
+  to do next, I found that taking some time in the morning to dress a prioritized
+  list is very useful (you won't need to think about what to do next during the
+  day, you can see the end of your work/study iteration, and you can better
+  appreciate the progress done).
 * Be more aware, notice when you are getting distracted and strive to eliminate
-  distractions.
+  distractions. I've got this bad habit of always checking my emails as soon as
+  they arrived. I thought it was great that I always had 0 unread emails in my
+  inbox, but in reality, this small distraction only temporarily relieved me
+  from the current activity/pain, and it made me loose focus, requiring much
+  more time to get back into the rhythm.
 * Be more analytic, learn from your way of working, find your weaknesses and set
-  new objectives to improve those.
+  new objectives to improve those. As a very busy person full of hobbies and
+  things I want to do, time is an extremely precious commodity to me. Being able
+  to find ways to work faster, more efficiently, really enabled me to liberate a
+  few more pomodoros and handle new types of activities (making me more busy in
+  the end, but with an awesome feeling of completion and satisfaction).
 
 
-# Pomodoro apps: pros and cons
+I've had a hate and love experience with Pomodoro. Many times, I built some
+motivations, found what seemed like a good application, then gave up after a few
+days. This is due to several reasons:
+
+* The application I tried at that time was no good.
+* The application was good as a Timer, but not enabling me to properly use the
+  method.
+* I didn't study the method properly.
+* I studied the method but didn't do all the steps seriously (skipping on
+  Recording, Processing and Visualizing).
+* I didn't want to use paper because I thought it was too troublesome and not
+  efficient enough.
+
+Going back on my experience, it's clear that I was relying too much on the
+application, hoping for it to provide me with everything I need to properly use
+the Pomodoro Technique, and rejecting the fault on the application when failing.
+
+So what about today ? Well, I'm compromising. First, I found a very good
+pomodoro application called [PomoTodo](https://pomotodo.com/app/). 
+
+![PomoTodo](/images/pomodoro/pomotodo.png).
+
+It's  multi-platform and multi-device, and I switch regularly between the mobile
+and the web applications. The UI is clean and clutterless. It's rich in
+features, and offers very interesting statistics. Really, compared to the dozen
+of applications I tried before, it is a serious level above all of them.
+
+Yet, this is not enough for a serious Pomodoro user. It doesn't provide
+guidance/suggestions on when to do what phase, so you have to study the method
+properly and know your stuff while using the application. It's just an
+additional tool, not the whole user experience package. It doesn't make a
+separation between **Todo Today** and **Activity** list (a choice they made when
+deciding to mix both Pomdoro and
+[GTD](https://en.wikipedia.org/wiki/Getting_Things_Done) methods). It doesn't
+enable the user to track internal and external interruptions, which is a major
+part of the technique in order to learn from it and improve. It has a feature for
+estimating the pomodoro count, but it's hidden (you need to first create the
+task, then edit it to see this field).
+
+
+* Missing features to track internal and external distractions
+* No gamification, important motivator although not recommended by the method
+* Lack of estimation feature, very important part of the method (how many
+  pomodoros should be assigned to a task ?)
+* Lack of Daily available pomodoros (usually one will plan for 8 pomodoros). It
+  does offer a "Expected pomo count" field, but it's a hidden feature, and the
+  user should be prompted for that information at the beginning of the day.
+* Doesn't incite to prioritize tasks: tasks can be reordered, but the method
+  strongly recommends to order them at the beginning of the day, and keep
+  working on 1 tasks at the time until it's done)
+
+ 
+Pomotodo is most probably the best Pomodoro application out there today. But its
+attempt to handle both Pomodoro Method and [Get Things Done](http://gettingthingsdone.com/) 
+Method isn't good enough. In the end, the best tool today to properly follow the
+Pomodoro Method is still paper and pencil unfortunately.
+
+
+
+
+
+
+{% comment %}
+# Pomodoro apps
+
+
 
 Pomodoro is always listed in the top Productivity Methodologies. If
 you've been interested by productivity apps before, there's no doubt you've
@@ -287,7 +371,6 @@ efficiency, and overall well-being.
 
 
 
-{% comment %}
 # Reading notes (to remove once the post is written)
 
 Objectives:
