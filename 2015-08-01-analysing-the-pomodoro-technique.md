@@ -240,3 +240,9 @@ mailing list yet, and would like to stay tuned to future posts, [go subscribe
 now](http://eepurl.com/bt8739)!  
 My next analyse will be on the **Getting Things Done** Methodology, yet another
 very popular technique to help people get organized.
+
+
+**Sources**; The Pomodoro Technique v1.3, by Francesco Cirillo,  15 June 2007.
+
+**Thanks**: [Marcel Akiyama](http://mrcl.co/) and [Vincent Prouillet](http://vincent.is/)
+for reviewing the post and helping me improve my writing skills.
