@@ -60,3 +60,33 @@ Collection phase:
 3. You must empty them regularly.
 
 ![GTD Workflow Diagram Processing]({{ site.url }}/images/gtd/diagram_processing.png)
+
+
+**No more "Daily To-Do" Lists:** Time-specific actions, day-specific actions
+and day-specific information are all that goes into a calendar, and nothing
+else. Traditional time-management training always place the "daily to-do list"
+as key, but such lists don't work:
+* constant new input and shifting tactical priorities reconfigure daily work so
+  consistently that it's near impossible to nail down to-do items ahead of time.
+* If something in the daily to-do list doesn't absolutely have to get done that
+  day, it will dilute the emphasis in the things that truly do.
+A calendar should be sacred territory: if you write something there, it must get
+done that day or never. Only appointments can be rescheduled.
+
+The **Next actions** list takes any longer-than-two-minutes, nondelegatable
+action. Since this list can easily reach hundreds of items, it makes sense to
+subdivide it into categories.
+
+Personal organization system:
+* "Projects" list
+* Calendar
+* "Next actions" lists
+* "Waiting for" & "Someday/Maybe" list
+
+
+**Weekly review: 10,000 foot level**: Take a look at all your outstanding
+projects and open loops on a weekly basis.
+* Gather and process all your "stuff"
+* Review your system
+* Update your lists
+* Get clean, clear, current, and complete
