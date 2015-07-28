@@ -80,3 +80,4 @@ permalink: /:title
 
 gems:
   - jekyll-sitemap
+  - breakpoint
