@@ -1,13 +1,14 @@
 ---
 layout: post
 
-title:  "Analysing the Pomodoro Technique"
-subtitle: "Personal analyse of the technique and thoughts for a better application"
+title:  "Analyzing the Pomodoro Technique"
+subtitle: "Personal analyze of the technique and thoughts for a better application"
 
 date:   2015-08-01 00:00:00
 categories: Productivity
 cover_image: pomodoro/cover.jpg
 cover_image_caption: "Pomodoro Kitchen Timer"
+news_keywords: "Pomodoro, Productivity, Methodology, Technique, Timer, Analyze, Todo list"
 ---
 
 This post is a personal analyze of the **Productivity Methodology** called
@@ -238,7 +239,7 @@ you with becoming more productive ?
 I hope you like this first article of mine! If you haven't registered to my
 mailing list yet, and would like to stay tuned to future posts, [go subscribe
 now](http://eepurl.com/bt8739)!  
-My next analyse will be on the **Getting Things Done** Methodology, yet another
+My next analyze will be on the **Getting Things Done** Methodology, yet another
 very popular technique to help people get organized.
 
 
