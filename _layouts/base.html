@@ -11,9 +11,9 @@
       <a class="brand" href="/">
         <img src="{{ site.url }}/images/{{ site.info.logo }}" alt="Inc">
       </a>
-      <a href="/">Blog</a>
-      <a href="/a-passionate/">About</a>
-      <a href="/involved-in/">Projects</a>
+      <a id="home-header" href="/">Blog</a>
+      <a id="about-header" href="/a-passionate/">About</a>
+      <a id="projects-header" href="/involved-in/">Projects</a>
     </nav>
   </header>
 
@@ -24,15 +24,15 @@
       &copy; {{ site.time | date: "%Y" }} {{ site.info.author }}
         
       <nav>
-        <a href="/">Blog</a> &middot;
-        <a href="/a-passionate/">About</a>
-        <a href="/involved-in/">Projects</a>
+        <a id="home-footer" href="/">Blog</a> &middot;
+        <a id="about-footer" href="/a-passionate/">About</a>
+        <a id="projects-footer" href="/involved-in/">Projects</a>
       </nav>
         
       <nav class="social">
         {% include social_links.html %}
       </nav>
-      <div>Based on Incorporated theme by <a href="https://sendtoinc.com">Inc</a></div>
+      <div>Based on Incorporated theme by <a id="theme-ref" href="https://sendtoinc.com">Inc</a></div>
     </div>
   </footer>
 
