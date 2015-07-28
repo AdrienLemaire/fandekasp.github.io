@@ -46,6 +46,7 @@ info:
   google_font: 'Droid+Sans:400,700'
 
   google_site_verification: 'google9960cac966e28c0a.html'
+  google-analytics-id:      'UA-65364287-1'
   
   # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 

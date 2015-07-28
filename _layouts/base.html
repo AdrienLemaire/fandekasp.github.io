@@ -1,48 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="{{ site.info.google_site_verification }}" />
   <title>{% if page.title %}{{ page.title }} &mdash; {{ site.info.title }}{% else %}{{ site.info.title }} &mdash; {{ site.info.subtitle }}{% endif %}</title>
-  <!--[if lt IE 9]><script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js'></script><![endif]-->
-  {% if site.info.google_font %}<link href="https://fonts.googleapis.com/css?family={{ site.info.google_font }}" rel="stylesheet" type="text/css">{% endif %}
-  {% stylesheet app %}
-  {% include scripts.html %}
-  <link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon" />
-  <link rel="alternate" type="application/atom+xml" title="{{ site.info.title }}" href="/atom.xml" />
-  <link rel="alternate" hreflang="en" href="https://adrien.is/" />
-  <meta name="title" content="{% if page.title %}{{ page.title }} {% else %}{{ site.info.title }}{% endif %}">
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  {% if site.info.gplus %}
-  <link rel="publisher" href="https://plus.google.com/+{{ site.info.gplus }}/">
-  <link rel="author" href="https://plus.google.com/+{{ site.info.gplus }}/">
-  {% endif %}
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.info.title }}{% endif %}"/>
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
-  {% if page.cover_image %}<meta property="og:image" content="{{ site.url }}/images/{{ page.cover_image }}"/>{% endif %}
-  {% if page.description %}
-  <meta property="og:description" content="{{ page.description }}"/>
-  <meta name="description" content="{{ page.description }}"/>
-  {% else %}
-  <meta property="og:description" content="Author: {{ site.info.author}}, Excerpt: {{ page.excerpt | strip_html }}"/>
-  <meta name="description" content="Author: {{ site.info.author}}, Title: {{ site.info.subtitle}} - {{ page.title }}, Excerpt:  {{ page.excerpt | strip_html }}"/>
-  {% endif %}
-  <meta name="keywords" content="{{ site.info.title  }}, {{ site.info.subtitle }}, {{ site.info.bio }}, {{ site.info.keywords }}" />
-  <meta name="news_keywords" content="{% if page.news_keywords %}{{ page.news_keywords }} {% else %}{{ site.info.title }}, {{ site.info.keywords }}{% endif %}">
-  <meta property="og:site_name" content="{{ site.info.title }}">     
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@{{ site.info.twitter }}" />
-  <meta name="twitter:title" content="{{ page.title }}: {{ page.subtitle }}" />
-  <meta name="twitter:description" content="{{ page.excerpt | strip_html }}" />
-  <meta name="twitter:image" content="{{ page.cover_image }}" />
+  {% include meta.html %}
 </head>
 <body>
     
   <header class="site-header">
     <nav>
       <a class="brand" href="/">
-        <img src="/images/{{ site.info.logo }}" alt="Inc">
+        <img src="{{ site.url }}/images/{{ site.info.logo }}" alt="Inc">
       </a>
       <a href="/">Blog</a>
       <a href="/a-passionate/">About</a>
@@ -69,28 +36,6 @@
     </div>
   </footer>
 
-  <script type="application/ld+json">
-  {
-    "@context" : "http://schema.org",
-    "@type" : "Person",
-    "name" : "{{ site.info.author }}",
-    "url" : "{{ site.url }}",
-    "sameAs" : [
-      "https://www.facebook.com/{{ site.info.facebook }}",
-      "https://www.linkedin.com/in/{{ site.info.linkedin }}",
-      "https://plus.google.com/+{{ site.info.gplus }}",
-      "https://github.com/{{ site.info.github }}"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context" : "http://schema.org",
-    "@type" : "WebSite",
-    "name" : "{{ site.info.title }}",
-    "alternateName" : "{{ site.info.author }}'s Personal Website",
-    "url" : "{{ site.url }}"
-  }
-  </script> 
+  {% include scripts.html %}
 </body>
 </html>
