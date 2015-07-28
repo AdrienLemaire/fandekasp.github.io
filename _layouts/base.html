@@ -82,6 +82,15 @@
       "https://github.com/{{ site.info.github }}"
     ]
   }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "WebSite",
+    "name" : "{{ site.info.title }}",
+    "alternateName" : "{{ site.info.author }}'s Personal Website",
+    "url" : "{{ site.url }}"
+  }
   </script> 
 </body>
 </html>
