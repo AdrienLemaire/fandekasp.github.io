@@ -21,12 +21,19 @@
   {% if page.cover_image %}<meta property="og:image" content="{{ site.url }}/images/{{ page.cover_image }}"/>{% endif %}
   {% if page.excerpt %}
   <meta property="og:description" content="{{ page.excerpt | strip_html }}"/>
-  <meta name="description" content="{{ page.excerpt | strip_html }}"/>
+  <meta name="description" content="{{ site.info.title}} {{ site.info.subtitle}} - {{ page.title }}: {{ page.excerpt | strip_html }}"/>
   {% else %}
   <meta property="og:description" content="{{ site.info.title}} {{ site.info.subtitle}}: {{ page.title }}"/>
   <meta name="description" content="{{ site.info.title}} {{ site.info.subtitle}}: {{ page.title }}"/>
   {% endif %}
+  <meta name="keywords" content="{{ site.info.title  }}, {{ site.info.subtitle }}, {{ site.info.bio }}, {{ site.info.keywords }}" />
+  <meta name="news_keywords" content="{% if page.news_keywords %}{{ page.news_keywords }} {% else %}{{ site.info.title }}, {{ site.info.keywords }}{% endif %}">
   <meta property="og:site_name" content="{{ site.info.title }}">     
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@fandekasp" />
+  <meta name="twitter:title" content="{{ page.title }}: {{ page.subtitle }}" />
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html }}" />
+  <meta name="twitter:image" content="{{ page.cover_image }}" />
 </head>
 <body>
     

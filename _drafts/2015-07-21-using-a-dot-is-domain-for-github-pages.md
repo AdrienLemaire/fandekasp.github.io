@@ -8,6 +8,7 @@ date:   2015-07-21 19:00:00
 categories: Tech
 cover_image: isnic/github-pages-cloudflare-isnic.png
 cover_image_caption: "Add a .is domain to Github pages"
+news_keywords: "github, cloudflare, isnic, domain, name, is, website, hosting, cname"
 
 description: "Github Cloudflare Isnic"
 ---
