@@ -32,7 +32,7 @@
   <meta name="news_keywords" content="{% if page.news_keywords %}{{ page.news_keywords }} {% else %}{{ site.info.title }}, {{ site.info.keywords }}{% endif %}">
   <meta property="og:site_name" content="{{ site.info.title }}">     
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@fandekasp" />
+  <meta name="twitter:site" content="@{{ site.info.twitter }}" />
   <meta name="twitter:title" content="{{ page.title }}: {{ page.subtitle }}" />
   <meta name="twitter:description" content="{{ page.excerpt | strip_html }}" />
   <meta name="twitter:image" content="{{ page.cover_image }}" />
@@ -69,5 +69,19 @@
     </div>
   </footer>
 
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Person",
+    "name" : "{{ site.info.author }}",
+    "url" : "{{ site.url }}",
+    "sameAs" : [
+      "https://www.facebook.com/{{ site.info.facebook }}",
+      "https://www.linkedin.com/in/{{ site.info.linkedin }}",
+      "https://plus.google.com/+{{ site.info.gplus }}",
+      "https://github.com/{{ site.info.github }}"
+    ]
+  }
+  </script> 
 </body>
 </html>
