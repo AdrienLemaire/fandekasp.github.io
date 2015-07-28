@@ -9,6 +9,17 @@ categories: Productivity
 cover_image: pomodoro/cover.jpg
 cover_image_caption: "Pomodoro Kitchen Timer"
 news_keywords: "Pomodoro, Productivity, Methodology, Technique, Timer, Analyze, Todo list"
+post_images: [
+    "pomodoro/tools.jpg",
+    "pomodoro/todo_today_sheet.png",
+    "pomodoro/activity_inventory_sheet.png",
+    "pomodoro/records_sheet.png",
+    "pomodoro/pomotodo.png)"
+]
+
+description: "What is the Pomodoro Technique?
+How can we use it everyday to improve our productivity ?
+Let's have a deeper look into it."
 ---
 
 This post is a personal analyze of the **Productivity Methodology** called
@@ -71,7 +82,6 @@ an **Activity Inventory Sheet**, and a **Records Sheet**.
 
 
 The **Todo Today Sheet** is a table with 3 columns:
-
 ![Pomodoro Todo Today Sheet](/images/pomodoro/todo_today_sheet.png)
 
 * The first is for the date (optional, can be retrieved at the end of the day
