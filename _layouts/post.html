@@ -32,7 +32,7 @@ layout: base
         <p>Written by
         <strong>
           <a rel="author" href="https://twitter.com/{{ site.info.twitter }}" title="{{ site.info.author }}" target="_blank">{{ site.info.author }}</a>
-       l</strong><br>
+        </strong><br>
           <span class="muted">{{ site.info.bio }}</span>
         </p>
       </address>
@@ -60,3 +60,20 @@ layout: base
     </footer>
   </div>
 </article>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "alternativeHeadline": "{{ page.subtitle }}",
+  "image": [
+    {% for image in page.post_images %}
+    "{{ site.url }}/images/{{ image }}",
+    {% endfor %}
+    "{{ site.url }}/images/{{ page.cover_image }}"
+  ],
+  "datePublished": "{{ page.date }}",
+  "description": "{{ page.description }}",
+  "articleBody": "{{ content | strip_html }}"
+}
+</script>
