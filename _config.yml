@@ -7,8 +7,8 @@ info:
   author:       'Adrien Lemaire'
   title:        'Adrien Lemaire'
   subtitle:     'Product Maker & Life Hacker'
-  cover_image:  blog-cover.jpg
-  about_image:  blog-cover.jpg
+  cover_image:  personal/blog-cover.jpg
+  about_image:  personal/blog-cover.jpg
   logo:         logo.png
   avatar:       al.jpg
   avatar_alt:   'black and white photograph of Adrien Lemaire'
