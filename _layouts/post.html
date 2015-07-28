@@ -72,7 +72,7 @@ layout: base
     {% endfor %}
     "{{ site.url }}/images/{{ page.cover_image }}"
   ],
-  "datePublished": "{{ page.date }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
   "description": "{{ page.description }}",
   "articleBody": "{{ content | strip_html }}"
 }
