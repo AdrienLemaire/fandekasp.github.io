@@ -54,3 +54,23 @@ $border_color: #DDD;
   font-size: $size;
   font-size: calculateRem($size);
 }
+
+@mixin background-image-svg($img-name, $png-directory: "png-fallback/") {
+  background-image: image-url($img-name + ".svg");
+  // This function will add the image to the list of images to preload.
+  // The function is defined below.
+  $tmp: preload-image($img-name + ".svg");
+  // no-svg is defined by Modernizr
+  .no-svg & { background-image: image-url($png-directory + $img-name + ".png"); }
+}
+
+$preloaded-images: null;
+@function preload-image($image-url) {
+  $preloaded-images: $preloaded-images url($image-url);
+  @return $preloaded-images;
+}
+
+/*body:before {                                                                                           */
+  /*display: none;                                                                                        */
+  /*content: $preloaded-images;                                                                           */
+/*}*/

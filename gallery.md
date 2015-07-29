@@ -5,7 +5,8 @@ permalink: /showing-pictures/
 
 ---
 
-{% directory path: images/personal exclude: private %}
+{% comment %}
+{% directory path: images/personal exclude:svg private %}
 {% if forloop.first %}
 <div class="image-gallery-container gallery-{{ forloop.length }}-up">
 {% endif %}
@@ -18,13 +19,15 @@ permalink: /showing-pictures/
 </div>
 {% endif %}
 {% enddirectory %}
-
-{% comment %}
-        <div class="image image-1-of-7"><!-- image here --></div>
-    <div class="image image-2-of-7"><!-- image here --></div>
-        <div class="image image-3-of-7"><!-- image here --></div>
-        <div class="image image-4-of-7"><!-- image here --></div>
-        <div class="image image-5-of-7"><!-- image here --></div>
-        <div class="image image-6-of-7"><!-- image here --></div>
-        <div class="image image-7-of-7"><!-- image here --></div>
 {% endcomment %}
+
+<div class="image-gallery-container gallery-{{ site.data.gallery | size }}-up">
+  {% for image in site.data.gallery %}
+  <div class="image image-{{ forloop.index }}-of-{{ forloop.length }}">
+    <img src="{{ site.url }}/images/personal/{{ image.filename }}"
+         alt="{{ image.alt }}"
+         datetime="{{ image.date | date_to_xmlschema }}" />
+  </div>
+  {% endfor %}
+</div>
+
