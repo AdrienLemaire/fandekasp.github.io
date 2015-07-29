@@ -5,7 +5,7 @@ layout: base
 <div class="article-cover" style="background-image:url(/images/{{ page.cover_image }})"></div>
 {% endif %}
 {% if page.cover_image_caption %}
-<div class='cover-caption'><a href='/about/#pictures'>{{ page.cover_image_caption }}</a></div>
+<div class='cover-caption'><a href='{{ site.url }}/{{ site.about }}/#pictures'>{{ page.cover_image_caption }}</a></div>
 {% endif %}
 
 <article {% if page.container_class %}class='{{ page.container_class }}'{% endif %}>

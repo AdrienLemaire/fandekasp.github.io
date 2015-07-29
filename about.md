@@ -2,7 +2,6 @@
 layout: page
 title: About
 permalink: /a-passionate/
-
 ---
 
 {% if site.info.avatar %}
@@ -25,7 +24,7 @@ longer version of my resume can be read on
 
 
 ## Pictures
-The pictures in this blog are scenes from my neighborhood, city, and
+The [pictures in this blog]({{ site.url }}/showing-pictures/) are scenes from my neighborhood, city, and
 surrounding.
 
 

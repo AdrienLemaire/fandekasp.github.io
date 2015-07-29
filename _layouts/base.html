@@ -11,9 +11,9 @@
       <a class="brand" href="/">
         <img src="{{ site.url }}/images/{{ site.info.logo }}" alt="Inc">
       </a>
-      <a id="home-header" href="/">Blog</a>
-      <a id="about-header" href="/a-passionate/">About</a>
-      <a id="projects-header" href="/involved-in/">Projects</a>
+      <a id="home-header" href="{{ site.url }}">Blog</a>
+      <a id="about-header" href="{{ site.url }}/{{ site.about }}/">About</a>
+      <a id="projects-header" href="{{ site.url }}/involved-in/">Projects</a>
     </nav>
   </header>
 
@@ -24,9 +24,9 @@
       &copy; {{ site.time | date: "%Y" }} {{ site.info.author }}
         
       <nav>
-        <a id="home-footer" href="/">Blog</a> &middot;
-        <a id="about-footer" href="/a-passionate/">About</a>
-        <a id="projects-footer" href="/involved-in/">Projects</a>
+        <a id="home-footer" href="{{ site.url }}">Blog</a> &middot;
+        <a id="about-footer" href="{{ site.url }}/{{ site.about }}/">About</a>
+        <a id="projects-footer" href="{{ site.url }}/involved-in/">Projects</a>
       </nav>
         
       <nav class="social">

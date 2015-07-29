@@ -8,15 +8,42 @@ $quater : 25%;
 $sixth : 16.6666%;
 
 // gallery breakpoints
-$gallery-breakpoint-small:  em(0);
-$gallery-breakpoint-medium: em(640);
-$gallery-breakpoint-large:  em(1200);
+$gallery-breakpoint-small:  0px;
+$gallery-breakpoint-medium: 640px;
+$gallery-breakpoint-large:  1200px;
 
 // mixin for a quick responsive gallery grid
 @mixin gallery_grid($s:100%,$m:100%,$l:100%) {
-  @media (min-width: $gallery-breakpoint-small) {  width:$s; }
-  @media (min-width: $gallery-breakpoint-medium) {  width:$m; }
-  @media (min-width: $gallery-breakpoint-large) { width:$l; }
+  @media (min-width: $gallery-breakpoint-small) {
+    width:$s; 
+    img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+    }
+  }
+  @media (min-width: $gallery-breakpoint-medium) {
+    width:$m; 
+    img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+    }
+  }
+  @media (min-width: $gallery-breakpoint-large) {
+    width:$l; 
+    img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        background-size: cover;
+        background-clip: border-box
+    }
+  }
+
   box-sizing: border-box;
   float:left;
   display: inline-block;
@@ -24,12 +51,20 @@ $gallery-breakpoint-large:  em(1200);
 
 .image-gallery-container {
     @extend %clearfix;
-    background: #07080e;
+    max-width: 100%;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
 // set defaults
-.image  {
+.image {
     @include gallery_grid($half,$third,$third);
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 // gallery styles based on count
@@ -37,7 +72,7 @@ $gallery-breakpoint-large:  em(1200);
     @include breakpoint(from-large) {
         padding:0 25%;
     }
-    .image  {
+    .image {
         @include gallery_grid($whole,$whole,$whole);
     }
 }
