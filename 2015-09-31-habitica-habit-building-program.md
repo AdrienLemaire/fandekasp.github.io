@@ -1,8 +1,8 @@
 ---
 layout: post
 
-title:  "Habitica"
-subtitle: "Role Playing game and Habit building program"
+title:  "HabitRPG is dead, Long life to Habitica"
+subtitle: "A Role Playing game and Habit building program."
 
 date:   2015-07-31 22:00:00
 categories: Productivity
@@ -27,12 +27,11 @@ applications, and a few tips"
 `Well... I'm already using Habitica, so...`<br />
 Wait! I've got a gift for you :smile: Go directly to [the tips](#tips).
 
-# What is it ?
+# The minimalist guide to Habitica
 
 [Habitica](https://habitica.com) is a todo-list
 application inspired from the [Get Things Done](http://gettingthingsdone.com/)
 productivity methodology.
-
 
 You basically have 4 columns:
 
@@ -45,8 +44,9 @@ It's simple to use, accepts the [Markdown](http://daringfireball.net/projects/ma
 markup language and [Emoji](http://emoji-cheat-sheet.com/) emoticons.
 
 
-The strenght of Habitica is not really its todo-list features, but the game
-that wraps it and the community that gives it life.
+Although its todo-list features have increased a lot over the time, I believe the
+strenght of Habitica, but the game that wraps it and the community that gives
+it life.
 
 As a fact, I've tried many todo-list tools before Habitica, and always gave
 up on them (not enough features, not intuitive, or simply because I couldn't
@@ -106,7 +106,7 @@ multiples aspects:
   ![Achievement badges](/images/habitica/badges.png)
 
 
-# Personal experience
+# An excerpt of my Personal experience
 
 What hooked me up the most are the facts that Habitica is Open Source and
 strongly motivates you to contribute, as well as the community.
@@ -134,7 +134,7 @@ Once I've contributed to the project, of course it made me want to use it more,
 and I've borne the eventual bugs, finding new ways to handle my tasks the way I
 wanted.
 
-# Project source and organization
+# The behind-the-scenes of Habitica
 
 The code source for the web version is build on top of
 [AngularJS](https://angularjs.org/). Mobile versions were initially built by
