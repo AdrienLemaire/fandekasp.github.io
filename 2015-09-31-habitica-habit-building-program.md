@@ -179,9 +179,9 @@ To accelerate that process, use this code:
 
 {% gist 9bc9223f1c904340d31d %}
 
-Right-Click on the skill you want to cast, click on "Inspect element". This will
+*Right-Click on the skill you want to cast, click on "Inspect element". This will
 open the browser's debugger. Go to the tab "Console", paste the code
-there and press enter.
+there and press enter.*
 
 
 The second hack is called **Auto-feed pets**. If you only feed your pets once a
@@ -191,7 +191,15 @@ seconds with this code:
 
 {% gist d130eda27aa45238ebee %}
 
-Go to your pets page, open your browser debugger (ctrl-shift-I on Chrome), go to
+*Go to your pets page, open your browser debugger (ctrl-shift-I on Chrome), go to
 the Console, paste the previous code there and press enter. Click on a
 food, then click on all pets you'd like to feed with that food until it runs
-out.
+out.*
+
+
+
+Did you find this article interesting ? If you haven't heard of Habitica before,
+does it make you want to give it a try ? Otherwise if you're already a user, did
+you find the tips useful ?
+I will blog regularly about Productivity applications and methodologies, so if
+you'd like to stay tuned, [please subscribe here](http://eepurl.com/bt8739).
