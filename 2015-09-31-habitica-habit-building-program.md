@@ -37,42 +37,42 @@ You basically have 4 columns:
 
 * **Habits**: for activities that could be repeated several times a day.
 * **Dailies**: for recurring activities.
-* **Todo**: One-time tasks.
-* **Rewards**: Things you can do for fun after working hard on your tasks.
+* **Todo**: for one-time tasks.
+* **Rewards**: for leisure activities available after working hard on your tasks.
 
-It's simple to use, accepts the [Markdown](http://daringfireball.net/projects/markdown/) 
+It's  simple to use, accepts the [Markdown](http://daringfireball.net/projects/markdown/) 
 markup language and [Emoji](http://emoji-cheat-sheet.com/) emoticons.
 
 
 Although its todo-list features have increased a lot over the time, I believe the
-strenght of Habitica, but the game that wraps it and the community that gives
-it life.
+strenght of Habitica comes from the game that wraps the tool, and the community
+that gives it life.
 
 As a fact, I've tried many todo-list tools before Habitica, and always gave
-up on them (not enough features, not intuitive, or simply because I couldn't
+up on them (missing features, not intuitive enough, or simply because I couldn't
 build the habit of checking them regularly and forgot them). But when I started
 using Habitica back in its beta days, although it was cribbled with bugs, I
-sticked to it because it was fun and people there very friendly.
-
+sticked to it because I was having fun and had met very friendly people there.
 
 {: .clear}
 ![Habitica Logo](/images/habitica/logo.png "New logo looking like a Gryphon"){: .float_left}
-Formely named **HabitRPG**, the application was renamed **Habitica** on 2015,
-July 31th. The old name was difficult to pronunce and confused by people
+Formely named **HabitRPG**, the application was renamed **Habitica** on July 31th 2015.
+The old name was difficult to pronunce and confused by people
 (HabitRG? HabitGRG?), so they decided to name the application after the land of
 Habitica, where all these adventures take place.
 
 The [Gamification](https://en.wikipedia.org/wiki/Gamification) comes in
 multiples aspects:
 
-* **Health**, **Experience**, **Mana**: Like any RPG, your avatar will
-  evolve as you complete tasks, and might die if you're slacking off.
+* **Health**, **Experience**, **Mana**: Like any [RPG
+  game](https://en.wikipedia.org/wiki/Role-playing_game), your avatar will
+  evolve as you complete tasks, and will die if you're slacking off.
 
   {: .centered}
   ![Health, XP and Mana bars](/images/habitica/health_xp_mana.png)
 * **Attribute points and Class System**: Do you want to complete quests faster,
   get more gold, avoid dying? Smartly distribute your points in [Strenght,
-  Intelligence, Constitution and Perception](http://habitica.wikia.com/wiki/Character_Attributes)
+  Intelligence, Constitution and Perception](http://habitica.wikia.com/wiki/Character_Attributes),
   and select the most appropriate class for your avatar
   ([Warrior](http://habitica.wikia.com/wiki/Character_Attributes),
   [Mage](http://habitica.wikia.com/wiki/Mage),
@@ -118,8 +118,9 @@ I had the chance to join a really great party named
 countless quests, looking for holes in the game to break it, and always keeping
 a good spirit in the group. Habitica is a community building application, which
 makes it invaluable: Even if there are better applications out there, it will be
-hard to convince Habitica users to get out of it, since they would that
-community.
+hard to convince Habitica users to get out of it, since they would lose that
+community. Something I've been pondering a lot as I'm looking into building new
+productivity applications in the future.
 
 <!-- Talk about contributions -->
 
@@ -136,20 +137,19 @@ wanted.
 
 # The behind-the-scenes of Habitica
 
-The code source for the web version is build on top of
-[AngularJS](https://angularjs.org/). Mobile versions were initially built by
+The code source for the web version is built on top of
+[AngularJS](https://angularjs.org/). Mobile versions were initially made by
 contributors, then [an official one](https://github.com/HabitRPG/habitrpg-mobile)
-was  built with AngularJS and [PhoneGap](http://phonegap.com/). Up to today,
-I have to say this application is gave me lot of troubles, especially its
-slowliness (the flip side of using multi-platform frameworks). But the good news
-have arrived: the native [iOS application](https://itunes.apple.com/us/app/habitica/id994882113?mt=89)
+came out from AngularJS and [PhoneGap](http://phonegap.com/). Up to today,
+I have to say this application have gave me lot of troubles, especially its
+slowliness (the flip side of using multi-platform frameworks). But there are
+good news: the native [iOS application](https://itunes.apple.com/us/app/habitica/id994882113?mt=89)
 is now available, and the android one is on its way (last announce on July 22th).
 
-I'll definitely have a look at the Android app and do some minor contribution
-when I'll have time, this will be a good use-case for the [UX Design for Mobile
+I'll definitely have a look at the Android app and do some minor contributions
+when I'll find time, this will be a good use-case for the [UX Design for Mobile
 Developers](https://www.udacity.com/course/viewer#!/c-ud849/l-1646378760/e-1648148840/m-1679598652)
-[MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course) that I've
-started :smile:. 
+[MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course) course :smile:. 
 
 For the other tools that the team use in its development workflow:
 
@@ -157,11 +157,10 @@ For the other tools that the team use in its development workflow:
   also used for bug report and pull requests.
 * The projects managements are done [on Trello](https://trello.com/habitica),
   also used for feature requests.
-* All documentations are updated [in Wikia](http://habitica.wikia.com/wiki/Habitica_Wiki)
-* Habitica has a blog [hosted on Tumbler](http://blog.habitrpg.com/)
+* All documentations are updated [in Wikia](http://habitica.wikia.com/wiki/Habitica_Wiki).
+* Habitica has a blog [hosted on Tumbler](http://blog.habitrpg.com/).
 * The project was boosted with a [Kickstarter campaign](http://habitica.wikia.com/wiki/Kickstarter)
-  funded by 2800+ people, and is now self-financed with subscriptions and gems
-  reselling.
+  funded by 2800+ people, and is now self-supported from selling ubscriptions and gems.
 
 I find such organization beautiful. They managed to keep their tools list to a
 minimum, and simplify everything to help contributors getting onboard.
