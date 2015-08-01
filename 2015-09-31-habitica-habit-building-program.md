@@ -50,12 +50,13 @@ using Habitica back in its beta days, although it was cribbled with bugs, I
 sticked to it because it was fun and people there very friendly.
 
 
+<img class='float_left' src='/images/habitica/logo.png' alt='Habitica Logo' />
+
 Formely named **HabitRPG**, the application was renamed **Habitica** on 2015,
 July 31th. The old name was difficult to pronunce and confused by people
 (HabitRG? HabitGRG?), so they decided to name the application after the land of
 Habitica, where all these adventures take place.
 
-![Habitica Logo](/images/habitica/logo.png)
 
 The [Gamification](https://en.wikipedia.org/wiki/Gamification) comes in
 multiples aspects:
