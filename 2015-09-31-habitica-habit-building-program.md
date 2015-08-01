@@ -50,19 +50,20 @@ using Habitica back in its beta days, although it was cribbled with bugs, I
 sticked to it because it was fun and people there very friendly.
 
 
-<img class='float_left' src='/images/habitica/logo.png' alt='Habitica Logo' />
-
+{: .clear}
+![Habitica Logo](/images/habitica/logo.png "New logo looking like a Gryphon"){: .float_left}
 Formely named **HabitRPG**, the application was renamed **Habitica** on 2015,
 July 31th. The old name was difficult to pronunce and confused by people
 (HabitRG? HabitGRG?), so they decided to name the application after the land of
 Habitica, where all these adventures take place.
-
 
 The [Gamification](https://en.wikipedia.org/wiki/Gamification) comes in
 multiples aspects:
 
 * **Health**, **Experience**, **Mana**: Like any RPG, your avatar will
   evolve as you complete tasks, and might die if you're slacking off.
+
+  {: .centered}
   ![Health, XP and Mana bars](/images/habitica/health_xp_mana.png)
 * **Attribute points and Class System**: Do you want to complete quests faster,
   get more gold, avoid dying? Smartly distribute your points in [Strenght,
@@ -72,9 +73,13 @@ multiples aspects:
   [Mage](http://habitica.wikia.com/wiki/Mage),
   [Rogue](http://habitica.wikia.com/wiki/Rogue) or 
   [Healer](http://habitica.wikia.com/wiki/Healer))
+
+  {: .centered }
   ![Classes system: Warrior, Mage, Rogue and Healer](/images/habitica/classes.png)
 * **Gold**, **Food**, **Eggs**, **Potions**: As you complete your tasks, items
   will drop.
+ 
+  {: .centered }
   ![items](/images/habitica/items.png)
 * **Pets**, **Mounts**, **Equipment**, **Background**: Hatch eggs into pets,
   feed pets into mounts, buy equipments, and enjoy customizing your avatar in
@@ -82,6 +87,8 @@ multiples aspects:
 * **Party**, **Guilds**: You can join groups of people from all over the world,
   doing completely different jobs, and socialize with them, motivate each other
   to become everyday a bit more productive.
+
+  {: .centered}
   ![Party backgrounds](/images/habitica/party.png)
 * **Quests**, **Challenges**: Fight against bosses by completing your tasks,
   together with your team members, or compete against other players for habit
@@ -89,6 +96,8 @@ multiples aspects:
 * **Achievements badges**: You can collect badges by contributing, by killing
   bosses, by getting all pets/mounts/equipments, by interacting with your party,
   and more!
+
+  {: .centered}
   ![Achievement badges](/images/habitica/badges.png)
 
 

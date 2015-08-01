@@ -31,7 +31,6 @@ $border_color: #DDD;
 
 .centered {
     text-align: center;
-    margin-bottom: 2em;
 }
 
 %clearfix {
@@ -78,4 +77,12 @@ $preloaded-images: null;
 .float_left {
     float: left;
     margin-right: 1em;
+    margin-bottom: 1em;
+    max-width: 20%;
+}
+.float_right {
+    float: right;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    max-width: 20%;
 }

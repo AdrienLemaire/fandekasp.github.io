@@ -21,7 +21,7 @@ permalink: /showing-pictures/
 {% enddirectory %}
 {% endcomment %}
 
-<div class="image-gallery-container gallery-{{ site.data.gallery | size }}-up">
+<div class="clearfix gallery-{{ site.data.gallery | size }}-up">
   {% for image in site.data.gallery %}
   <div class="image image-{{ forloop.index }}-of-{{ forloop.length }}">
     <img src="{{ site.url }}/images/personal/{{ image.filename }}"

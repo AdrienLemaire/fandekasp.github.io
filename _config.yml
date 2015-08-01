@@ -83,4 +83,4 @@ gems:
   - jekyll-sitemap
   - breakpoint
 
-markdown: redcarpet
+#markdown: redcarpet
