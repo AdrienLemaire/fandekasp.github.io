@@ -106,6 +106,8 @@ multiples aspects:
 What hooked me up the most are the facts that Habitica is Open Source and
 strongly motivates you to contribute, as well as the community.
 
+{: .clear}
+![Project Mayhem Logo](/images/habitica/pm.png "Using the quest boss Vice"){: .float_left}
 I had the chance to join a really great party named
 [Project Mayhem](https://hrpgprojectmayhem.wordpress.com/), and we went through
 countless quests, looking for holes in the game to break it, and always keeping
