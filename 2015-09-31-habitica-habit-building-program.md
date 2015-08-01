@@ -23,11 +23,15 @@ applications, and a few tips"
 
 ---
 
-<!-- What is Habitica ? Talk about the new name -->
+`I'm already using Habitica, bye`<br />
+Wait! I've got a gift for you :smile: Go directly to [the tips](#tips).
+
+# What is it ?
 
 [Habitica](https://habitica.com) is a todo-list
 application inspired from the [Get Things Done](http://gettingthingsdone.com/)
 productivity methodology.
+
 
 You basically have 4 columns:
 
@@ -132,7 +136,7 @@ NO SURE WHAT TO TALK ABOUT HERE
  -->
 
 
-<!-- Give Tips -->
+# Tips
 
 To finish, I'd like to share a couple top secret advanced tips for you.
 

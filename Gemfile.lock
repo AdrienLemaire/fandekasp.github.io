@@ -164,6 +164,7 @@ DEPENDENCIES
   github-pages
   jekyll
   jekyll-assets
+  jemoji
   rake
   sass
   uglifier

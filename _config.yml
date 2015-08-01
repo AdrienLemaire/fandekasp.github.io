@@ -82,5 +82,6 @@ permalink: /:title
 gems:
   - jekyll-sitemap
   - breakpoint
+  - jemoji
 
 #markdown: redcarpet
