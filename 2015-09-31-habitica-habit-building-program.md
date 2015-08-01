@@ -16,6 +16,7 @@ post_images: [
     "habitica/items.png",
     "habitica/party.png",
     "habitica/badges.png",
+    "habitica/pm.png",
 ]
 
 description: "A brief look into Habitica, one of the best gamified productivity
@@ -23,7 +24,7 @@ applications, and a few tips"
 
 ---
 
-`I'm already using Habitica, bye`<br />
+`Well... I'm already using Habitica, so...`<br />
 Wait! I've got a gift for you :smile: Go directly to [the tips](#tips).
 
 # What is it ?
@@ -105,7 +106,7 @@ multiples aspects:
   ![Achievement badges](/images/habitica/badges.png)
 
 
-<!-- Talk about my experience -->
+# Personal experience
 
 What hooked me up the most are the facts that Habitica is Open Source and
 strongly motivates you to contribute, as well as the community.
@@ -129,12 +130,41 @@ documented by its users, it results in
 [one of the best documentations](http://habitica.wikia.com/wiki/Habitica_Wiki)
 I've ever seen for an application.
 
-<!-- Talk about the project source, organization
+Once I've contributed to the project, of course it made me want to use it more,
+and I've borne the eventual bugs, finding new ways to handle my tasks the way I
+wanted.
 
-The code source is build on top of [AngularJS](https://angularjs.org/).
-NO SURE WHAT TO TALK ABOUT HERE
- -->
+# Project source and organization
 
+The code source for the web version is build on top of
+[AngularJS](https://angularjs.org/). Mobile versions were initially built by
+contributors, then [an official one](https://github.com/HabitRPG/habitrpg-mobile)
+was  built with AngularJS and [PhoneGap](http://phonegap.com/). Up to today,
+I have to say this application is gave me lot of troubles, especially its
+slowliness (the flip side of using multi-platform frameworks). But the good news
+have arrived: the native [iOS application](https://itunes.apple.com/us/app/habitica/id994882113?mt=89)
+is now available, and the android one is on its way (last announce on July 22th).
+
+I'll definitely have a look at the Android app and do some minor contribution
+when I'll have time, this will be a good use-case for the [UX Design for Mobile
+Developers](https://www.udacity.com/course/viewer#!/c-ud849/l-1646378760/e-1648148840/m-1679598652)
+[MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course) that I've
+started :smile:. 
+
+For the other tools that the team use in its development workflow:
+
+* The projects are [hosted on Github](https://github.com/HabitRPG), which is
+  also used for bug report and pull requests.
+* The projects managements are done [on Trello](https://trello.com/habitica),
+  also used for feature requests.
+* All documentations are updated [in Wikia](http://habitica.wikia.com/wiki/Habitica_Wiki)
+* Habitica has a blog [hosted on Tumbler](http://blog.habitrpg.com/)
+* The project was boosted with a [Kickstarter campaign](http://habitica.wikia.com/wiki/Kickstarter)
+  funded by 2800+ people, and is now self-financed with subscriptions and gems
+  reselling.
+
+I find such organization beautiful. They managed to keep their tools list to a
+minimum, and simplify everything to help contributors getting onboard.
 
 # Tips
 
