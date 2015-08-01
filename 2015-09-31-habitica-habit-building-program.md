@@ -141,7 +141,7 @@ The code source for the web version is built on top of
 [AngularJS](https://angularjs.org/). Mobile versions were initially made by
 contributors, then [an official one](https://github.com/HabitRPG/habitrpg-mobile)
 came out from AngularJS and [PhoneGap](http://phonegap.com/). Up to today,
-I have to say this application have gave me lot of troubles, especially its
+I have to say this application has given me lot of troubles, especially its
 slowliness (the flip side of using multi-platform frameworks). But there are
 good news: the native [iOS application](https://itunes.apple.com/us/app/habitica/id994882113?mt=89)
 is now available, and the android one is on its way (last announce on July 22th).
