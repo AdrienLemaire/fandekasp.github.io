@@ -71,17 +71,6 @@ multiples aspects:
 
   {: .centered}
   ![Health, XP and Mana bars](/images/habitica/health_xp_mana.png)
-* **Attribute points and Class System**: Do you want to complete quests faster,
-  get more gold, avoid dying? Smartly distribute your points in [Strength,
-  Intelligence, Constitution and Perception](http://habitica.wikia.com/wiki/Character_Attributes),
-  and select the most appropriate class for your avatar
-  ([Warrior](http://habitica.wikia.com/wiki/Character_Attributes),
-  [Mage](http://habitica.wikia.com/wiki/Mage),
-  [Rogue](http://habitica.wikia.com/wiki/Rogue) or 
-  [Healer](http://habitica.wikia.com/wiki/Healer))
-
-  {: .centered }
-  ![Classes system: Warrior, Mage, Rogue and Healer](/images/habitica/classes.png)
 * **Gold**, **Food**, **Eggs**, **Potions**: As you complete your tasks, items
   will drop.
  
@@ -90,6 +79,18 @@ multiples aspects:
 * **Pets**, **Mounts**, **Equipment**, **Background**: Hatch eggs into pets,
   feed pets into mounts, buy equipments and enjoy customizing your avatar in
   any way you'd like.
+* **Attribute points and Class System**: Become a ([Warrior](http://habitica.wikia.com/wiki/Character_Attributes),
+  [Mage](http://habitica.wikia.com/wiki/Mage),
+  [Rogue](http://habitica.wikia.com/wiki/Rogue) or 
+  [Healer](http://habitica.wikia.com/wiki/Healer)), and customize your game
+  experience accordingly (get more gold, level faster, or be more solid to avoid
+  death). Smartly distribute your points in [Strength,
+  Intelligence, Constitution and Perception](http://habitica.wikia.com/wiki/Character_Attributes),
+  depending on your class primary and secondary attributes to increase your gear
+  effect (Find advanced strategy tips [at the end of the post](#classes-strategy)).
+
+  {: .centered }
+  ![Classes system: Warrior, Mage, Rogue and Healer](/images/habitica/classes.png)
 * **Party**, **Guilds**: You can join groups of people from all over the world,
   doing completely different jobs, socialize with them and motivate each other
   to become everyday a bit more productive.
@@ -173,7 +174,27 @@ To finish, I'd like to share some top secret advanced tips for you.
 
 ## Classes Strategy
 
-TODO (idea which came from @Keats comment, thx!)
+Some of my party members are really into it, and we've been able to break the
+game several times by adopting specific strategies. The game is rebalanced
+regularly, and lately it became harder to break it. Still, those advices still
+hold true:
+
+* **Valorous Presence**: Especially stronger at low levels, this spel will
+  increase the STR (Strength) of all party players, increasing seriously the
+  Boss damage.
+
+* **Ethereal Surge**: Increase the MP (Mana) of your teammates, allowing them to
+  cast more spells.
+
+* **Earthquake**: Increase your party INT (Intelligence). It means your party
+  will level up much faster.
+
+Our last game breaking adventure was a month and half ago. We went for a
+"Everyone's a Mage" strategy, and made sure to start the day by casting
+**Ethereal Surge** for everybody to have an insane amount of Mana, then finish
+the day with **Earthquake** to easily jump several levels a day, thanks for the
+automation script below.
+
 
 ## Accelerator scripts
 
