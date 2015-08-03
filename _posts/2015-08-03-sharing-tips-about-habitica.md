@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title:  "Long life to <strike>HabitRPG</strike> Habitica"
+title:  "HabitRPG changed its name, Long life to Habitica"
 subtitle: "A Role Playing game and Habit building program."
 
 date:   2015-07-31 22:00:00
