@@ -19,6 +19,7 @@ post_images: [
     "habitica/pm.png",
 ]
 
+sharing: "Habitica, awesome gamified Todo-list: introduction and expert tips."
 description: "A brief look into Habitica, one of the best gamified productivity
 applications and a few tips"
 
