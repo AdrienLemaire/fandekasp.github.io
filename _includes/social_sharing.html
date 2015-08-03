@@ -3,8 +3,9 @@
     {% if site.info.sharing.twitter %}
     <div class='twitter'>
         <a id="share-twitter" href="https://twitter.com/share"
-            class="twitter-share-button" {% if site.info.sharing.twitter.via %}data-via="{{ site.info.sharing.twitter.via }}"{% endif %}
-            data-text="{% if page.sharing %}{{ page.sharing }}{% else %}{{ page.title }}{% endif %}" data-related="{{ site.info.twitter }}">Tweet</a>
+           class="twitter-share-button"
+           {% if site.info.twitter %}data-via="{{ site.info.twitter }}"{% endif %}
+           data-text="{% if page.sharing %}{{ page.sharing }}{% else %}{{ page.title }}{% endif %}" data-related="{{ site.info.twitter }}">Tweet</a>
     </div>
     {% endif %}
     {% if site.info.sharing.facebook %}
