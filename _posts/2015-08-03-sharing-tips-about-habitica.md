@@ -27,7 +27,8 @@ Do you like RPGs? Are you needing a good Todo list tool? Habitica was made just
 for you.
 
 `Well... I'm already using Habitica, so...`<br />
-Wait! I've got a gift for you :smile: Go directly to [the tips](#tips).
+Wait! I've got a gift for you. You definitely want to check [the tips](#tips)
+sections.
 
 ## Brief introduction to Habitica
 
