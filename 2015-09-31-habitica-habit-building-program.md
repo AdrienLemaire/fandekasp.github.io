@@ -23,6 +23,8 @@ description: "A brief look into Habitica, one of the best gamified productivity
 applications and a few tips"
 
 ---
+Do you like RPGs? Are you needing a good Todo list tool? Habitica was made just
+for you.
 
 `Well... I'm already using Habitica, so...`<br />
 Wait! I've got a gift for you :smile: Go directly to [the tips](#tips).
