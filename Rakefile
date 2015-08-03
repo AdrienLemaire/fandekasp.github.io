@@ -11,10 +11,12 @@ GITHUB_REPONAME = "Fandekasp/fandekasp.github.io"
 
 desc "Generate blog files"
 task :generate do
+  system "perl -i -p -e 's/env: testing/env: production/g;' _config.yml"
   Jekyll::Site.new(Jekyll.configuration({
     "source"      => ".",
     "destination" => "_site"
   })).process
+  system "perl -i -p -e 's/env: production/env: testing/g;' _config.yml"
 end
 
 
