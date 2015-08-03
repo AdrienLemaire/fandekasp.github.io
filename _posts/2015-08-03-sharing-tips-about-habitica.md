@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title:  "HabitRPG is dead, Long life to Habitica"
+title:  "Long life to <strike>HabitRPG</strike> Habitica"
 subtitle: "A Role Playing game and Habit building program."
 
 date:   2015-07-31 22:00:00
@@ -29,7 +29,7 @@ for you.
 `Well... I'm already using Habitica, so...`<br />
 Wait! I've got a gift for you :smile: Go directly to [the tips](#tips).
 
-# The minimalist guide to Habitica
+## Brief introduction to Habitica
 
 [Habitica](https://habitica.com) is a todo-list
 application inspired from the [Get Things Done](http://gettingthingsdone.com/)
@@ -111,7 +111,7 @@ multiples aspects:
   ![Achievement badges](/images/habitica/badges.png)
 
 
-# An excerpt of my personal experience
+## An excerpt of my personal experience
 
 What hooked me up the most was the community and that Habitica is Open Source
 and strongly encourages you to contribute.
@@ -140,7 +140,7 @@ Once I've contributed to the project, of course it made me want to use it more,
 and I've borne the eventual bugs, finding new ways to handle my tasks the way I
 wanted.
 
-# The behind-the-scenes of Habitica
+## The behind-the-scenes of Habitica
 
 The code source for the web version is built on top of
 [AngularJS](https://angularjs.org/). Mobile versions were initially made by
@@ -171,11 +171,11 @@ For the other tools that the team use in its development workflow:
 I find such organization beautiful. They managed to keep their tools list to a
 minimum and simplify everything to help contributors getting onboard.
 
-# Tips
+## Tips
 
 To finish, I'd like to share some top secret advanced tips for you.
 
-## Classes Strategy
+### Classes Strategy
 
 Some of my party members are really into it, and we've been able to break the
 game several times by adopting specific strategies. The game is rebalanced
@@ -199,7 +199,7 @@ the day with **Earthquake** to easily jump several levels a day, thanks for the
 automation script below.
 
 
-## Accelerator scripts
+### Accelerator scripts
 
 The first one is called **Auto-cast Mana**. You unlock mana with the class
 system at level 10 and get new skills in the following levels.
