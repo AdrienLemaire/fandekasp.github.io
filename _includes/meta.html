@@ -13,7 +13,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google-site-verification" content="{{ site.info.google_site_verification }}" />
 <meta name="title" content="{% if page.title %}{{ page.title }} {% else %}{{ site.info.title }}{% endif %}">
+<meta name="keywords" content="{{ site.info.title  }}, {{ site.info.subtitle }}, {{ site.info.bio }}, {{ site.info.keywords }}" />
+<meta name="news_keywords" content="{% if page.news_keywords %}{{ page.news_keywords }} {% else %}{{ site.info.title }}, {{ site.info.keywords }}{% endif %}">
+
+<!-- Open Graph data -->
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.info.title }}{% endif %}"/>
+<meta property="og:type" content="article" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
 {% if page.cover_image %}<meta property="og:image" content="{{ site.url }}/images/{{ page.cover_image }}"/>{% endif %}
 {% if page.description %}
@@ -23,11 +28,20 @@
 <meta property="og:description" content="Author: {{ site.info.author}}, Excerpt: {{ page.excerpt | strip_html }}"/>
 <meta name="description" content="Author: {{ site.info.author}}, Title: {{ site.info.subtitle}} - {{ page.title }}, Excerpt:  {{ page.excerpt | strip_html }}"/>
 {% endif %}
-<meta name="keywords" content="{{ site.info.title  }}, {{ site.info.subtitle }}, {{ site.info.bio }}, {{ site.info.keywords }}" />
-<meta name="news_keywords" content="{% if page.news_keywords %}{{ page.news_keywords }} {% else %}{{ site.info.title }}, {{ site.info.keywords }}{% endif %}">
 <meta property="og:site_name" content="{{ site.info.title }}">     
+<meta property="article:section" content="{{ page.categories }}" />
+<meta property="article:tag" content="{{ page.new_keywords }}" />
+<meta property="fb:admins" content="{{ site.info.facebook_id }}" />
+
+<!-- Twitter card data -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@{{ site.info.twitter }}" />
 <meta name="twitter:title" content="{{ page.title }}: {{ page.subtitle }}" />
 <meta name="twitter:description" content="{{ page.excerpt | strip_html }}" />
 <meta name="twitter:image" content="{{ page.cover_image }}" />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="{% if page.sharing %}{{ page.sharing }}{% else %}{{ page.title }}{% endif %}">
+<meta itemprop="description" content="{{ page.description }}">
+{% if page.cover_image %}<meta property="og:image" content="{{ site.url }}/images/{{ page.cover_image }}"/>{% endif %}
+<meta itemprop="image" content="{{ site.url }}/images/{{ page.cover_image }}">
