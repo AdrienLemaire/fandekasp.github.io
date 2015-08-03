@@ -29,7 +29,7 @@
     <div class='hn'>
         <a id="share-hn" href="https://news.ycombinator.com/submit"
            class="hn-button" data-title="{% if page.sharing %}{{ page.sharing }}{% else %}{{ page.title }}{% endif %}"
-           data-url="{% if page.counturl %}data-href="{{ page.counturl }}"{% else %}{{ site.info.url }}{{ page.url }}{% endif %}"
+           data-url="{% if page.counturl %}{{ page.counturl }}{% else %}{{ site.info.url }}{{ page.url }}{% endif %}"
            data-count="horizontal">Vote on Hacker News</a>
     </div>
     {% endif %}
