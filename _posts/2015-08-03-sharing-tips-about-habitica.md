@@ -42,6 +42,7 @@ The old name was difficult to pronunce and confused by people
 (HabitRG? HabitGRG?), so they decided to name the application after the land of
 Habitica, where all these adventures take place.
 
+<!--more-->
 
 You basically have 4 columns:
 
@@ -227,6 +228,7 @@ food, then click on all pets you'd like to feed with that food until it runs
 out.*
 
 
+----
 
 If you're new to Habitica, did you find this article interesting ?
 Otherwise did you find the advanced tips useful ?<br />
