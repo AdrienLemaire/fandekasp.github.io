@@ -5,10 +5,10 @@ itemscope:  "http://schema.org/Article"
 ---
 
 {% if page.cover_image %}
-<div class="article-cover" style="background-image:url(/images/{{ page.cover_image }})"></div>
+<div class="article-cover flipboard-image" style="background-image:url(/images/{{ page.cover_image }})"></div>
 {% endif %}
 {% if page.cover_image_caption %}
-<div class='cover-caption'><a href='{{ site.url }}/{{ site.about }}/#pictures'>{{ page.cover_image_caption }}</a></div>
+<div class='cover-caption flipboard-caption'><a href='{{ site.url }}/{{ site.about }}/#pictures'>{{ page.cover_image_caption }}</a></div>
 {% endif %}
 
 <article {% if page.container_class %}class='{{ page.container_class }}'{% endif %}>
@@ -17,14 +17,14 @@ itemscope:  "http://schema.org/Article"
     <header>
       <div class="meta">
         By <address><a rel="author" href="https://twitter.com/{{ site.info.twitter }}" title="{{ site.info.author }}" target="_blank">{{ site.info.author }}</a></address> &mdash;
-        <time pubdate datetime="{{ page.date | date: "%Y-%d-%B" }}" title="{{ page.date | date: "%b %d, %Y" }}">{{ page.date | date: "%b %d, %Y" }}</time> &mdash;
+        <time class="flipboard-title" pubdate datetime="{{ page.date | date: "%Y-%d-%B" }}" title="{{ page.date | date: "%b %d, %Y" }}">{{ page.date | date: "%b %d, %Y" }}</time> &mdash;
         {% include read_time_estimate.html content=content %}
       </div>
-      <h1 class="title">{{ page.title }}</h1>
-      {% if page.subtitle %}<h2 class="subtitle">{{ page.subtitle }}</h2>{% endif %}
+      <h1 class="title flipboard-title">{{ page.title }}</h1>
+      {% if page.subtitle %}<h2 class="subtitle flipboard-subtitle">{{ page.subtitle }}</h2>{% endif %}
     </header>
 
-    <section>
+    <section class="flipboard-startArticle">
       {{ content }}
       {% include social_sharing.html %}
     </section>
@@ -34,7 +34,7 @@ itemscope:  "http://schema.org/Article"
         {% if site.info.avatar %}<img alt="{{ site.info.avatar_alt }}" src="/images/{{ site.info.avatar }}">{% endif %}
         <p>Written by
         <strong>
-          <a id="written-by" rel="author" href="https://twitter.com/{{ site.info.twitter }}" title="{{ site.info.author }}" target="_blank">{{ site.info.author }}</a>
+          <a id="written-by" class="fliboard-author" rel="author" href="https://twitter.com/{{ site.info.twitter }}" title="{{ site.info.author }}" target="_blank">{{ site.info.author }}</a>
         </strong><br>
           <span class="muted">{{ site.info.bio }}</span>
         </p>
