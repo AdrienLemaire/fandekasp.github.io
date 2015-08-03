@@ -5,6 +5,7 @@
         <a id="share-twitter" href="https://twitter.com/share"
            class="twitter-share-button"
            {% if site.info.twitter %}data-via="{{ site.info.twitter }}"{% endif %}
+           {% if page.counturl %}data-counturl="{{ page.counturl }}"{% endif %}
            data-text="{% if page.sharing %}{{ page.sharing }}{% else %}{{ page.title }}{% endif %}"
            data-related="{{ site.info.twitter }}">Tweet</a>
     </div>
