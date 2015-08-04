@@ -69,7 +69,7 @@ using Habitica back in its beta days, although it was cribbled with bugs, I
 sticked to it because I was having fun and had met very friendly people there.
 
 The [Gamification](https://en.wikipedia.org/wiki/Gamification) comes in
-multiples aspects:
+multiple aspects:
 
 * **Health**, **Experience**, **Mana**: Like any [RPG
   game](https://en.wikipedia.org/wiki/Role-playing_game), your avatar will
@@ -139,7 +139,7 @@ documented by its users, it results in
 [one of the best documentations](http://habitica.wikia.com/wiki/Habitica_Wiki)
 I've ever seen for an application.
 
-Once I've contributed to the project, of course it made me want to use it more,
+Once I had contributed to the project, of course it made me want to use it more,
 and I've borne the eventual bugs, finding new ways to handle my tasks the way I
 wanted.
 
@@ -169,7 +169,7 @@ For the other tools that the team use in its development workflow:
 * All documentations are updated [in Wikia](http://habitica.wikia.com/wiki/Habitica_Wiki).
 * Habitica has a blog [hosted on Tumbler](http://blog.habitrpg.com/).
 * The project was boosted with a [Kickstarter campaign](http://habitica.wikia.com/wiki/Kickstarter)
-  funded by 2800+ people and is now self-supported from selling ubscriptions and gems.
+  funded by 2800+ people and is now self-supported from selling subscriptions and gems.
 
 I find such organization beautiful. They managed to keep their tools list to a
 minimum and simplify everything to help contributors getting onboard.
