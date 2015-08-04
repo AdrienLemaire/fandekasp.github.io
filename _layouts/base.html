@@ -3,6 +3,7 @@
 <head>
   <title>{% if page.title %}{{ page.title }} &mdash; {{ site.info.title }}{% else %}{{ site.info.title }} &mdash; {{ site.info.subtitle }}{% endif %}</title>
   {% include meta.html %}
+  {% include scripts.html %}
 </head>
 <body>
     
@@ -20,6 +21,7 @@
     </nav>
   </header>
 
+  {% include cover.html %}
   {{ content }}
 
   <footer class="site-footer">
@@ -38,7 +40,5 @@
       <div class="small">Based on Incorporated theme by <a id="theme-ref" rel="nofollow" href="https://sendtoinc.com">Inc</a></div>
     </div>
   </footer>
-
-  {% include scripts.html %}
 </body>
 </html>
