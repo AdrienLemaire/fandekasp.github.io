@@ -1,8 +1,3 @@
-- title: "Ayers Rock"
-  filename: ayers-rock.jpg
-  alt: "Adrien Lemaire in Ayers Rock"
-  date: "20/01/2014"
-
 - title: "Kyoto Temple"
   filename: kyoto-temple.jpg
   alt: "Adrien Lemaire in Kyoto"
@@ -15,13 +10,61 @@
   date: "12/04/2015"
 
 
-- title: "Adrien Lemaire practices Mayurasana"
+- title: "Adrien Lemaire practicing Mayurasana"
   filename: peacock_pose.jpg
   alt: "Mayurasana aka Peacock is a Yoga Pose"
   date: "02/08/2015"
 
 
-- title: "Adrien Lemaire practices Padangustha Padma Utkatasana"
+- title: "Adrien Lemaire practicing Padangustha Padma Utkatasana"
   filename: half_lotus_toe_balance.jpg
   alt: "Half Lotus Toe Balance is a Yoga Standing Balance for Strength and Flexibility"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire doing a Chin up"
+  filename: chin_up.jpg
+  alt: "Outside at the end of the afternoon"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire training Aikido"
+  filename: aikido_pose.jpg
+  alt: "Aikidoka 3 kyus"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire practicing Eka Pada Koundinyanasana"
+  filename: sage_koundinya_pose.jpg
+  alt: "The Pose dedicated to the Sage Koundinya works on the twist, legs stretching and arm balance"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire doing an elevated pushup"
+  filename: elevated_pushup.jpg
+  alt: "Push-up with feet elevated"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire practicing Bakasana"
+  filename: crane_pose.jpg
+  alt: "Crane or Crow pose requires good arm balance"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire running along the Ryokuhin street, torso only"
+  filename: running_torso.jpg
+  alt: "Running in a street dedicated to walkers and cyclists"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire running along the Ryokuhin street, full body"
+  filename: running_large.jpg
+  alt: "Running in a street dedicated to walkers and cyclists, large plan"
+  date: "02/08/2015"
+
+
+- title: "Adrien Lemaire practicing Astavakrasana"
+  filename: eight_angle_pose.jpg
+  alt: "Eight-Angle Pose is an asymmetrical arm balance Yoga pose"
   date: "02/08/2015"
