@@ -34,6 +34,7 @@ task :publish => [:generate] do
     system "git commit -m #{message.inspect}"
     system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
     system "git push origin master --force"
+    #system "bundle exec rake notify"
 
     Dir.chdir pwd
   end
@@ -105,10 +106,12 @@ namespace :optimizeimages do
   end
 
   task :run do
-    RakeFileUtils.verbose(false)
+    STDOUT.sync = true
+    RakeFileUtils.verbose(true)
     start_time = Time.now
 
     file_list = FileList.new '_site/**/*.{gif,jpeg,jpg,png}'
+    puts file_list
 
     last_optimized_path = '_site/.last_optimized'
     if File.exists? last_optimized_path
@@ -194,3 +197,39 @@ namespace :optimizeimages do
   end
 end
 
+
+##############
+#   Notify   #
+##############
+
+# Ping Google and Yahoo to let them know you updated your site
+
+site = "adrien.is"
+
+desc 'Notify Google of the new sitemap'
+task :sitemapgoogle do
+  begin
+    require 'net/http'
+    require 'uri'
+    puts '* Pinging Google about our sitemap'
+    Net::HTTP.get('www.google.com', '/webmasters/tools/ping?sitemap=' + URI.escape('#{site}/sitemap.xml'))
+  rescue LoadError
+    puts '! Could not ping Google about our sitemap, because Net::HTTP or URI could not be found.'
+  end
+end
+
+desc 'Notify Bing of the new sitemap'
+task :sitemapbing do
+  begin
+    require 'net/http'
+    require 'uri'
+    puts '* Pinging Bing about our sitemap'
+    Net::HTTP.get('www.bing.com', '/webmaster/ping.aspx?siteMap=' + URI.escape('#{site}/sitemap.xml'))
+  rescue LoadError
+    puts '! Could not ping Bing about our sitemap, because Net::HTTP or URI could not be found.'
+  end
+end
+
+desc "Notify various services about new content"
+task :notify => [:sitemapgoogle, :sitemapbing] do
+end

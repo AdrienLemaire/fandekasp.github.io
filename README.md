@@ -1,5 +1,14 @@
 # How to
 
+## Requirements
+
+For image optimization:
+
+* jpegtram
+* gifsicle
+* pngcrush
+
+
 ## Installation & Usage
 
     bundle install
@@ -8,7 +17,7 @@
 
 ## Deployment
 
-    rake site:publish
+    rake publish
 
 
 ## Development
@@ -21,19 +30,14 @@
 # Jekyll Incorporated
 Modern Jekyll based blog. Great for companies, products or anything. See live at [blog.sendtoinc.com](http://blog.sendtoinc.com)
 
-## Authors
+## authors
 
-Originally build for [sendtoinc.com](https://sendtoinc.com), your workspace for sharing and organizing knowledge
+[Karri Saarinen](http://twitter.com/karrisaarinen) and
+[Jori Lallo](http://twitter.com/jorilallo)
+built it for [sendtoinc.com](https://sendtoinc.com).
 
-**Karri Saarinen**
+Heavy changes were done from that point, to extend the website, improve performances, etc.
 
-+ [http://twitter.com/karrisaarinen](http://twitter.com/karrisaarinen)
-+ [http://github.com/ksaa](http://github.com/ksaa)
-
-**Jori Lallo**
-
-+ [http://twitter.com/jorilallo](http://twitter.com/jorilallo)
-+ [http://github.com/jorde](http://github.com/jorilallo)
 
 ## Copyright and license
 
