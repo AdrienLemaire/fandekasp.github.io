@@ -39,7 +39,7 @@ application inspired from the [Get Things Done](http://gettingthingsdone.com/)
 productivity methodology.
 
 {: .clear}
-![Habitica Logo](/images/habitica/logo.png "New logo looking like a Gryphon"){: .float_left}
+![Habitica Logo]({% asset_path habitica/logo.png %} "New logo looking like a Gryphon"){: .float_left}
 Formely named **HabitRPG**, the application was renamed **Habitica** on July 31th 2015.
 The old name was difficult to pronunce and confused by people
 (HabitRG? HabitGRG?), so they decided to name the application after the land of
@@ -76,12 +76,12 @@ multiple aspects:
   evolve as you complete tasks and will die if you're slacking off.
 
   {: .centered}
-  ![Health, XP and Mana bars](/images/habitica/health_xp_mana.png)
+  ![Health, XP and Mana bars]({% asset_path habitica/health_xp_mana.png %} "Health, Experience and Mana progress bars")
 * **Gold**, **Food**, **Eggs**, **Potions**: As you complete your tasks, items
   will drop.
  
   {: .centered }
-  ![items](/images/habitica/items.png)
+  ![items]({% asset_path habitica/items.png %} "Task completed gives 9 XP, 1 gold, 44 coins, and -70 MP. A Honey Feed is found")
 * **Pets**, **Mounts**, **Equipment**, **Background**: Hatch eggs into pets,
   feed pets into mounts, buy equipments and enjoy customizing your avatar in
   any way you'd like.
@@ -96,13 +96,13 @@ multiple aspects:
   effect (Find advanced strategy tips [at the end of the post](#classes-strategy)).
 
   {: .centered }
-  ![Classes system: Warrior, Mage, Rogue and Healer](/images/habitica/classes.png)
+  ![Classes system: Warrior, Mage, Rogue and Healer]({% asset_path habitica/classes.png %} "Habitica classes: Warrior, Mage, Rogue and Healer")
 * **Party**, **Guilds**: You can join groups of people from all over the world,
   doing completely different jobs, socialize with them and motivate each other
   to become everyday a bit more productive.
 
   {: .centered}
-  ![Party backgrounds](/images/habitica/party.png)
+  ![Party backgrounds]({% asset_path habitica/party.png %} "Party rolling background examples: thunder, mountain lake, japanese castles")
 * **Quests**, **Challenges**: Fight against bosses by completing your tasks,
   together with your team members, or compete against other players for habit
   building activities.
@@ -111,7 +111,7 @@ multiple aspects:
   and more!
 
   {: .centered}
-  ![Achievement badges](/images/habitica/badges.png)
+  ![Achievement badges]({% asset_path habitica/badges.png %} "Example of Habitica badges: Helped Habit Grow, Legendary Blacksmith, Linguist, Scribe, Bard, Artisan, 115 Streak Achievements, 64 Perfect Days")
 
 
 ## An excerpt of my personal experience
@@ -120,7 +120,7 @@ What hooked me up the most was the community and that Habitica is Open Source
 and strongly encourages you to contribute.
 
 {: .clear}
-![Project Mayhem Logo](/images/habitica/pm.png "Using the quest boss Vice"){: .float_left}
+![Project Mayhem Logo]({% asset_path habitica/pm.png %} "The party called Project Mayhem uses the quest boss Vice as logo"){: .float_left}
 I had the chance to join a really great party named
 [Project Mayhem](https://hrpgprojectmayhem.wordpress.com/) and we went through
 countless quests, looking for holes in the game to break it and always keeping

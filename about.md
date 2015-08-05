@@ -6,7 +6,7 @@ permalink: /a-passionate/
 
 {% if site.info.avatar %}
 <div class="centered">
-    <img class="avatar" alt="{{ site.info.avatar_alt }}" src="/images/{{ site.info.avatar }}">
+    {% image al.jpg class="avatar" alt='Black and white photograph of Adrien Lemaire' %}
 </div>
 {% endif %}
 

@@ -31,7 +31,9 @@ itemscope:  "http://schema.org/Article"
 
     <footer>
       <address>
-        {% if site.info.avatar %}<img alt="{{ site.info.avatar_alt }}" src="/images/{{ site.info.avatar }}">{% endif %}
+          {% if site.info.avatar %}
+          {% image al.jpg alt="Black and white photograph of Adrien Lemaire" %}
+          {% endif %}
         <p>Written by
         <strong>
           <a id="written-by" class="fliboard-author" rel="author" href="https://twitter.com/{{ site.info.twitter }}" title="{{ site.info.author }}" target="_blank">{{ site.info.author }}</a>

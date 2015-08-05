@@ -8,7 +8,7 @@ permalink: /involved-in/
 
 # Labell.io
 
-<img class="project_icon" src="/images/projects/labellio.svg">
+{% image projects/labellio.svg class="project_icon" alt='Labell.io icon' %}
 
 Images smart labeller and Deep learning model trainer.
 
@@ -20,7 +20,7 @@ Website: [www.labell.io](http://www.labell.io/)
 
 # Iromo
 
-<img class="project_icon" src="/images/projects/iromo.png">
+{% image projects/iromo.png class="project_icon" alt="Iromo icon" %}
 
 Fashion search engine to search similar clothes by color and pattern.
 
@@ -33,7 +33,7 @@ Fashion search engine to search similar clothes by color and pattern.
 
 # CoinsManager
 
-<img class="project_icon" src="/images/projects/coinsmanager.png">
+{% image projects/coinsmanager.png class="project_icon" alt="CoinsManager icon" %}
 
 Free Open-source multi-address multi-cryptocurrencies Portfolio
 
@@ -45,7 +45,7 @@ Free Open-source multi-address multi-cryptocurrencies Portfolio
 
 # HabitRPG
 
-<img class="project_icon" src="/images/projects/habitrpg.png">
+{% image projects/habitrpg.png class="project_icon" alt="HabitRPG icon" %}
 
 [Contributed](https://github.com/HabitRPG/habitrpg/commits?author=Fandekasp) to
 various parts of the HabitRPG web application.
@@ -58,7 +58,7 @@ various parts of the HabitRPG web application.
 
 # Django
 
-<img class="project_icon" src="/images/projects/django.jpg">
+{% image projects/django.jpg class="project_icon" alt="Django icon" %}
 
 [Contributed](https://github.com/django/django/blob/master/AUTHORS#L14) to the
 Core code of Django

@@ -11,7 +11,7 @@ info:
   cover_image:  personal/blog-cover.jpg
   about_image:  personal/blog-cover.jpg
   logo:         logo.png
-  avatar:       al.jpg
+  avatar:       'al.jpg'
   avatar_alt:   'black and white photograph of Adrien Lemaire'
   bio:          'Full-stack Engineer'
   keywords:     'Productivity, Efficiency, Self-improvement'
