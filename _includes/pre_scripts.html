@@ -2,8 +2,10 @@
 
 <script type="text/javascript">
 jQuery(document).ready(function($){
-    var img = Gallery[Math.floor(Math.random()*Gallery.length)];
-    $(".blog-cover").css('background-image',
-                         'url(/assets/personal/' + img + ')');
+    if (typeof Gallery !== 'undefined') {
+        var img = Gallery[Math.floor(Math.random()*Gallery.length)];
+        $(".blog-cover").css('background-image',
+                             'url(/assets/personal/' + img + ')');
+    }
 })
 </script>

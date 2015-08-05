@@ -5,7 +5,7 @@ itemscope:  "http://schema.org/Article"
 ---
 
 {% if page.cover_image %}
-<div class="article-cover flipboard-image" style="background-image:url(/images/{{ page.cover_image }})"></div>
+<div class="article-cover flipboard-image" style="background-image:url({{ page.cover_image | asset_path }})"></div>
 {% endif %}
 {% if page.cover_image_caption %}
 <div class='cover-caption flipboard-caption'><a href='{{ site.url }}/{{ site.about }}/#pictures'>{{ page.cover_image_caption }}</a></div>
@@ -65,17 +65,19 @@ itemscope:  "http://schema.org/Article"
     </footer>
   </div>
 </article>
+
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
   "headline": "{{ page.title }}",
   "alternativeHeadline": "{{ page.subtitle }}",
+
   "image": [
     {% for image in page.post_images %}
-    "{{ site.url }}/images/{{ image }}",
+    "{{ image | asset_path }}",
     {% endfor %}
-    "{{ site.url }}/images/{{ page.cover_image }}"
+    "/assets/{{ page.cover_image }}"
   ],
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "description": "{{ page.description }}",
