@@ -13,4 +13,4 @@
 <script type="text/javascript">
 var Gallery = [{% for img in site.data.gallery %}"{{ img.filename }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
 </script>
-{% javascript blog_cover %}
+{% javascript blog_cover async %}
