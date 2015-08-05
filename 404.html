@@ -2,17 +2,9 @@
 layout: base
 ---
 
-<div class="blog-cover" style="background-image:url(/images/{{ site.info.cover_image }});">
-  <div class='cover_overlay'>
-    <div class="content">
-      <h1>{{ site.info.title }}</h1>
-      {% if site.info.subtitle %}<h3>{{ site.info.subtitle }}</h3>{% endif %}
-      {% include social_links.html %}
-    </div>
-  </div>
-</div>
+{% include cover.html %}
 
-<div style='text-align:center;margin:50px 0'>
+<div class='notfound'>
   <h1>404 - Sorry, nothing here.</h1>
   <p><a href='{{ site.url }}'>Get back to the blog</a></p>
 </div>

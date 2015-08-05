@@ -11,7 +11,6 @@ $text: #21272d;
 $textmuted: #848484;
 $accent: #2077b2;
 $border_color: #DDD;
-
 @mixin vertical_aligning_container {
   &:before {
     content: '';
@@ -88,4 +87,9 @@ $preloaded-images: null;
 }
 .small {
     font-size: 10px;
+}
+
+.notfound {
+    text-align: center;
+    margin: 50px 0;
 }
