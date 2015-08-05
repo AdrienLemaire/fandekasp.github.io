@@ -237,3 +237,11 @@ If you're new to Habitica, did you find this article interesting ?
 Otherwise did you find the advanced tips useful ?<br />
 I will blog regularly about Productivity applications and methodologies, so if
 you'd like to stay tuned, [please subscribe here](http://eepurl.com/bt8739).
+
+
+**Edit 2015/08/05:**<br />
+Thanks to you reading this post, [Habitica](https://habitica.com/) has given me
+the [Ambassador Title](http://habitica.wikia.com/wiki/Contributor_Titles)
+([source](https://twitter.com/habitica/status/628687322746363904)). making me
+a **Legendary Blacksmith, Linguist, Scribe, Bard, Artisan, Ambassador**,
+and probably the most titled contributor ever :laughing:
