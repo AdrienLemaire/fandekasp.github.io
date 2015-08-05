@@ -1,6 +1,3 @@
-$ ->
-  enable_map_when_clicked() if screen.width >= 768
-
 # On devices with large screens, override the link and activate map when clicked
 # instead of opening map in new window
 enable_map_when_clicked = ->
@@ -13,3 +10,6 @@ activate_map = ->
 
 deactivate_map = ->
   $('.map_container .overlay').show()
+
+$ ->
+  enable_map_when_clicked() if screen.width >= 768
