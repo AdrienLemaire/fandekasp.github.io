@@ -14,7 +14,7 @@ post_images: [
     "pomodoro/todo_today_sheet.png",
     "pomodoro/activity_inventory_sheet.png",
     "pomodoro/records_sheet.png",
-    "pomodoro/pomotodo.png)"
+    "pomodoro/pomotodo.png"
 ]
 
 description: "What is the Pomodoro Technique?
@@ -78,11 +78,11 @@ the user experience and work habit.
 All we need to use this technique are: a **Timer**, a **Todo Today Sheet**,
 an **Activity Inventory Sheet**, and a **Records Sheet**.
 
-![Tools required for Pomodoro](/images/pomodoro/tools.jpg)
+![Tools required for Pomodoro]({% asset_path pomodoro/tools.jpg %})
 
 
 The **Todo Today Sheet** is a table with 3 columns:
-![Pomodoro Todo Today Sheet](/images/pomodoro/todo_today_sheet.png)
+![Pomodoro Todo Today Sheet]({% asset_path pomodoro/todo_today_sheet.png %})
 
 * The first is for the date (optional, can be retrieved at the end of the day
   during recording).
@@ -100,7 +100,7 @@ updated during the day (and it can modify the day's plan)
 
 The **Activity Inventory Sheet** is similary a 3-columns table:
 
-![Pomodoro Activity Inventory Sheet](/images/pomodoro/activity_inventory_sheet.png)
+![Pomodoro Activity Inventory Sheet]({% asset_path pomodoro/activity_inventory_sheet.png %})
 
 * The first column is for eventual due dates. It is also used to take note of
   Unplanned activities written during the day, using the letter U.
@@ -114,7 +114,7 @@ the end of the end. It's a set of raw data needed to produce pertinent reports
 and graphics. What you track and record depends on what you want to observe.
 For example:
 
-![Pomodoro Activity Inventory Sheet](/images/pomodoro/records_sheet.png)
+![Pomodoro Activity Inventory Sheet]({% asset_path pomodoro/records_sheet.png %})
 
 * Date of completion (today)
 * Start time (retrieved from todo today sheet, or by mentally remembering
@@ -179,7 +179,7 @@ the Pomodoro Technique, and rejecting the fault on the application when failing.
 So what about today ? Well, I'm compromising. So far I've been trying different
 applications and [PomoTodo](https://pomotodo.com/app/) is my favorite one.
 
-![PomoTodo](/images/pomodoro/pomotodo.png).
+![PomoTodo]({% asset_path pomodoro/pomotodo.png %}).
 
 It's  multi-platform and multi-device, and I switch regularly between the mobile
 and the web applications. The UI is clean and clutterless. It's rich in
