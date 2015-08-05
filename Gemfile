@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'jekyll'
 gem 'jekyll-assets'
+gem 'jekyll-minify-html', '~> 1.1.0'
 gem 'rake'
 gem 'sass'
 gem 'breakpoint'

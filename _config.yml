@@ -87,7 +87,11 @@ gems:
   - breakpoint
   - jemoji
 
-env: testing
+# Compress our CSS
+sass:
+  style: :compressed
+
+env: production
 
 
 #markdown: redcarpet
