@@ -91,7 +91,7 @@ gems:
 sass:
   style: :compressed
 
-env: production
+env: testing
 
 
 #markdown: redcarpet
