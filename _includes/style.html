@@ -1,5 +1,5 @@
 {% if site.env == 'production' %}
-    <style>{% include critical.css %}</style>
+    <style>{% asset critical.css %}</style>
     <script>
         {% include loadCSS.js %}
         loadCSS("{% asset_path app.css %}");
@@ -9,7 +9,7 @@
 {% endif %}
 
 <!-- build:css({app,.tmp}) /css/styles.css -->
-{% stylesheet app.css %}
+{% stylesheet app %}
 <!-- endbuild -->
 
 {% if site.env == 'production' %}
