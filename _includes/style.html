@@ -1,0 +1,19 @@
+{% if site.env == 'production' %}
+    <style>{% include critical.css %}</style>
+    <script>
+        {% include loadCSS.js %}
+        loadCSS("{% asset_path app.css %}");
+        loadCSS("https://fonts.googleapis.com/css?family={{ site.info.google_font }}");
+    </script>
+    <noscript>
+{% endif %}
+
+<!-- build:css({app,.tmp}) /css/styles.css -->
+{% stylesheet app.css %}
+<!-- endbuild -->
+
+{% if site.env == 'production' %}
+    </noscript>
+{% endif %}
+
+

@@ -15,7 +15,7 @@ task :generate do
     "destination" => "_site"
   })).process
   system "perl -i -p -e 's/env: production/env: testing/g;' _config.yml"
-  system "bundle exec rake optimizeimages"
+  #system "bundle exec rake optimizeimages"
 end
 
 
@@ -110,10 +110,10 @@ namespace :optimizeimages do
     RakeFileUtils.verbose(true)
     start_time = Time.now
 
-    file_list = FileList.new '_site/**/*.{gif,jpeg,jpg,png}'
+    file_list = FileList.new '_assets/**/*.{gif,jpeg,jpg,png}'
     puts file_list
 
-    last_optimized_path = '_site/.last_optimized'
+    last_optimized_path = '_assets/.last_optimized'
     if File.exists? last_optimized_path
       last_optimized = File.new last_optimized_path
       file_list.exclude do |f|
