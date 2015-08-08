@@ -2,6 +2,7 @@
 <html {% if page.itemscope %}itemscope itemtype="{{ page.itemscope }}"{% endif %}>
 <head>
   <title>{% if page.title %}{{ page.title }} &mdash; {{ site.info.title }}{% else %}{{ site.info.title }} &mdash; {{ site.info.subtitle }}{% endif %}</title>
+  {% include style.html %}
   {% include meta.html %}
 </head>
 <body>
