@@ -1,7 +1,20 @@
-<style>
-@import url("https://fonts.googleapis.com/css?family={{ site.info.google_font }}");
-@import url("{% asset_path app.css %}");
-</style>
+{% if site.env == 'production' %}
+    <style>{% include critical.css %}</style>
+    <script>
+        {% include loadCSS.js %}
+        loadCSS("{% asset_path app.css %}");
+        loadCSS("https://fonts.googleapis.com/css?family={{ site.info.google_font }}")
+    </script>
+    <noscript>
+{% endif %}
+
+<!-- build:css({app,.tmp}) /css/styles.css -->
+{% stylesheet app.css %}
+<!-- endbuild -->
+
+{% if site.env == 'production' %}
+    </noscript>
+{% endif %}
 
 <link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon" />
 <link rel="alternate" type="application/atom+xml" title="{{ site.info.title }}" href="/atom.xml" />

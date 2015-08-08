@@ -7,6 +7,7 @@ For image optimization:
 * jpegtram
 * gifsicle
 * pngcrush
+* phantomjs (for penthouse, v2 required since v1 has ssl handshake error)
 
 
 ## Installation & Usage
@@ -26,9 +27,10 @@ For image optimization:
 * use deployment command to update master on upstream (github doesn't support
   jekyll-assets by default, so we have to pre-generate the blog for it)
 
+### Critical CSS
 
-# Jekyll Incorporated
-Modern Jekyll based blog. Great for companies, products or anything. See live at [blog.sendtoinc.com](http://blog.sendtoinc.com)
+    $ phantomjs --ignore-ssl-errors=true --ssl-protocol=any node_modules/penthouse/penthouse.js https://adrien.is _site/assets/app.css > _assets/stylesheets/critical.css
+
 
 ## authors
 
