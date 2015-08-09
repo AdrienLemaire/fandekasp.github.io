@@ -194,3 +194,14 @@ article {
     margin: .4em 0;
   }
 }
+
+
+.gist.loading::after {
+  content: "(loading)";
+  color: #99cc00;
+}
+
+.gist.loading-failed::after {
+  content: "(loading failed)";
+  color: #cc0000;
+}

@@ -211,7 +211,7 @@ Earthquake with your party to complete quests faster, it can take a lot of time
 to cast the spell over and over.
 To accelerate that process, use this code:
 
-{% gist 9bc9223f1c904340d31d %}
+<div data-gist="9bc9223f1c904340d31d"></div>
 
 *Right-Click on the spell you want to cast, click on "Inspect element". This will
 open the browser's debugger. Go to the tab "Console", paste the code
@@ -223,7 +223,7 @@ week or so, you'll have accumulated by then a large quantity of food and
 feeding will take a considerable amount of time. Let's cut this down to a few
 seconds with this code:
 
-{% gist d130eda27aa45238ebee %}
+<div data-gist="d130eda27aa45238ebee"></div>
 
 *Go to your pets page, open your browser debugger (ctrl-shift-I on Chrome), go to
 the Console, paste the previous code there and press enter. Click on a

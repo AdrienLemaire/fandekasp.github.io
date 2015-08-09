@@ -1,5 +1,6 @@
 //= require google_map_fix
 //= require zoomable_image
+//= require gist_async
 //= require author/analytics
 //= require author/ga
 //= require author/linkid
