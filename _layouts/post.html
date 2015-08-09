@@ -1,7 +1,5 @@
 ---
 layout:     base
-
-itemscope:  "http://schema.org/Article"
 ---
 
 {% if page.cover_image %}
@@ -65,7 +63,6 @@ itemscope:  "http://schema.org/Article"
     </footer>
   </div>
 </article>
-
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -75,9 +72,9 @@ itemscope:  "http://schema.org/Article"
 
   "image": [
     {% for image in page.post_images %}
-    "{{ image | asset_path }}",
+    "{{ site.url }}{{ image | asset_path }}",
     {% endfor %}
-    "/assets/{{ page.cover_image }}"
+    "{{ site.url }}/assets/{{ page.cover_image }}"
   ],
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "description": "{{ page.description }}",
