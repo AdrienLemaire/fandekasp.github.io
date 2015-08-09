@@ -17,12 +17,10 @@ task :generate do
   system "perl -i -p -e 's/env: production/env: testing/g;' _config.yml"
 
   # Leverage browser caching through Cloudflare
-  system "wget https://www.google-analytics.com/analytics.js -O _assets/javascripts/author/analytics.js"
   system "wget https://connect.facebook.net/en_US/sdk.js -O _assets/javascripts/author/sdk.js"
   system "wget https://apis.google.com/js/plusone.js -O _assets/javascripts/author/plusone.js"
   system "wget https://platform.twitter.com/widgets.js -O _assets/javascripts/author/widgets.js"
-  system "wget https://www.google-analytics.com/plugins/ua/linkid.js -O _assets/javascripts/author/linkid.js"
-  system "wget https://ssl.google-analytics.com/ga.js -O _assets/javascripts/author/ga.js"
+  system "wget https://www.redditstatic.com/button/button1.js -O _assets/javascripts/author/button1.js"
 
   #system "bundle exec rake optimizeimages"
 end
