@@ -62,16 +62,29 @@
 
 #subscribe-header {
     border-radius: 0%;
-    border: 1px solid #A8D138;
     text-align: center;
     @media (min-width: 0px) {
-        font-size: 15px;
-        width: 120px;
-        height: 35px;
-        line-height: 30px;
+        a {
+            display: none;
+        }
+        img {
+            display: none;
+        }
+    }
+    @media (min-width: 326px) {
+        float: right;
+        img {
+            display: inline;
+        }
     }
     @media (min-width: 405px) {
-        float: right;
+        border: 1px solid #A8D138;
+        a {
+            display: inline;
+        }
+        img {
+            display: none;
+        }
     }
     @media (min-width: 435px) {
         width: 150px;
