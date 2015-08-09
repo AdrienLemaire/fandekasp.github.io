@@ -95,3 +95,10 @@ env: testing
 
 
 #markdown: redcarpet
+
+
+exclude:
+    - node_modules
+    - Gemfile*
+    - Gruntfile
+    - Rakefile
