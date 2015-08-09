@@ -46,7 +46,7 @@ jQuery(document).ready(function($){
 </script>{% endif %}
 
 {% if site.info.sharing.hn %}
-<script type="text/javascript">var HN=[];HN.factory=function(e){return function(){HN.push([e].concat(Array.prototype.slice.call(arguments,0)))};},HN.on=HN.factory("on"),HN.once=HN.factory("once"),HN.off=HN.factory("off"),HN.emit=HN.factory("emit"),HN.load=function(){var e="hn-button.min.js";if(document.getElementById(e))return;var t=document.createElement("script");t.id=e,t.src="//hn-button.herokuapp.com/hn-button.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)},HN.load();</script>
+<script src="//hnbutton.appspot.com/static/hn.min.js" async defer></script>
 {% endif %}
 
 {% include google_analytics.html %}
