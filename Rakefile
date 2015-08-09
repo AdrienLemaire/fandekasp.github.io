@@ -15,6 +15,15 @@ task :generate do
     "destination" => "_site"
   })).process
   system "perl -i -p -e 's/env: production/env: testing/g;' _config.yml"
+
+  # Leverage browser caching through Cloudflare
+  system "wget https://www.google-analytics.com/analytics.js -o _assets/javascripts/author/analytics.js"
+  system "wget https://connect.facebook.net/en_US/sdk.js -o _assets/javascripts/author/sdk.js"
+  system "wget https://apis.google.com/js/plusone.js -o _assets/javascripts/author/plusone.js"
+  system "wget https://platform.twitter.com/widgets.js -o _assets/javascripts/author/widgets.js"
+  system "wget https://www.google-analytics.com/plugins/ua/linkid.js -o _assets/javascripts/author/linkid.js"
+  system "wget https://ssl.google-analytics.com/ga.js -o _assets/javascripts/author/ga.js"
+
   #system "bundle exec rake optimizeimages"
 end
 
@@ -22,6 +31,7 @@ end
 desc "Generate and publish blog to gh-pages"
 task :publish => [:generate] do
   Dir.mktmpdir do |tmp|
+    system 
     cp_r "_site/.", tmp
 
     pwd = Dir.pwd

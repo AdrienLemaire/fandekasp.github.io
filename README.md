@@ -31,6 +31,10 @@ For image optimization:
 
     $ phantomjs --ignore-ssl-errors=true --ssl-protocol=any node_modules/penthouse/penthouse.js https://adrien.is _site/assets/app.css > _assets/stylesheets/critical.css
 
+### image optimization
+
+    $ svgo path/to/file.svg
+    $ bundle exec rake optimizeimages
 
 ## authors
 
