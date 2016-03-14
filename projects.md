@@ -5,6 +5,16 @@ permalink: /involved-in/
 ---
 
 
+# Claiomh Solais
+
+{% image projects/claiomhsolais.jpg class="project_icon" alt='Claiomhsolais icon' %}
+
+Personal Website for the **Claíomh Solais** group.
+
+**Website:** [claiomhsolais.jp](https://claiomhsolais.jp/)
+
+**Code**: [claiomhsolais/claiomhsolais.github.io](https://github.com/claiomhsolais/claiomhsolais.github.io)
+
 
 # Labell.io
 
