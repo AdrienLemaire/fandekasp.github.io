@@ -18,7 +18,7 @@ For image optimization:
 
 ## Deployment
 
-    rake publish
+    bundle exec rake publish
 
 
 ## Development
