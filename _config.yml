@@ -27,6 +27,7 @@ markdown: kramdown
 theme: jekyll-theme-tactile
 gems:
   - jekyll-feed
+  - jekyll-paginate-v2
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -39,3 +40,23 @@ exclude:
 
 # Settings jekyll-theme-tactile
 show_downloads: false
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+excerpt_separator: <!--more-->
+
+# Produces a cleaner folder structure when using categories
+permalink: /:year/:month/:title.html
+
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  debug: true
