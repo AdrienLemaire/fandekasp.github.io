@@ -1,0 +1,18 @@
+{
+  "name": "adrien.is",
+  "homepage": "https://github.com/Fandekasp/fandekasp.github.io",
+  "authors": [
+    "Adrien Lemaire <lemaire.adrien@gmail.com>"
+  ],
+  "description": "Personal blog",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
