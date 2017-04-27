@@ -436,6 +436,9 @@ with `i3-msg "append_layout ..."` was quite difficult, because it will simply
 add new containers next to existing containers. The trick was to use `xdotool`
 to swallow existing windows like Termite, and unswallow them for i3 to add them
 back in the new layout.
+To clarify the terminology here, "swallowing" is similar to sending a window to
+the scratchpad, or in other words hide the window in a virtual workspace, which
+is managed by xdotool.
 
 
 # [](#script)Resulting script
