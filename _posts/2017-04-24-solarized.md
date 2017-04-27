@@ -184,6 +184,8 @@ coffee ${HOME}/scripts/cli.coffee solarized-transparent-${newmode} -o ${HOME}/.c
 If my pull request gets accepted upstream, I'll then be able to use the normal
 i3-style script instead of the current coffee command.
 
+For my statusbar, I only used accent colors to underline each i3block.
+
 Here is how my i3 statusbar looks like:
 
 ![i3blocks solarized](/assets/images/i3blocks-solarized.jpg)
