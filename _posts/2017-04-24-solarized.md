@@ -22,7 +22,7 @@ Below are the applications I will refer to:
 # [](#solarized)Solarized
 
 > [Solarized](http://ethanschoonover.com/solarized) is a color palette designed to
-> have very readable files in both light and dark modes, using only 16 colors. The
+> be very readable in both light and dark modes, using only 16 colors. The
 > colors were chosen from the CIELAB color space, which smartly arranges colors
 > visible to the human eye.
 
@@ -32,9 +32,8 @@ There are many other interesting color schemes out there, like
 [gruvbox](https://github.com/morhetz/gruvbox), but I won't discuss the
 differences between each palette in this article.
 
-I have been using Solarized for several years now, and a recurrent issue was
-setting up my system (everytime I'd change laptop) to homogeneize colors across
-applications).
+I have been using Solarized for several years now. A recurrent issue when 
+setting up my system is to homogeneize colors across applications).
 
 While it would be nice to see applications reuse default colors, they
 unfortunately define their own set of colors, and we therefore need to copy the
@@ -51,8 +50,7 @@ session, you'll be back to the default theme, which is rather annoying.
 ![Solarized contrast in Vim and
 Tmux](/assets/images/2017-04-24-solarized/solarized_vim_tmux_contrast.png)
 
-I will discuss a solution to bind all keystrokes from all applications in a
-single place, and smoothly transition between each color mode.
+Here's how I smoothly transition between light and dark mode for all applications using a shortcut.
 
 
 # [](#xresources)Xresources
@@ -171,8 +169,7 @@ bindsym $mod+b  exec --no-startup-id ${HOME}/scripts/toggle_solarized_theme.sh
 My `$mod` button is set to <kbd>Mod4</kbd>, which is the Windows key in my XPS
 13. Hence, whenever I press <kbd>Mod4</kbd>-<kbd>b</kbd>, my applications will
 toggle between dark and light solarized modes.
-Why using **b** as keystroke? Well, it stands for "Background", which color is
-the main difference between both modes of the solarized palette.
+The **b** in the keystroke stands for "Background".
 
 Finally, I added the following contents to the script:
 
@@ -181,7 +178,7 @@ Finally, I added the following contents to the script:
 coffee ${HOME}/scripts/cli.coffee solarized-transparent-${newmode} -o ${HOME}/.config/i3/config --reload
 ```
 
-If my pull request gets accepted upstream, I'll then be able to use the normal
+If my pull request gets accepted upstream, I'll be able to use the normal
 i3-style script instead of the current coffee command.
 
 For my statusbar, I only used accent colors to underline each i3block.
@@ -215,10 +212,10 @@ Art](http://9beat7.deviantart.com/art/Solarized-Mountains-530027093):
 
 Then I modified it with [Gimp](https://www.gimp.org/) to get a light solarized version.
 You normally only need to change the 4 background/foreground colors when
-toggling mode (Accent colors staying the same in both modes). But in his image,
-9beat7 used a darkened version of 4 accent colors to ease the transition between
-accent colors and the background color. Hence, I had to modify these shaded parts into
-their lightened counterpart.
+toggling mode, accent colors staying the same in both modes. But the artist here
+used a darkened version of 4 accent colors to ease the transition between
+accent colors and the background color. Hence, I had to modify these shaded
+parts into their lightened counterpart.
 Here is how I proceeded:
 
 ```python
@@ -227,7 +224,7 @@ def get_halfway_color(al, bl):
     for a,b in zip(al,bl):
         yield min([a,b])+abs(a-b)/2
 
-# [Hue, Saturation, Lightness
+# [Hue, Saturation, Lightness]
 bg_light = [46, 11, 93]
 gold = [45, 100, 71]
 red = [1, 79, 87]
@@ -257,8 +254,8 @@ was showing HSL colors right off the bat, it was just simpler to go this way.
 # [](#termite) Termite
 
 > After using [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) for many
-> years, I switched to Termite, which behaves similarly in many ways, and allow
-> painless configurations like adding true transparency.
+> years, I switched to Termite, which behaves similarly in many ways and offers
+> painless configuration like adding true transparency.
 
 To set the solarized colors on Termite, edit the `~/.config/termite/config` file
 and add the **[colors]** section. I used the configuration shared by
@@ -375,9 +372,7 @@ Note that enabling the GTK+ theme in `Settings → Appearance` isn't enough to g
 a solarized look-and-feel. Google uses around 80 parameters for its design, and
 will only pick some colors from GTK, while using custom colors for other
 parameters.
-In order to truly customize the Chrome theme, it's require to build an
-extension-like theme, which can then be uploaded to the Chrome store and used
-from there.
+To truly customize the Chrome theme, an extension-like theme needs to be built. It can then be uploaded to the Chrome store and used by anyone from there.
 I used this [Solarized Dark
 theme](https://chrome.google.com/webstore/detail/solarized-dark/kedemblecjmofcmppbecaagebmokigml), and since I couldn't find a Solarized Light version, I [built it myself](https://github.com/Fandekasp/google-chrome-solarized-light)
 
@@ -389,7 +384,7 @@ executable. Another problem naturally occured from that decision: When
 restarting an application, i3 will detect the windows being closed and
 automatically re-tile the other windows, then repeat the process once chrome is
 restarted, potentially breaking the window layout we had defined prior to
-changing the theme. To paliate this issue, we can improve the script to save the
+changing the theme. To avoid this issue, we can improve the script to save the
 current layout before closing Chrome, then restore the layout once Chrome is
 restarted.
 
