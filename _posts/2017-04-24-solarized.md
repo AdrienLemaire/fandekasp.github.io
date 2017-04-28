@@ -1,22 +1,30 @@
 ---
 layout: post
-title:  "Solarized Theme"
+title:  "Fun with Solarized colors"
 date:   2017-04-24 17:20:00 +0900
-categories: solarized archlinux i3 termite tmux zsh vim
+categories: "solarized archlinux i3 termite tmux zsh vim gtk chrome dircolors"
 ---
-
-TODO:
-
-* Fix numix solarized dark theme
-* Test chromium gtk3
-* add htop + irssi + mpd ...
-* Try to minimize the theme mode toggling flickering
-* Add list of OOS contributions (chrome themes + numix theme + i3-style)
-
 
 In this post, I will go over my configuration to set the Solarized light/dark
 themes in linux. In addition, I'll share my tricks to easily toggle between these
 2 themes across all applications.
+
+
+Table of contents:
+
+0. [What is Solarized?](#what-is-solarized)
+0. [Configure Solarized with ...](#configure-solarized-with-)
+    - [Xresources](#xresources)
+    - [Rofi](#rofi)
+    - [Dircolors](#dircolors)
+    - [i3](#i3)
+    - [feh](#feh)
+    - [Termite](#termite)
+    - [NeoVim](#neovim)
+    - [GTK](#gtk)
+    - [Google Chrome](#google-chrome)
+0. [Resulting script](#resulting-script)
+0. [Conclusion](#conclusion)
 
 Below are the applications I will refer to:
 
@@ -28,7 +36,7 @@ Below are the applications I will refer to:
   programs in a single terminal.
 * [NeoVim](https://github.com/neovim/neovim): Vim fork, text editor.
 
-# [](#solarized)Solarized
+## [](#what-is-solarized)What is Solarized?
 
 > [Solarized](http://ethanschoonover.com/solarized) is a color palette designed to
 > be very readable in both light and dark modes, using only 16 colors. The
@@ -61,8 +69,9 @@ Tmux](/assets/images/2017-04-24-solarized/solarized_vim_tmux_contrast.png)
 
 Here's how I smoothly transition between light and dark mode for all applications using a shortcut.
 
+# [](#configure-solarized-with)Configure Solarized with ...
 
-# [](#xresources)Xresources
+## [](#xresources)Xresources
 
 > **Xresources** is a user-level configuration dotfile, used to set X resources
 > used by X client applications.
@@ -106,7 +115,7 @@ Then I updated the X11 configuration with xrdb.
 $ xrdb -load ${HOME}/.Xresources
 ```
 
-# [](#rofi)Rofi
+## [](#rofi)Rofi
 
 > [Rofi](https://davedavenport.github.io/rofi/), a replacement to
 > [dmenu](http://tools.suckless.org/dmenu/) to easily find a new program to
@@ -129,7 +138,7 @@ Here is how it looks for me:
 
 ![rofi dark & light examples](/assets/images/rofi-solarized.png)
 
-# [](#dircolors)Dircolors
+## [](#dircolors)Dircolors
 
 > dircolors is the color setup for the `ls` command.
 
@@ -149,7 +158,7 @@ Here is an example of dircolors from Termite with 80% transparency:
 ![dircolors solarized](/assets/images/dircolors-solarized.jpg)
 
 
-# [](#i3)i3
+## [](#i3)i3
 
 > i3 is a tiling window manager, allowing one to always see all opened
 > windows, without them stacking above each other. With plenty of keystrokes,
@@ -196,7 +205,7 @@ Here is how my i3 statusbar looks like:
 
 ![i3blocks solarized](/assets/images/i3blocks-solarized.jpg)
 
-# [](#feh) feh
+## [](#feh) feh
 
 > feh is an image viewer that can also be used to set the desktop background
 > image.
@@ -260,7 +269,7 @@ Note that it would have been ideal to work with CIELab colors, but since Gimp
 was showing HSL colors right off the bat, it was just simpler to go this way.
 
 
-# [](#termite) Termite
+## [](#termite) Termite
 
 > After using [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) for many
 > years, I switched to Termite, which behaves similarly in many ways and offers
@@ -291,9 +300,9 @@ $ ln -sf ${config}-$newmode $config
 $ killall -USR1 termite
 ```
 
+## [](#neovim)NeoVim
 
-
-# [](#vim)Configure Vim with solarized
+> [NeoVim](https://neovim.io/) is a highly configurable text editor forked from Vim.
 
 For Vim, I re-used the color palette defined by
 [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8), and
@@ -333,7 +342,7 @@ for socket in /tmp/nvimsocket*; do
 done;
 ```
 
-I then used [nvr](https://github.com/mhinz/neovim-remote) to send a color
+Then, I used [nvr](https://github.com/mhinz/neovim-remote) to send a color
 toggle command to running vim sessions. The reason I used it is that the
 [+clientserver](https://neovim.io/doc/user/remote.html#clientserver) of neovim
 goes through the X-server (like [vim
@@ -351,8 +360,14 @@ function vim () {
 ```
 This function will create a new socket file suffixed with an incremented number,
 so that nvr can easily retrieve all server and send them update commands.
+**Note:** neovim-remote has now [fixed the
+--serverlist](https://github.com/mhinz/neovim-remote/issues/40) option, so we
+could refactore this piece of code.
 
-# [](#gtk) GTK
+## [](#gtk) GTK
+
+> The [GIMP Toolkit](https://www.gtk.org/) is a platform for creating graphical
+> user interfaces.
 
 Since I'm using several GTK 2.0 applications, like [Gimp](https://www.gimp.org/),
 [Thunar](http://docs.xfce.org/xfce/thunar/start) or
@@ -376,15 +391,23 @@ $ echo "include \"/usr/share/themes/NumixSolarized$([[ $newmode == 'dark' ]] \
 $ python2.7 ${HOME}/scripts/gtkreload &
 ```
 
-# [](#chrome)Google Chrome
+## [](#chrome)Google Chrome
 
-Google Chrome currently uses GTK 2.0, but will eventually use GTK 3.0 by
-default.
-Note that enabling the GTK+ theme in `Settings → Appearance` isn't enough to get
-a solarized look-and-feel. Google uses around 80 parameters for its design, and
-will only pick some colors from GTK, while using custom colors for other
-parameters.
-To truly customize the Chrome theme, an extension-like theme needs to be built. It can then be uploaded to the Chrome store and used by anyone from there.
+I will discuss here a solution to customize Chrome using an extension-like
+theme. It can then be uploaded to the Chrome store and used by anyone from there.
+
+Note that Google Chrome also has GTK 2.0 support, but will eventually use GTK 3.0 by
+default (currently implemented in a fork of Chromium, the Open Source project
+from which Google Chrome is based). To enable the GTK theme, Go to **Settings**, then
+**Appearance** and click on `Use GTK+ theme`.
+If the theme looks broken, try restarting Chrome. I figured out too late that
+the GTK theme isn't applied correctly to the top menu and tabs when clicking on
+`Use GTK+ theme` or using the gtkreload script, which is why I went with the theme extension solution. 
+Since the Chrome header isn't updated properly (requiring to restart Chrome for
+the theme to fully take effect) and since I wasn't entirely satisfied
+with the Numix theme for Chrome anyways, I'll keep using my solution for the
+time being.
+
 I used this [Solarized Dark
 theme](https://chrome.google.com/webstore/detail/solarized-dark/kedemblecjmofcmppbecaagebmokigml), and since I couldn't find a Solarized Light version, I [built it myself](https://github.com/Fandekasp/google-chrome-solarized-light)
 
@@ -454,11 +477,12 @@ the scratchpad, or in other words hide the window in a virtual workspace, which
 is managed by xdotool.
 
 
-# [](#script)Resulting script
+# [](#resulting-script)Resulting script
 
-To update everything at once in a single script, all that is left is finding the
+To update everything at once from a single script, all that is left is finding the
 current theme and execute each bit while calling the new theme.
-I used the termite configuration file to set the new mode:
+I used the termite configuration file as base to retrieve the current mode and
+define the new mode:
 
 ```bash
 HOME=/home/dori/
@@ -467,14 +491,12 @@ oldmode=$([[ -z $(diff $config ${config}-dark) ]] && echo 'dark' || echo 'light'
 newmode=$([[ $oldmode == 'dark' ]] && echo 'light' || echo 'dark')
 ```
 
-
 The line `[[ -z $(diff $config $dark) ]]` runs a diff between the config file
 and the dark one. If the result is empty (both files are the same), then let's
 symlink the light configuration, otherwise let's symlink the dark one.
 
 **Note**: _Since we're symlinking files, there should be a smarter way to
 compare them than running diff._
-
 
 And we're done! You can see below the full script:
 
@@ -560,3 +582,40 @@ fi
 And you can see here how it looks like for me:
 
 ![i3 toggle Solarized modes](/assets/images/i3-toggle-solarized-mode.gif)
+
+
+# [](#conclusion)Conclusion
+
+As always, Linux is flexible enough to allow for any kind of customization, but
+it takes a lot of time to set up things the way we like.
+I didn't need to go so far into customizing my themes and did it for the sake of
+this article in hope that it will help other people using similar applications.
+But the result is satisfying, and it has proven very useful everytime I was in a
+bright or dark environment.
+
+
+What could be improved ?
+
+* Replace the vim/nvr logic using the `--serverlist` option.
+* Time the execution of each part of the script, then re-order them accordingly to
+  reduce the total load time and minimize the flickering effect when restoring the
+  i3 layout.
+* Go back to using the GTK theme for Chrome, update the theme to give a better
+  look-and-feel, then investigate how to force colors to update in the header
+  menu with gtkreload and remove the i3 save & restore layout code.
+* Integrate more applications: try the fork of [Chromium with GTK
+  3.20](https://aur.archlinux.org/packages/chromium-gtk3/) support
+  and update its related theme; set up solarized colors for
+  [irssi](https://irssi.org/),
+  [mps-youtube](https://github.com/mps-youtube/mps-youtube), Qt4 applications, etc.
+
+Open Source Contributions made with this article:
+
+* Created the [Google Chrome Solarized light theme](https://github.com/Fandekasp/google-chrome-solarized-light) 
+* Made a pull request to [fix the dark gtk 2.0
+  theme](https://github.com/Ferdi265/numix-solarized-gtk-theme/pull/11) in
+  numix-solarized-gtk-theme.
+* Made a pull request to [add new transparent solarized i3
+  themes](https://github.com/acrisci/i3-style/pull/35) in i3-style.
+* Asked neovim-remote to [fix the nvr --serverlist
+  option](https://github.com/mhinz/neovim-remote/issues/40).
