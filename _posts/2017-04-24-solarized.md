@@ -5,6 +5,15 @@ date:   2017-04-24 17:20:00 +0900
 categories: solarized archlinux i3 termite tmux zsh vim
 ---
 
+TODO:
+
+* Fix numix solarized dark theme
+* Test chromium gtk3
+* add htop + irssi + mpd ...
+* Try to minimize the theme mode toggling flickering
+* Add list of OOS contributions (chrome themes + numix theme + i3-style)
+
+
 In this post, I will go over my configuration to set the Solarized light/dark
 themes in linux. In addition, I'll share my tricks to easily toggle between these
 2 themes across all applications.
@@ -178,7 +187,7 @@ Finally, I added the following contents to the script:
 coffee ${HOME}/scripts/cli.coffee solarized-transparent-${newmode} -o ${HOME}/.config/i3/config --reload
 ```
 
-If my pull request gets accepted upstream, I'll be able to use the normal
+If my [pull request]() gets accepted upstream, I'll be able to use the normal
 i3-style script instead of the current coffee command.
 
 For my statusbar, I only used accent colors to underline each i3block.
@@ -352,6 +361,11 @@ the gtk 2.0 color theme.
 
 I went with the [Numix
 Solarized](https://github.com/Ferdi265/numix-solarized-gtk-theme) themes.
+While the light theme looks pretty, I found some issues with the dark theme,
+especially unusable with my file manager Thunar. Hence, after fiddling a bit
+with the gtkrc file, I submitted a [Pull
+Request](https://github.com/Ferdi265/numix-solarized-gtk-theme/pull/11) to solve
+this issue.
 
 To update opened applications, I re-used [cpoakes'
 script](http://crunchbang.org/forums/viewtopic.php?pid=428517#p428517) to send events.
@@ -361,8 +375,6 @@ $ echo "include \"/usr/share/themes/NumixSolarized$([[ $newmode == 'dark' ]] \
     && echo 'Dark')/gtk-2.0/gtkrc\"" > ${HOME}/.gtkrc-2.0
 $ python2.7 ${HOME}/scripts/gtkreload &
 ```
-
-
 
 # [](#chrome)Google Chrome
 
@@ -431,6 +443,7 @@ if [[ $(ps auxw|grep chrome|grep -v grep|wc -l) -gt 0 ]]; then
     done
 fi
 ```
+
 While saving the layout with `i3-save-tree` is straightforward, restoring it
 with `i3-msg "append_layout ..."` was quite difficult, because it will simply
 add new containers next to existing containers. The trick was to use `xdotool`
@@ -543,3 +556,7 @@ if [[ $(ps auxw|grep chrome|grep -v grep|wc -l) -gt 0 ]]; then
     done
 fi
 ```
+
+And you can see here how it looks like for me:
+
+![i3 toggle Solarized modes](/assets/images/i3-toggle-solarized-mode.gif)
