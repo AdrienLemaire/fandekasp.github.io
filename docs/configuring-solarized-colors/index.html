@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="Adrien Lemaire">
+      <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans|Merriweather" rel="stylesheet">
+      <title>Adrien Lemaire</title>
+      <link rel="stylesheet" href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;app.css" />
+      <link href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;rss.xml" rel="feed" type="application/rss+xml" title="Adrien Lemaire" />
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', "UA-65364287-1", 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </head>
+
+  <body>
+
+    <aside class="sidebar">
+        <div class="sidebar__content">
+            <h1>Adrien Lemaire</h1>
+            <p>
+                Full stack software engineer writing about anything
+            </p>
+
+            <ul class="sidebar__nav">
+                <li><a href="/">Blog</a></li>
+                <!--
+                <li><a href="/is-working-on">Projects</a></li>
+                <li><a href="/presenting-himself">About</a></li>
+                -->
+            </ul>
+
+            <div class="sidebar__social">
+                <a href="mailto:lemaire.adrien@gmail.com"><i class="icon-mail"></i></a>
+                <a href="https://github.com/Fandekasp" target="_blank"><i class="icon-github"></i></a>
+                <a href="https://www.linkedin.com/in/adrienlemaire" target="_blank"><i class="icon-linkedin"></i></a>
+                <a href="https://twitter.com/Fandekasp" target="_blank"><i class="icon-twitter"></i></a>
+                <a href="/index.xml"><i class="icon-rss"></i></a>
+            </div>
+        </div>
+    </aside>
+
+
+    <div class="content">
+        
+    <section class="article-container">
+        <h1 class="article-container__title">Fun with Solarized colors</h1>
+        <span class="post-meta">
+        2017-04-28
+        
+        — Reading time: 15 min
+    </span>
+
+        <article class="article-container__content">
+            <p>In this post, I will go over my configuration to set the Solarized light/dark
+themes in linux. In addition, I'll share my tricks to easily toggle between these
+2 themes across all applications.</p>
+<p>Table of contents:</p>
+<ol start="0">
+<li><a href="#what-is-solarized">What is Solarized?</a></li>
+<li><a href="#configure-solarized-with-">Configure Solarized with ...</a>
+<ul>
+<li><a href="#xresources">Xresources</a></li>
+<li><a href="#rofi">Rofi</a></li>
+<li><a href="#dircolors">Dircolors</a></li>
+<li><a href="#i3">i3</a></li>
+<li><a href="#feh">feh</a></li>
+<li><a href="#termite">Termite</a></li>
+<li><a href="#neovim">NeoVim</a></li>
+<li><a href="#gtk">GTK</a></li>
+<li><a href="#google-chrome">Google Chrome</a></li>
+</ul>
+</li>
+<li><a href="#resulting-script">Resulting script</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<p>Below are the applications I will refer to:</p>
+<ul>
+<li><a href="https://www.archlinux.org/">Arch Linux</a>: Lightweight rolling-release Linux distribution.</li>
+<li><a href="https://i3wm.org/">I3</a>: Tiling window manager.</li>
+<li><a href="https://github.com/thestinger/termite">Termite</a>: Keyboard-centric VTE-based
+terminal.</li>
+<li><a href="https://tmux.github.io/">Tmux</a>: Terminal multiplexer to easily switch between
+programs in a single terminal.</li>
+<li><a href="https://github.com/neovim/neovim">NeoVim</a>: Vim fork, text editor.</li>
+</ul>
+<h2><a href="#what-is-solarized"></a>What is Solarized?</h2>
+<blockquote>
+<p><a href="http://ethanschoonover.com/solarized">Solarized</a> is a color palette designed to
+be very readable in both light and dark modes, using only 16 colors. The
+colors were chosen from the CIELAB color space, which smartly arranges colors
+visible to the human eye.</p>
+</blockquote>
+<p><img src="solarized-palette.png" alt="solarized palette" /></p>
+<p>There are many other interesting color schemes out there, like
+<a href="https://github.com/morhetz/gruvbox">gruvbox</a>, but I won't discuss the
+differences between each palette in this article.</p>
+<p>I have been using Solarized for several years now. A recurrent issue when
+setting up my system is to homogeneize colors across applications).</p>
+<p>While it would be nice to see applications reuse default colors, they
+unfortunately define their own set of colors, and we therefore need to copy the
+solarized color palette in each of these configuration files.</p>
+<p>Imagine you are running Vim within Tmux, both setup with solarized dark colors,
+and want to switch to the light theme because you're working outside or near a
+window around noon. You might already have a vim binding allowing you to toggle
+the colorscheme mode within your current session, but then you'll be struck by
+the high contrast between the tmux dark colors shown in other panes and the vim
+light colors in your current pane. Moreover, if you'd like to reopen a new vim
+session, you'll be back to the default theme, which is rather annoying.</p>
+<p><img src="solarized_vim_tmux_contrast.png" alt="Solarized contrast in Vim and Tmux" /></p>
+<p>Here's how I smoothly transition between light and dark mode for all applications using a shortcut.</p>
+<h1><a href="#configure-solarized-with"></a>Configure Solarized with ...</h1>
+<h2><a href="#xresources"></a>Xresources</h2>
+<blockquote>
+<p><strong>Xresources</strong> is a user-level configuration dotfile, used to set X resources
+used by X client applications.</p>
+</blockquote>
+<p>I truly wish applications would comply entirely to the colors specified in the
+Xresources so that we wouldn't need to configure our palette in so many
+different places.</p>
+<p>Therefore, I went and created 2 files, called <code>~/.Xresources-light</code>
+and <code>~/.Xresources-dark</code> files, then symlinked the current theme to
+<code>~/.Xresources</code>.</p>
+<p>Example for <code>~/.Xresources-dark</code>:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#859900;">!</span><span style="background-color:#002b36;color:#839496;"> Solarized theme
+</span><span style="background-color:#002b36;color:#859900;">!</span><span style="background-color:#002b36;color:#839496;"> Common
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_yellow        #b58900
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_orange        #cb4b16
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_red           #dc322f
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_magenta       #d33682
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_violet        #6c71c4
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_blue          #268bd2
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_cyan          #2aa198
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_green         #859900
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">!</span><span style="background-color:#002b36;color:#839496;"> Dark
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base03        #002b36
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base02        #073642
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base01        #586e75
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base00        #657b83
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base0         #839496
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base1         #93a1a1
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base2         #eee8d5
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">define S_base3         #fdf6e3
+</span></pre>
+<p>Then I updated the X11 configuration with xrdb.</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">$ xrdb -load ${HOME}/.Xresources
+</span></pre>
+<h2><a href="#rofi"></a>Rofi</h2>
+<blockquote>
+<p><a href="https://davedavenport.github.io/rofi/">Rofi</a>, a replacement to
+<a href="http://tools.suckless.org/dmenu/">dmenu</a> to easily find a new program to
+launch.</p>
+</blockquote>
+<p>Rofi's configuration also goes in the Xresources files.</p>
+<p>Example for <code>~/.Xresources-dark</code>:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#859900;">!</span><span style="background-color:#002b36;color:#839496;">                  </span><span style="background-color:#002b36;color:#859900;">bg</span><span style="background-color:#002b36;color:#839496;">         border   separator
+</span><span style="background-color:#002b36;color:#839496;">rofi.color-window: </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">dd002b36, #002b36, #dd073642
+</span><span style="background-color:#002b36;color:#859900;">!</span><span style="background-color:#002b36;color:#839496;">                  </span><span style="background-color:#002b36;color:#859900;">bg</span><span style="background-color:#002b36;color:#839496;">         </span><span style="background-color:#002b36;color:#859900;">fg</span><span style="background-color:#002b36;color:#839496;">       altbg      hlbg       hlfg
+</span><span style="background-color:#002b36;color:#839496;">rofi.color-normal: </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">dd002b36, #839496, #00002b36, #dd073642, #859900
+</span><span style="background-color:#002b36;color:#839496;">rofi.color-active: </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">dd002b36, #268bd2, #00002b36, #dd073642, #268bd2
+</span><span style="background-color:#002b36;color:#839496;">rofi.color-urgent: </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">dd002b36, #d33682, #00002b36, #dd073642, #d33682
+</span></pre>
+<p>Here is how it looks for me:</p>
+<p><img src="rofi-solarized.png" alt="rofi dark &amp; light examples" /></p>
+<h2><a href="#dircolors"></a>Dircolors</h2>
+<blockquote>
+<p>dircolors is the color setup for the <code>ls</code> command.</p>
+</blockquote>
+<p>To have ls colorize the directory/files in a solarized fashion, we need to
+specify the dircolors parameters. I went with the
+<a href="https://github.com/joel-porquet/zsh-dircolors-solarized">joel-porquet/zsh-dircolors-solarized</a> plugin for <a href="http://zsh.sourceforge.net/">zsh</a>.</p>
+<p>Using <a href="https://github.com/tarjoilija/zgen">zgen</a> to manage my zsh plugins, I
+added the following line to my <code>~/.zshrc</code>:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">zgen load joel-porquet/</span><span style="background-color:#002b36;color:#859900;">zsh</span><span style="background-color:#002b36;color:#839496;">-</span><span style="background-color:#002b36;color:#859900;">dircolors</span><span style="background-color:#002b36;color:#839496;">-solarized
+</span></pre>
+<p>Here is an example of dircolors from Termite with 80% transparency:</p>
+<p><img src="dircolors-solarized.jpg" alt="dircolors solarized" /></p>
+<h2><a href="#i3"></a>i3</h2>
+<blockquote>
+<p>i3 is a tiling window manager, allowing one to always see all opened
+windows, without them stacking above each other. With plenty of keystrokes,
+it makes it possible to control every windows only using the keyboard, making
+the mouse pretty much useless.</p>
+</blockquote>
+<p>My i3 stack consists of:</p>
+<ul>
+<li><a href="https://github.com/Airblader/i3">i3-gaps-next</a>, the
+development branch of a fork of i3wm offering more features, like gaps
+between windows instead of borders.</li>
+<li><a href="https://github.com/Airblader/i3blocks-gaps">i3blocks</a> for the status line</li>
+<li><a href="https://i3wm.org/i3lock/">i3lock</a> as screen locker.</li>
+</ul>
+<p>In addition, for my solarized theme switcher, I used
+a fork of <a href="https://github.com/acrisci/i3-style">i3-style</a>, where I defined my
+own transparent solarized themes, since I wasn't satisfied by the existing
+theme.</p>
+<p>To execute the script, I added a new binding in i3's configuration file:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">bindsym </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">mod</span><span style="background-color:#002b36;color:#839496;">+b  </span><span style="background-color:#002b36;color:#859900;">exec</span><span style="background-color:#002b36;color:#839496;"> --no-startup-</span><span style="background-color:#002b36;color:#859900;">id</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/scripts/toggle_solarized_theme.</span><span style="background-color:#002b36;color:#859900;">sh</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>My <code>$mod</code> button is set to <kbd>Mod4</kbd>, which is the Windows key in my XPS</p>
+<ol start="13">
+<li>Hence, whenever I press <kbd>Mod4</kbd>-<kbd>b</kbd>, my applications will
+toggle between dark and light solarized modes.
+The <strong>b</strong> in the keystroke stands for &quot;Background&quot;.</li>
+</ol>
+<p>Finally, I added the following contents to the script:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">i3-style solarized-transparent-${newmode} -o ${HOME}/.config/i3/config --reload
+</span><span style="background-color:#002b36;color:#839496;">coffee </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/scripts/cli.coffee solarized-transparent-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;"> -o </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.config/i3/config --reload
+</span></pre>
+<p>If my <a href="">pull request</a> gets accepted upstream, I'll be able to use the normal
+i3-style script instead of the current coffee command.</p>
+<p>For my statusbar, I only used accent colors to underline each i3block.</p>
+<p>Here is how my i3 statusbar looks like:</p>
+<p><img src="i3blocks-solarized.jpg" alt="i3blocks solarized" /></p>
+<h2><a href="#feh"></a> feh</h2>
+<blockquote>
+<p>feh is an image viewer that can also be used to set the desktop background
+image.</p>
+</blockquote>
+<p>To set the background image, simply pass the <code>--bg-fill</code> parameter to feh:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">$ feh --</span><span style="background-color:#002b36;color:#859900;">bg</span><span style="background-color:#002b36;color:#839496;">-fill </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">.config/wallpapers/solarized-mountains-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">.png</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>That will also create a file <code>~/.fehbg</code>, which can then be reused.
+In my i3 configuration, I added the following line for that purpose:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">exec_always --no-startup-</span><span style="background-color:#002b36;color:#859900;">id</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">~</span><span style="background-color:#002b36;color:#839496;">/.fehbg
+</span></pre>
+<p>For background image, I took a dark solarized image from <a href="http://9beat7.deviantart.com/art/Solarized-Mountains-530027093">Deviant
+Art</a>:</p>
+<p><img src="solarized-mountains-dark.png" alt="solarized background dark" /></p>
+<p>Then I modified it with <a href="https://www.gimp.org/">Gimp</a> to get a light solarized version.
+You normally only need to change the 4 background/foreground colors when
+toggling mode, accent colors staying the same in both modes. But the artist here
+used a darkened version of 4 accent colors to ease the transition between
+accent colors and the background color. Hence, I had to modify these shaded
+parts into their lightened counterpart.
+Here is how I proceeded:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#859900;">def</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#b58900;">get_halfway_color</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#268bd2;">al</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#268bd2;">bl</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">:</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">&#39;&#39;&#39;</span><span style="background-color:#002b36;color:#586e75;">Function to calculate the color in-between two HSL colors</span><span style="background-color:#002b36;color:#586e75;">&#39;&#39;&#39;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#839496;"> a</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;">b </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">zip</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#839496;">al</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;">bl</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">:</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">        </span><span style="background-color:#002b36;color:#859900;">yield</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">min</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#839496;">a</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;">b</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#657b83;">+</span><span style="background-color:#002b36;color:#859900;">abs</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#839496;">a</span><span style="background-color:#002b36;color:#657b83;">-</span><span style="background-color:#002b36;color:#839496;">b</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#657b83;">/</span><span style="background-color:#002b36;color:#6c71c4;">2</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> [Hue, Saturation, Lightness]
+</span><span style="background-color:#002b36;color:#839496;">bg_light </span><span style="background-color:#002b36;color:#657b83;">=</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#6c71c4;">46</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">11</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">93</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">gold </span><span style="background-color:#002b36;color:#657b83;">=</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#6c71c4;">45</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">100</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">71</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">red </span><span style="background-color:#002b36;color:#657b83;">=</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#6c71c4;">1</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">79</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">87</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">purple </span><span style="background-color:#002b36;color:#657b83;">=</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#6c71c4;">238</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">44</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">77</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">green </span><span style="background-color:#002b36;color:#657b83;">=</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#6c71c4;">175</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">71</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#6c71c4;">63</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#839496;"> color </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">[</span><span style="background-color:#002b36;color:#839496;">gold</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> red</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> purple</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> green</span><span style="background-color:#002b36;color:#839496;">]</span><span style="background-color:#002b36;color:#839496;">:</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">print</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#859900;">list</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#268bd2;">get_halfway_color</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#839496;">bg_light</span><span style="background-color:#002b36;color:#839496;">,</span><span style="background-color:#002b36;color:#839496;"> color</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Output: 
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> [45.5, 55.5, 82.0]
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> [23.5, 45.0, 90.0]
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> [142.0, 27.5, 85.0]
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> [110.5, 41.0, 78.0]
+</span></pre>
+<p>Why did I use HSL colors instead of RGB ? Because it's a much more intuitive way
+to find colors. After playing with it for a bit, I decided to only change the
+saturation and lightness, which gave the following result.</p>
+<p><img src="solarized-mountains-light.png" alt="solarized background light" /></p>
+<p>Note that it would have been ideal to work with CIELab colors, but since Gimp
+was showing HSL colors right off the bat, it was just simpler to go this way.</p>
+<h2><a href="#termite"></a> Termite</h2>
+<blockquote>
+<p>After using <a href="http://software.schmorp.de/pkg/rxvt-unicode.html">urxvt</a> for many
+years, I switched to Termite, which behaves similarly in many ways and offers
+painless configuration like adding true transparency.</p>
+</blockquote>
+<p>To set the solarized colors on Termite, edit the <code>~/.config/termite/config</code> file
+and add the <strong>[colors]</strong> section. I used the configuration shared by
+<a href="https://github.com/alpha-omega/termite-colors-solarized">alpha-omega/termite-colors-solarized</a>
+for that purpose.</p>
+<p>What I did was copying the <code>solarized-dark</code> and <code>solarized-light</code> files in
+<code>~/.config/termite/</code>, adding my other termite configs to each file.</p>
+<p>Then, similarly to Xresources, changing the termite solarized theme can be done
+as follows:</p>
+<ol>
+<li>Symlink the theme file to config: <code>cd ~/.config/termite &amp;&amp; ln -sf solarized-&lt;dark|light&gt; config</code></li>
+<li>Press <kbd>Ctrl</kbd>-<kbd>Shift</kbd>-<kbd>R</kbd> to reload the terminal.</li>
+</ol>
+<p><strong>Note:</strong> <em>Only 4 lines differ between both configuration files, so there should
+be a smarter way to include them in the main config.</em></p>
+<p>To reload the terminal programmatically, I proceed as follows:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">$ </span><span style="background-color:#002b36;color:#859900;">ln</span><span style="background-color:#002b36;color:#839496;"> -sf </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">config</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">-</span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">config</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">$ </span><span style="background-color:#002b36;color:#859900;">killall</span><span style="background-color:#002b36;color:#839496;"> -USR1 termite
+</span></pre>
+<h2><a href="#neovim"></a>NeoVim</h2>
+<blockquote>
+<p><a href="https://neovim.io/">NeoVim</a> is a highly configurable text editor forked from Vim.</p>
+</blockquote>
+<p>For Vim, I re-used the color palette defined by
+<a href="https://github.com/lifepillar/vim-solarized8">lifepillar/vim-solarized8</a>, and
+added the following in my <code>~/.vimrc</code>:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">Plug &#39;lifepillar/vim-solarized8&#39;
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">nnoremap  &lt;leader&gt;B :&lt;c-u&gt;exe &quot;colors&quot; (g:colors_name =~# &quot;dark&quot;
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">\ ? substitute(g:colors_name, &#39;dark&#39;, &#39;light&#39;, &#39;&#39;)
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">\ : substitute(g:colors_name, &#39;light&#39;, &#39;dark&#39;, &#39;&#39;)
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">\ )&lt;cr&gt;
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">fun! Solarized8Contrast(delta)
+</span><span style="background-color:#002b36;color:#839496;">  </span><span style="background-color:#002b36;color:#839496;">let l:schemes = map([&#39;_low&#39;, &#39;_flat&#39;, &#39;&#39;, &#39;_high&#39;], &#39;&quot;solarized8_&quot;.(&amp;background).v:val&#39;)
+</span><span style="background-color:#002b36;color:#839496;">  </span><span style="background-color:#002b36;color:#839496;">exe &#39;colors&#39; l:schemes[((a:delta+index(l:schemes, g:colors_name)) % 4 + 4) % 4]
+</span><span style="background-color:#002b36;color:#839496;">endf
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">nmap &lt;leader&gt;- :&lt;c-u&gt;call Solarized8Contrast(-v:count1)&lt;cr&gt;
+</span><span style="background-color:#002b36;color:#839496;">nmap &lt;leader&gt;+ :&lt;c-u&gt;call Solarized8Contrast(+v:count1)&lt;cr&gt;
+</span></pre>
+<p>This allows me to use Solarized with True colors (24-bit colors, or 16 million
+colors, supported by Termite). It also adds two interesting key bindings (my
+Leader key being <kbd>,</kbd>):</p>
+<ul>
+<li><kbd>,</kbd>-<kbd>B</kbd> will toggle the dark and light modes in Vim</li>
+<li><kbd>,</kbd>-<kbd>-</kbd> and <kbd>,</kbd>-<kbd>+</kbd> allow me to change the
+contrast of the selected mode.</li>
+</ul>
+<p><strong>Note:</strong> I'm using <a href="https://github.com/junegunn/vim-plug">vim-plug</a> as Vim
+plugin manager, which is simple to use and full of smart features, for example
+allowing to lazy-load modules when their command is called.</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">pattern</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">colorscheme solarized8_</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">perl</span><span style="background-color:#002b36;color:#839496;"> -e </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">s/</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">pattern</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">oldmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">/</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">pattern</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">/g</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;"> -pi </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">.vimrc
+</span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">socket</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> /tmp/nvimsocket</span><span style="background-color:#002b36;color:#859900;">*</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#586e75;">nvr --servername </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">socket</span><span style="background-color:#002b36;color:#586e75;"> --remote-send </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">,B&lt;Enter&gt;</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>Then, I used <a href="https://github.com/mhinz/neovim-remote">nvr</a> to send a color
+toggle command to running vim sessions. The reason I used it is that the
+<a href="https://neovim.io/doc/user/remote.html#clientserver">+clientserver</a> of neovim
+goes through the X-server (like <a href="http://vimdoc.sourceforge.net/htmldoc/remote.html">vim
+--remote</a> for that matter),
+or I'm working with neovim in a terminal without GUI.
+To create new nvim servers everytime I open vim, I added to my <code>~/.zshrc</code> file
+the following:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#859900;">function</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#b58900;">vim</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">()</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">{</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">COUNT</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$((</span><span style="background-color:#002b36;color:#2aa198;">$((ls </span><span style="background-color:#002b36;color:#657b83;">/</span><span style="background-color:#002b36;color:#2aa198;">tmp</span><span style="background-color:#002b36;color:#657b83;">/</span><span style="background-color:#002b36;color:#2aa198;">nvimsocket</span><span style="background-color:#002b36;color:#657b83;">*</span><span style="background-color:#002b36;color:#2aa198;">) </span><span style="background-color:#002b36;color:#6c71c4;">2</span><span style="background-color:#002b36;color:#657b83;">&gt;</span><span style="background-color:#002b36;color:#657b83;">&amp;</span><span style="background-color:#002b36;color:#657b83;">/</span><span style="background-color:#002b36;color:#2aa198;">dev</span><span style="background-color:#002b36;color:#657b83;">/</span><span style="background-color:#002b36;color:#2aa198;">null</span><span style="background-color:#002b36;color:#657b83;">|</span><span style="background-color:#002b36;color:#2aa198;">tail </span><span style="background-color:#002b36;color:#657b83;">-</span><span style="background-color:#002b36;color:#2aa198;">n </span><span style="background-color:#002b36;color:#6c71c4;">1</span><span style="background-color:#002b36;color:#657b83;">|</span><span style="background-color:#002b36;color:#2aa198;">grep </span><span style="background-color:#002b36;color:#657b83;">-</span><span style="background-color:#002b36;color:#2aa198;">Po &#39;nvimsocket\K[</span><span style="background-color:#002b36;color:#6c71c4;">0</span><span style="background-color:#002b36;color:#657b83;">-</span><span style="background-color:#002b36;color:#6c71c4;">9</span><span style="background-color:#002b36;color:#2aa198;">]</span><span style="background-color:#002b36;color:#657b83;">*</span><span style="background-color:#002b36;color:#2aa198;">$&#39;) </span><span style="background-color:#002b36;color:#657b83;">+</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#6c71c4;">1</span><span style="background-color:#002b36;color:#839496;">))</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">printf</span><span style="background-color:#002b36;color:#839496;"> -v COUNT </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">%05d</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">COUNT</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">NVIM_LISTEN_ADDRESS</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">/tmp/nvimsocket</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">COUNT</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;"> nvim </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">}</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>This function will create a new socket file suffixed with an incremented number,
+so that nvr can easily retrieve all server and send them update commands.
+<strong>Note:</strong> neovim-remote has now <a href="https://github.com/mhinz/neovim-remote/issues/40">fixed the
+--serverlist</a> option, so we
+could refactore this piece of code.</p>
+<h2><a href="#gtk"></a> GTK</h2>
+<blockquote>
+<p>The <a href="https://www.gtk.org/">GIMP Toolkit</a> is a platform for creating graphical
+user interfaces.</p>
+</blockquote>
+<p>Since I'm using several GTK 2.0 applications, like <a href="https://www.gimp.org/">Gimp</a>,
+<a href="http://docs.xfce.org/xfce/thunar/start">Thunar</a> or
+<a href="http://deluge-torrent.org/">Deluge</a>, it also makes sense to update
+the gtk 2.0 color theme.</p>
+<p>I went with the <a href="https://github.com/Ferdi265/numix-solarized-gtk-theme">Numix
+Solarized</a> themes.
+While the light theme looks pretty, I found some issues with the dark theme,
+especially unusable with my file manager Thunar. Hence, after fiddling a bit
+with the gtkrc file, I submitted a <a href="https://github.com/Ferdi265/numix-solarized-gtk-theme/pull/11">Pull
+Request</a> to solve
+this issue.</p>
+<p>To update opened applications, I re-used <a href="http://crunchbang.org/forums/viewtopic.php?pid=428517#p428517">cpoakes'
+script</a> to send events.</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">$ </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">include </span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#2aa198;">/usr/share/themes/NumixSolarized</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">==</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#2aa198;"> \
+</span><span style="background-color:#002b36;color:#2aa198;">    </span><span style="background-color:#002b36;color:#859900;">&amp;&amp;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">Dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#2aa198;">/gtk-2.0/gtkrc</span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">&gt;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.gtkrc-2.0
+</span><span style="background-color:#002b36;color:#839496;">$ </span><span style="background-color:#002b36;color:#859900;">python2.7</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/scripts/gtkreload </span><span style="background-color:#002b36;color:#859900;">&amp;</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<h2><a href="#chrome"></a>Google Chrome</h2>
+<p>I will discuss here a solution to customize Chrome using an extension-like
+theme. It can then be uploaded to the Chrome store and used by anyone from there.</p>
+<p>Note that Google Chrome also has GTK 2.0 support, but will eventually use GTK 3.0 by
+default (currently implemented in a fork of Chromium, the Open Source project
+from which Google Chrome is based). To enable the GTK theme, Go to <strong>Settings</strong>, then
+<strong>Appearance</strong> and click on <code>Use GTK+ theme</code>.
+If the theme looks broken, try restarting Chrome. I figured out too late that
+the GTK theme isn't applied correctly to the top menu and tabs when clicking on
+<code>Use GTK+ theme</code> or using the gtkreload script, which is why I went with the theme extension solution.
+Since the Chrome header isn't updated properly (requiring to restart Chrome for
+the theme to fully take effect) and since I wasn't entirely satisfied
+with the Numix theme for Chrome anyways, I'll keep using my solution for the
+time being.</p>
+<p>I used this <a href="https://chrome.google.com/webstore/detail/solarized-dark/kedemblecjmofcmppbecaagebmokigml">Solarized Dark
+theme</a>, and since I couldn't find a Solarized Light version, I <a href="https://github.com/Fandekasp/google-chrome-solarized-light">built it myself</a>.</p>
+<p>I couldn't figure out any way to reload Chrome the same way it reloads itself when
+updating the settings or installing a new theme from the Chrome store.
+Therefore, I went with a restart approach, specifying the
+<code>--load-extension=/path/to/theme</code> parameter to the google google-chrome
+executable. Another problem naturally occured from that decision: When
+restarting an application, i3 will detect the windows being closed and
+automatically re-tile the other windows, then repeat the process once chrome is
+restarted, potentially breaking the window layout we had defined prior to
+changing the theme. To avoid this issue, we can improve the script to save the
+current layout before closing Chrome, then restore the layout once Chrome is
+restarted.</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#859900;">if</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#859900;">ps</span><span style="background-color:#002b36;color:#2aa198;"> auxw</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">grep</span><span style="background-color:#002b36;color:#2aa198;"> chrome</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">grep</span><span style="background-color:#002b36;color:#2aa198;"> -v </span><span style="background-color:#002b36;color:#859900;">grep</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">wc</span><span style="background-color:#002b36;color:#2aa198;"> -l</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">-gt</span><span style="background-color:#002b36;color:#839496;"> 0 </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">then</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">mapfile -t workspaces </span><span style="background-color:#002b36;color:#859900;">&lt;</span><span style="background-color:#002b36;color:#859900;">&lt;</span><span style="background-color:#002b36;color:#859900;">&lt;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#2aa198;">i3-msg -t get_workspaces </span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#2aa198;"> jq -r </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">.[] | .name</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Add save-tree logic here
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">ws</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">workspaces</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">i3-save-tree --workspace </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">&gt;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">~</span><span style="background-color:#002b36;color:#586e75;">/.config/i3sessions/workspace-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">1</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#586e75;">.json
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Swallows all
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#859900;">perl</span><span style="background-color:#002b36;color:#586e75;"> -e </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">s/\/\/ </span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#2aa198;">/</span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#2aa198;">/g</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#586e75;"> -pi </span><span style="background-color:#002b36;color:#859900;">~</span><span style="background-color:#002b36;color:#586e75;">/.config/i3sessions/workspace-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">1</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#586e75;">.json
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Kill Chrome
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">killall</span><span style="background-color:#002b36;color:#839496;"> chrome
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Swallow other windows
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">ids</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#2aa198;">xdotool search --onlyvisible --name </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">.*</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">IFS</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">
+</span><span style="background-color:#002b36;color:#2aa198;">    </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">ids</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">ids</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">id</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ids</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">xdotool windowunmap </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">id</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Restore logic
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">ws</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">workspaces</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">i3-msg </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">workspace </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#2aa198;">; append_layout ~/.config/i3sessions/workspace-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">1</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">.json</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Go back to first workspace
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">i3-msg </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">workspace </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">workspaces</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Restart Chrome
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">exec</span><span style="background-color:#002b36;color:#839496;"> google-chrome-stable --load-extension</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/Projects/personal/google-chrome-solarized-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">-theme </span><span style="background-color:#002b36;color:#859900;">&amp;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Give some time for i3 to append the layout and chrome to start
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">sleep</span><span style="background-color:#002b36;color:#839496;"> 0.5
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Unswallow other windows
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">id</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ids</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">xdotool windowmap </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">id</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">fi</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>While saving the layout with <code>i3-save-tree</code> is straightforward, restoring it
+with <code>i3-msg &quot;append_layout ...&quot;</code> was quite difficult, because it will simply
+add new containers next to existing containers. The trick was to use <code>xdotool</code>
+to swallow existing windows like Termite, and unswallow them for i3 to add them
+back in the new layout.</p>
+<p>To clarify the terminology here, &quot;swallowing&quot; is similar to sending a window to
+the scratchpad, or in other words hide the window in a virtual workspace, which
+is managed by xdotool.</p>
+<h1><a href="#resulting-script"></a>Resulting script</h1>
+<p>To update everything at once from a single script, all that is left is finding the
+current theme and execute each bit while calling the new theme.</p>
+<p>I used the termite configuration file as base to retrieve the current mode and
+define the new mode:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#839496;">HOME</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">/home/dori/
+</span><span style="background-color:#002b36;color:#839496;">config</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">.config/termite/config
+</span><span style="background-color:#002b36;color:#839496;">oldmode</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">-z</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#859900;">diff</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">config</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">config</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">-dark</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">&amp;&amp;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">light</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">newmode</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">oldmode</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">==</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">&amp;&amp;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">light</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>The line <code>[[ -z $(diff $config $dark) ]]</code> runs a diff between the config file
+and the dark one. If the result is empty (both files are the same), then let's
+symlink the light configuration, otherwise let's symlink the dark one.</p>
+<p><strong>Note</strong>: <em>Since we're symlinking files, there should be a smarter way to
+compare them than running diff.</em></p>
+<p>And we're done! You can see below the full script:</p>
+<pre style="background-color:#002b36">
+<span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">!/bin/bash
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">termite_conf</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.config/termite/config
+</span><span style="background-color:#002b36;color:#839496;">oldmode</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">-z</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#859900;">diff</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">termite_conf</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">termite_conf</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">-dark</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">&amp;&amp;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">light</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">newmode</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">oldmode</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">==</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">&amp;&amp;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">light</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> i3
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Toggle the following 2 lines if my PR gets merged in upstream i3-style
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;">i3-style solarized-transparent-${newmode} -o ${HOME}/.config/i3/config --reload
+</span><span style="background-color:#002b36;color:#839496;">coffee </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/scripts/cli.coffee solarized-transparent-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;"> -o </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.config/i3/config --reload
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Background
+</span><span style="background-color:#002b36;color:#839496;">feh --</span><span style="background-color:#002b36;color:#859900;">bg</span><span style="background-color:#002b36;color:#839496;">-fill </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">/.config/wallpapers/solarized-mountains-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">.png</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> .Xresources
+</span><span style="background-color:#002b36;color:#859900;">ln</span><span style="background-color:#002b36;color:#839496;"> -sf </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.Xresources-</span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.Xresources
+</span><span style="background-color:#002b36;color:#839496;">xrdb -load </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.Xresources
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Termite
+</span><span style="background-color:#002b36;color:#859900;">ln</span><span style="background-color:#002b36;color:#839496;"> -sf </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">termite_conf</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">-</span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">termite_conf</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">killall</span><span style="background-color:#002b36;color:#839496;"> -USR1 termite
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Vim
+</span><span style="background-color:#002b36;color:#839496;">pattern</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">colorscheme solarized8_</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">perl</span><span style="background-color:#002b36;color:#839496;"> -e </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">s/</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">pattern</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">oldmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">/</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">pattern</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">/g</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;"> -pi </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.vimrc
+</span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">socket</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> /tmp/nvimsocket</span><span style="background-color:#002b36;color:#859900;">*</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#586e75;">nvr --servername </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">socket</span><span style="background-color:#002b36;color:#586e75;"> --remote-send </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">,B&lt;Enter&gt;</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> GTK2 apps (e.g Gimp, Thunar, Deluge, Chrome)
+</span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">include </span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#2aa198;">/usr/share/themes/NumixSolarized</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">==</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#2aa198;"> \
+</span><span style="background-color:#002b36;color:#2aa198;">    </span><span style="background-color:#002b36;color:#859900;">&amp;&amp;</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#859900;">echo</span><span style="background-color:#002b36;color:#2aa198;"> </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">Dark</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#2aa198;">/gtk-2.0/gtkrc</span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">&gt;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/.gtkrc-2.0
+</span><span style="background-color:#002b36;color:#859900;">python2.7</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/scripts/gtkreload </span><span style="background-color:#002b36;color:#859900;">&amp;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Chrome
+</span><span style="background-color:#002b36;color:#859900;">if</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#dc322f;">[[</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#859900;">ps</span><span style="background-color:#002b36;color:#2aa198;"> auxw</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">grep</span><span style="background-color:#002b36;color:#2aa198;"> chrome</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">grep</span><span style="background-color:#002b36;color:#2aa198;"> -v </span><span style="background-color:#002b36;color:#859900;">grep</span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#859900;">wc</span><span style="background-color:#002b36;color:#2aa198;"> -l</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">-gt</span><span style="background-color:#002b36;color:#839496;"> 0 </span><span style="background-color:#002b36;color:#dc322f;">]]</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">then</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">mapfile -t workspaces </span><span style="background-color:#002b36;color:#859900;">&lt;</span><span style="background-color:#002b36;color:#859900;">&lt;</span><span style="background-color:#002b36;color:#859900;">&lt;</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#2aa198;">i3-msg -t get_workspaces </span><span style="background-color:#002b36;color:#859900;">|</span><span style="background-color:#002b36;color:#2aa198;"> jq -r </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">.[] | .name</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Add save-tree logic here
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">ws</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">workspaces</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">i3-save-tree --workspace </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">&gt;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">~</span><span style="background-color:#002b36;color:#586e75;">/.config/i3sessions/workspace-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">1</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#586e75;">.json
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Swallows all
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#859900;">perl</span><span style="background-color:#002b36;color:#586e75;"> -e </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">s/\/\/ </span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#2aa198;">/</span><span style="background-color:#002b36;color:#dc322f;">\&quot;</span><span style="background-color:#002b36;color:#2aa198;">/g</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#586e75;"> -pi </span><span style="background-color:#002b36;color:#859900;">~</span><span style="background-color:#002b36;color:#586e75;">/.config/i3sessions/workspace-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">1</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#586e75;">.json
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Kill Chrome
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">killall</span><span style="background-color:#002b36;color:#839496;"> chrome
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Swallow other windows
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">ids</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">$(</span><span style="background-color:#002b36;color:#2aa198;">xdotool search --onlyvisible --name </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">.*</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">IFS</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#2aa198;">
+</span><span style="background-color:#002b36;color:#2aa198;">    </span><span style="background-color:#002b36;color:#839496;">&#39;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">ids</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#839496;">(</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">ids</span><span style="background-color:#002b36;color:#839496;"> </span><span style="background-color:#002b36;color:#839496;">)</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">id</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ids</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">xdotool windowunmap </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">id</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Restore logic
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">ws</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">workspaces</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">i3-msg </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">workspace </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#2aa198;">; append_layout ~/.config/i3sessions/workspace-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ws</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#859900;">:</span><span style="background-color:#002b36;color:#268bd2;">1</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#2aa198;">.json</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Go back to first workspace
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#839496;">i3-msg </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#2aa198;">workspace </span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">workspaces</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">0</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Restart Chrome
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">exec</span><span style="background-color:#002b36;color:#839496;"> google-chrome-stable --load-extension</span><span style="background-color:#002b36;color:#859900;">=</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">HOME</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">/Projects/personal/google-chrome-solarized-</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">newmode</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">-theme </span><span style="background-color:#002b36;color:#859900;">&amp;</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Give some time for i3 to append the layout and chrome to start
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">sleep</span><span style="background-color:#002b36;color:#839496;"> 0.5
+</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#586e75;">#</span><span style="background-color:#002b36;color:#586e75;"> Unswallow other windows
+</span><span style="background-color:#002b36;color:#839496;">    </span><span style="background-color:#002b36;color:#859900;">for</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#586e75;">id</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">in</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">${</span><span style="background-color:#002b36;color:#268bd2;">ids</span><span style="background-color:#002b36;color:#268bd2;">[</span><span style="background-color:#002b36;color:#268bd2;">@</span><span style="background-color:#002b36;color:#268bd2;">]</span><span style="background-color:#002b36;color:#859900;">}</span><span style="background-color:#002b36;color:#839496;">&quot;</span><span style="background-color:#002b36;color:#859900;">;</span><span style="background-color:#002b36;color:#586e75;"> </span><span style="background-color:#002b36;color:#859900;">do</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">        </span><span style="background-color:#002b36;color:#586e75;">xdotool windowmap </span><span style="background-color:#002b36;color:#859900;">$</span><span style="background-color:#002b36;color:#268bd2;">id</span><span style="background-color:#002b36;color:#586e75;">
+</span><span style="background-color:#002b36;color:#586e75;">    </span><span style="background-color:#002b36;color:#859900;">done</span><span style="background-color:#002b36;color:#839496;">
+</span><span style="background-color:#002b36;color:#859900;">fi</span><span style="background-color:#002b36;color:#839496;">
+</span></pre>
+<p>And you can see here how it looks like for me:</p>
+<p><img src="i3-toggle-solarized-mode.gif" alt="i3 toggle Solarized modes" /></p>
+<h1><a href="#conclusion"></a>Conclusion</h1>
+<p>As always, Linux is flexible enough to allow for any kind of customization, but
+it takes a lot of time to set up things the way we like.
+I didn't need to go so far into customizing my themes and did it for the sake of
+this article in hope that it will help other people using similar applications.
+But the result is satisfying, and it has proven very useful everytime I was in a
+bright or dark environment.</p>
+<p>What could be improved ?</p>
+<ul>
+<li>Replace the vim/nvr logic using the <code>--serverlist</code> option.</li>
+<li>Time the execution of each part of the script, then re-order them accordingly to
+reduce the total load time and minimize the flickering effect when restoring the
+i3 layout.</li>
+<li>Start chrome with cached pages, do not reload all tabs.</li>
+<li>Go back to using the GTK theme for Chrome, update the theme to give a better
+look-and-feel, then investigate how to force colors to update in the header
+menu with gtkreload and remove the i3 save &amp; restore layout code.</li>
+<li>Integrate more applications: try the fork of <a href="https://aur.archlinux.org/packages/chromium-gtk3/">Chromium with GTK
+3.20</a> support
+and update its related theme; set up solarized colors for
+<a href="https://irssi.org/">irssi</a>,
+<a href="https://github.com/mps-youtube/mps-youtube">mps-youtube</a>, Qt4 applications, etc.</li>
+</ul>
+<p>Open Source Contributions made with this article:</p>
+<ul>
+<li>Created the <a href="https://github.com/Fandekasp/google-chrome-solarized-light">Google Chrome Solarized light theme</a></li>
+<li>Made a pull request to <a href="https://github.com/Ferdi265/numix-solarized-gtk-theme/pull/11">fix the dark gtk 2.0
+theme</a> in
+numix-solarized-gtk-theme.</li>
+<li>Made a pull request to <a href="https://github.com/acrisci/i3-style/pull/35">add new transparent solarized i3
+themes</a> in i3-style.</li>
+<li>Asked neovim-remote to <a href="https://github.com/mhinz/neovim-remote/issues/40">fix the nvr --serverlist
+option</a>.</li>
+</ul>
+<p>Feel free to contact me if you have any question, comment or request regarding
+this article, and I'll keep it updated when I find some time!</p>
+
+        </article>
+    </section>
+
+    </div>
+  <script src="/livereload.js?port=1112&mindelay=10"></script></body>
+</html>
+
