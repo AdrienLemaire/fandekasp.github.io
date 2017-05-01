@@ -1,0 +1,24 @@
+{
+  "name": "adrien.is",
+  "version": "1.0.0",
+  "description": "Adrien Lemaire's website",
+  "main": "index.js",
+  "scripts": {
+    "watch": "gulp watch",
+    "sass": "gulp sass",
+    "dist": "rm -rf public && gulp sass && gutenberg build"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-sass": "^2.2.0",
+    "lost": "^7.1.0"
+  },
+  "dependencies": {
+    "gutenberg-web-type": "^1.2.3",
+    "normalize-scss": "^6.0.0"
+  }
+}
