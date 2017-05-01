@@ -585,9 +585,12 @@ if [[ $(ps auxw|grep chrome|grep -v grep|wc -l) -gt 0 ]]; then
 fi
 ```
 
+----
+
 And you can see here how it looks like for me:
 
-![i3 toggle Solarized modes](i3-toggle-solarized-mode.gif)
+<!--![i3 toggle Solarized modes](i3-toggle-solarized-mode.gif) -->
+<img src="i3-toggle-solarized-mode.gif" />
 
 
 # Conclusion

@@ -9,7 +9,12 @@
     max-width: None;
 
     article {
-      max-width: $max-width;
+      max-width: None;
+      width: 100%;
+      p, ol, ul, blockquote {
+        max-width: $max-width;
+        width: 80%;
+      }
     }
   }
 }
@@ -90,17 +95,23 @@
   }
 }
 
-.projects,
-.resume {
-  max-width: $max-width;
+@mixin margin-bottom($number) {
+  margin-bottom: #{$number * $leading-rem + 'rem'};
 }
 
+pre {
+  padding: 1rem;
+}
+code {
+  display: inline;
+}
 .post-meta {display: block;}
 
 .list-posts {
   max-width: 30rem;
 }
 
-pre {
-  padding: 1rem;
+ol {
+  ul {margin-bottom: 0};
 }
+

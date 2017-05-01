@@ -11,7 +11,5 @@
 @import 'responsive';
 @import 'base';
 @import 'layout';
-@import './gutenberg-config';
-@import './node_modules/gutenberg-web-type/src/style/gutenberg.scss';
-@import './gutenberg';
+@import 'gutenberg-web-type/gutenberg';
 @import 'solarized';
