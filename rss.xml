@@ -1,17 +1,17 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Adrien Lemaire</title>
-        <link>http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;</link>
+        <link>https:&#x2F;&#x2F;adrien.is&#x2F;</link>
         <description></description>
         <generator>Gutenberg</generator>
         <language>en</language>
-        <atom:link href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;rss.xml" rel="self" type="application/rss+xml"/>
+        <atom:link href="https:&#x2F;&#x2F;adrien.is&#x2F;rss.xml" rel="self" type="application/rss+xml"/>
         <lastBuildDate>Fri, 28 Apr 2017 00:00:00 +0000</lastBuildDate>
         <item>
                 <title>Fun with Solarized colors</title>
                 <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
-                <link>http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;configuring-solarized-colors</link>
-                <guid>http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;configuring-solarized-colors</guid>
+                <link>https:&#x2F;&#x2F;adrien.is&#x2F;configuring-solarized-colors</link>
+                <guid>https:&#x2F;&#x2F;adrien.is&#x2F;configuring-solarized-colors</guid>
                 <description>&lt;p&gt;In this post, I will go over my configuration to set the Solarized light&#x2F;dark
 themes in linux. In addition, I&#x27;ll share my tricks to easily toggle between these
 2 themes across all applications.&lt;&#x2F;p&gt;
@@ -106,7 +106,7 @@ and &lt;code&gt;~&#x2F;.Xresources-dark&lt;&#x2F;code&gt; files, then symlinked 
 &lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Then I updated the X11 configuration with xrdb.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#002b36&quot;&gt;
-&lt;span style=&quot;background-color:#002b36;color:#839496;&quot;&gt;$ xrdb -load ${HOME}&#x2F;.Xresources
+&lt;span style=&quot;background-color:#002b36;color:#839496;&quot;&gt;$ xrdb -load &lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#002b36;color:#859900;&quot;&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#002b36;color:#268bd2;&quot;&gt;HOME&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#002b36;color:#859900;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#002b36;color:#839496;&quot;&gt;&#x2F;.Xresources
 &lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;rofi&quot;&gt;Rofi&lt;&#x2F;h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;davedavenport.github.io&#x2F;rofi&#x2F;&quot;&gt;Rofi&lt;&#x2F;a&gt;, a replacement to
@@ -511,7 +511,9 @@ compare them than running diff.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#002b36;color:#859900;&quot;&gt;fi&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#002b36;color:#839496;&quot;&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;And you can see here how it looks like for me:&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;i3-toggle-solarized-mode.gif&quot; alt=&quot;i3 toggle Solarized modes&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;!--![i3 toggle Solarized modes](i3-toggle-solarized-mode.gif) --&gt;
+&lt;img src=&quot;i3-toggle-solarized-mode.gif&quot; &#x2F;&gt;
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h1&gt;
 &lt;p&gt;As always, Linux is flexible enough to allow for any kind of customization, but
 it takes a lot of time to set up things the way we like.
