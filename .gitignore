@@ -2,3 +2,7 @@ _site/
 .sass-cache/
 *swp
 *swo
+*un~
+public/
+node_modules/
+npm-debug.log
