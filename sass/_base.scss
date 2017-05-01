@@ -35,11 +35,3 @@
     margin-top: #{ $number * $leading-mobile + 'px'};
   }
 }
-@mixin margin-bottom($number) {
-  margin-bottom: #{ $number * $leading-desktop + 'px'};
-
-  @include respond-to("small") {
-    margin-bottom: #{ $number * $leading-mobile + 'px'};
-  }
-}
-

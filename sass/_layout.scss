@@ -11,9 +11,11 @@
     article {
       max-width: None;
       width: 100%;
-      p, ol, ul, blockquote {
+      p, ol, ul, blockquote, pre {
         max-width: $max-width;
         width: 80%;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
@@ -95,17 +97,24 @@
   }
 }
 
-@mixin margin-bottom($number) {
-  margin-bottom: #{$number * $leading-rem + 'rem'};
-}
-
 pre {
   padding: 1rem;
+  border-radius: 5px;
 }
 code {
   display: inline;
+  border-radius: 5px;
+  font-size: 85%;
+  line-height: 1.7;
+  margin-bottom: 0;
+  overflow: auto;
+  padding: 0 5px;
+}
+blockquote {
+  border-radius: 1rem;
 }
 .post-meta {display: block;}
+
 
 .list-posts {
   max-width: 30rem;
@@ -115,3 +124,8 @@ ol {
   ul {margin-bottom: 0};
 }
 
+h1, h2, h3, h4, h5, h6, .post-meta {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
