@@ -24,6 +24,7 @@ $green:     #859900;
       background-color: $magenta;
       color:$base;
     }
+    code {color: $magenta;}
 }
 @mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3) {
     background-color:$rebase03;
@@ -40,4 +41,12 @@ html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base
 html * {
     color-profile: sRGB;
     rendering-intent: auto;
+}
+code {
+  border-radius: 5px;
+  font-size: 85%;
+  line-height: 1.7;
+  margin-bottom: 0;
+  overflow: auto;
+  padding: 0 5px;
 }

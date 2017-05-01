@@ -37,7 +37,7 @@ Below are the applications I will refer to:
   programs in a single terminal.
 * [NeoVim](https://github.com/neovim/neovim): Vim fork, text editor.
 
-## [](#what-is-solarized)What is Solarized?
+## What is Solarized?
 
 > [Solarized](http://ethanschoonover.com/solarized) is a color palette designed to
 > be very readable in both light and dark modes, using only 16 colors. The
@@ -70,9 +70,9 @@ Tmux](solarized_vim_tmux_contrast.png)
 
 Here's how I smoothly transition between light and dark mode for all applications using a shortcut.
 
-# [](#configure-solarized-with)Configure Solarized with ...
+# Configure Solarized with ...
 
-## [](#xresources)Xresources
+## Xresources
 
 > **Xresources** is a user-level configuration dotfile, used to set X resources
 > used by X client applications.
@@ -87,7 +87,7 @@ and `~/.Xresources-dark` files, then symlinked the current theme to
 
 Example for `~/.Xresources-dark`:
 
-```sh
+```conf
 ! Solarized theme
 ! Common
 #define S_yellow        #b58900
@@ -116,7 +116,7 @@ Then I updated the X11 configuration with xrdb.
 $ xrdb -load ${HOME}/.Xresources
 ```
 
-## [](#rofi)Rofi
+## Rofi
 
 > [Rofi](https://davedavenport.github.io/rofi/), a replacement to
 > [dmenu](http://tools.suckless.org/dmenu/) to easily find a new program to
@@ -126,7 +126,7 @@ Rofi's configuration also goes in the Xresources files.
 
 Example for `~/.Xresources-dark`:
 
-```sh
+```conf
 !                  bg         border   separator
 rofi.color-window: #dd002b36, #002b36, #dd073642
 !                  bg         fg       altbg      hlbg       hlfg
@@ -139,7 +139,7 @@ Here is how it looks for me:
 
 ![rofi dark & light examples](rofi-solarized.png)
 
-## [](#dircolors)Dircolors
+## Dircolors
 
 > dircolors is the color setup for the `ls` command.
 
@@ -159,7 +159,7 @@ Here is an example of dircolors from Termite with 80% transparency:
 ![dircolors solarized](dircolors-solarized.jpg)
 
 
-## [](#i3)i3
+## i3
 
 > i3 is a tiling window manager, allowing one to always see all opened
 > windows, without them stacking above each other. With plenty of keystrokes,
@@ -206,7 +206,7 @@ Here is how my i3 statusbar looks like:
 
 ![i3blocks solarized](i3blocks-solarized.jpg)
 
-## [](#feh) feh
+##  feh
 
 > feh is an image viewer that can also be used to set the desktop background
 > image.
@@ -270,7 +270,7 @@ Note that it would have been ideal to work with CIELab colors, but since Gimp
 was showing HSL colors right off the bat, it was just simpler to go this way.
 
 
-## [](#termite) Termite
+## Termite
 
 > After using [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) for many
 > years, I switched to Termite, which behaves similarly in many ways and offers
@@ -301,7 +301,7 @@ $ ln -sf ${config}-$newmode $config
 $ killall -USR1 termite
 ```
 
-## [](#neovim)NeoVim
+## NeoVim
 
 > [NeoVim](https://neovim.io/) is a highly configurable text editor forked from Vim.
 
@@ -309,7 +309,7 @@ For Vim, I re-used the color palette defined by
 [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8), and
 added the following in my `~/.vimrc`:
 
-```VimL
+```vim
 Plug 'lifepillar/vim-solarized8'
 
 nnoremap  <leader>B :<c-u>exe "colors" (g:colors_name =~# "dark"
@@ -368,7 +368,7 @@ so that nvr can easily retrieve all server and send them update commands.
 --serverlist](https://github.com/mhinz/neovim-remote/issues/40) option, so we
 could refactore this piece of code.
 
-## [](#gtk) GTK
+## GTK
 
 > The [GIMP Toolkit](https://www.gtk.org/) is a platform for creating graphical
 > user interfaces.
@@ -395,7 +395,7 @@ $ echo "include \"/usr/share/themes/NumixSolarized$([[ $newmode == 'dark' ]] \
 $ python2.7 ${HOME}/scripts/gtkreload &
 ```
 
-## [](#chrome)Google Chrome
+## Google Chrome
 
 I will discuss here a solution to customize Chrome using an extension-like
 theme. It can then be uploaded to the Chrome store and used by anyone from there.
@@ -482,7 +482,7 @@ the scratchpad, or in other words hide the window in a virtual workspace, which
 is managed by xdotool.
 
 
-# [](#resulting-script)Resulting script
+# Resulting script
 
 To update everything at once from a single script, all that is left is finding the
 current theme and execute each bit while calling the new theme.
@@ -590,7 +590,7 @@ And you can see here how it looks like for me:
 ![i3 toggle Solarized modes](i3-toggle-solarized-mode.gif)
 
 
-# [](#conclusion)Conclusion
+# Conclusion
 
 As always, Linux is flexible enough to allow for any kind of customization, but
 it takes a lot of time to set up things the way we like.

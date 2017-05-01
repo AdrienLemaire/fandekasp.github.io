@@ -73,6 +73,7 @@
     position: inherit;
     text-align: center;
     width: 100%;
+    max-width: None;
 
     h1 {
       margin-top: 0;
@@ -98,4 +99,8 @@
 
 .list-posts {
   max-width: 30rem;
+}
+
+pre {
+  padding: 1rem;
 }

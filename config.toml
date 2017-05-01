@@ -9,7 +9,7 @@ language_code = "en"
 generate_rss = true
 generate_tags_pages = false
 generate_categories_pages = false
-insert_anchor_links = true
+insert_anchor_links = false
 
 
 [extra]
