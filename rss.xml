@@ -1,17 +1,17 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Adrien Lemaire</title>
-        <link>https:&#x2F;&#x2F;adrien.is&#x2F;</link>
+        <link>http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;</link>
         <description></description>
         <generator>Gutenberg</generator>
         <language>en</language>
-        <atom:link href="https:&#x2F;&#x2F;adrien.is&#x2F;rss.xml" rel="self" type="application/rss+xml"/>
+        <atom:link href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;rss.xml" rel="self" type="application/rss+xml"/>
         <lastBuildDate>Fri, 28 Apr 2017 00:00:00 +0000</lastBuildDate>
         <item>
                 <title>Fun with Solarized colors</title>
                 <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
-                <link>https:&#x2F;&#x2F;adrien.is&#x2F;configuring-solarized-colors</link>
-                <guid>https:&#x2F;&#x2F;adrien.is&#x2F;configuring-solarized-colors</guid>
+                <link>http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;configuring-solarized-colors</link>
+                <guid>http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;configuring-solarized-colors</guid>
                 <description>&lt;p&gt;In this post, I will go over my configuration to set the Solarized light&#x2F;dark
 themes in linux. In addition, I&#x27;ll share my tricks to easily toggle between these
 2 themes across all applications.&lt;&#x2F;p&gt;
