@@ -43,9 +43,13 @@ interested, I'll raise its priority
 
 ## In progress
 
-* Javascript [stalled, lack of interest and new things to say]
-* Calories
+- [ ] Running guide
+
+## Stalled
+
+- [ ] Javascript [lack of interest and new things to say]
+- [ ] Calories [lack of time and need to gather data for a month]
 
 ## Done
 
-* Solarized theme and setup on Linux
+- [x] Solarized theme and setup on Linux
